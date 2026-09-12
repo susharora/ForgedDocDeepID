@@ -1,0 +1,47 @@
+device: cuda
+test images: 1385
+JPEG draws: 5
+range: Q50-90
+processed 100/1385
+processed 200/1385
+processed 300/1385
+processed 400/1385
+processed 500/1385
+processed 600/1385
+processed 700/1385
+processed 800/1385
+processed 900/1385
+processed 1000/1385
+processed 1100/1385
+processed 1200/1385
+processed 1300/1385
+processed 1385/1385
+
+FIVE-DRAW JPEG-MARGINALISED OFFICIAL TEST:
+     model               group  auroc  balanced_accuracy  attack_recall  bonafide_specificity  mean_attack_probability  mean_bonafide_probability
+controlled                 all 0.2338             0.4272         0.1677                0.6867                   0.1890                     0.3458
+controlled           digital_3 0.0588             0.3472         0.0076                0.6867                   0.0274                     0.3458
+controlled          facedancer 0.9591             0.8200         0.9533                0.6867                   0.9533                     0.3458
+controlled textdiffuserft_bfei 0.4271             0.4541         0.2215                0.6867                   0.2718                     0.3458
+ augmented                 all 0.2619             0.5081         0.1594                0.8567                   0.1993                     0.2398
+ augmented           digital_3 0.0888             0.4328         0.0089                0.8567                   0.0518                     0.2398
+ augmented          facedancer 0.9687             0.9017         0.9467                0.8567                   0.9401                     0.2398
+ augmented textdiffuserft_bfei 0.4635             0.5089         0.1611                0.8567                   0.2318                     0.2398
+
+Per-draw AUROC range:
+                                  min   mean    max
+model      group                                   
+augmented  all                 0.2611 0.2618 0.2626
+           digital_3           0.0882 0.0888 0.0897
+           facedancer          0.9667 0.9686 0.9694
+           textdiffuserft_bfei 0.4593 0.4630 0.4649
+controlled all                 0.2328 0.2340 0.2346
+           digital_3           0.0572 0.0591 0.0601
+           facedancer          0.9573 0.9584 0.9592
+           textdiffuserft_bfei 0.4247 0.4270 0.4281
+
+Predictions: /home/sush/ForgedDocDeepID/output/official_test_multijpeg_predictions.csv
+Metrics:     /home/sush/ForgedDocDeepID/output/official_test_multijpeg_metrics.csv
+
+Interpretation:
+If digital_3 remains catastrophically low across all five Q draws, the failure is not an accident of the single final JPEG-quality assignment.

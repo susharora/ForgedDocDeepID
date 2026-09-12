@@ -1,0 +1,72 @@
+Digital-3 pairing map:
+  total Digital-3:      786
+  total stems:          262
+  matched project:      633
+    project_train:      480
+    dev_val:            153
+  outside project:      153
+  outside-project stems: 51
+  matched final-Q:      PASS
+
+SAME-SOURCE DIGITAL-3 AUDIT:
+     model            population  n_pairs  n_stems  mean_parent_score  mean_digital3_score  mean_delta  median_delta  fraction_score_increased  digital3_recall_at_0_5  same_source_auc  same_source_auc_ci_low  same_source_auc_ci_high
+controlled       matched_dev_val      153       51             0.0483               0.0577      0.0094        0.0042                    0.8235                  0.0327           0.6276                  0.5918                   0.6692
+controlled matched_project_train      480      160             0.0054               0.0148      0.0094        0.0019                    0.8042                  0.0000           0.6581                  0.6371                   0.6810
+controlled   matched_all_project      633      211             0.0158               0.0252      0.0094        0.0021                    0.8088                  0.0079           0.6467                  0.6276                   0.6667
+ augmented       matched_dev_val      153       51             0.0372               0.0447      0.0075        0.0007                    0.7778                  0.0000           0.5855                  0.5568                   0.6190
+ augmented matched_project_train      480      160             0.0313               0.0562      0.0249        0.0006                    0.7833                  0.0167           0.6081                  0.5895                   0.6294
+ augmented   matched_all_project      633      211             0.0327               0.0534      0.0207        0.0007                    0.7820                  0.0126           0.6023                  0.5870                   0.6198
+
+PUBLISHED-STYLE OFFICIAL COMPARATOR:
+     model  auroc  mean_attack_probability  median_attack_probability  mean_bonafide_probability  median_bonafide_probability  attack_recall_at_0_5  bonafide_specificity_at_0_5
+controlled 0.0586                   0.0274                     0.0083                     0.3448                       0.1788                0.0076                       0.6967
+ augmented 0.0893                   0.0525                     0.0325                     0.2408                       0.1179                0.0102                       0.8567
+
+OFFICIAL VS SAME-SOURCE COMPARISON:
+     model          population  official_digital3_auc  same_source_auc  auc_difference  mean_paired_delta  fraction_edit_increased_score
+controlled     matched_dev_val                 0.0586           0.6276          0.5690             0.0094                         0.8235
+controlled matched_all_project                 0.0586           0.6467          0.5880             0.0094                         0.8088
+ augmented     matched_dev_val                 0.0893           0.5855          0.4963             0.0075                         0.7778
+ augmented matched_all_project                 0.0893           0.6023          0.5130             0.0207                         0.7820
+
+HELD-OUT DEV — HARDWARE BREAKDOWN:
+     model      population hardware_source  n_pairs  n_stems  mean_parent_score  mean_digital3_score  mean_delta  median_delta  fraction_score_increased  same_source_auc
+controlled matched_dev_val          huawei       51       51             0.0594               0.0539     -0.0055        0.0048                    0.9020           0.6317
+controlled matched_dev_val     iphone15pro       51       51             0.0554               0.0814      0.0261        0.0061                    0.7451           0.6421
+controlled matched_dev_val            scan       51       51             0.0303               0.0379      0.0076        0.0028                    0.8235           0.6236
+ augmented matched_dev_val          huawei       51       51             0.0431               0.0486      0.0055        0.0007                    0.8039           0.5550
+ augmented matched_dev_val     iphone15pro       51       51             0.0340               0.0442      0.0102        0.0010                    0.8627           0.6574
+ augmented matched_dev_val            scan       51       51             0.0344               0.0413      0.0069        0.0003                    0.6667           0.5406
+
+DIGITAL-3 OUTSIDE FROZEN PROJECT SPLIT:
+  images: 153
+  stems:  51
+
+controlled:
+  mean score:   0.0366
+  median score: 0.0107
+  recall@0.5:   0.0065
+
+augmented:
+  mean score:   0.0485
+  median score: 0.0334
+  recall@0.5:   0.0000
+
+FOUR INSPECTED HUAWEI EXAMPLES:
+    file_stem         split hardware_source  parent_assigned_q  digital3_assigned_q  controlled_parent_score  controlled_digital3_score  controlled_delta  augmented_parent_score  augmented_digital3_score  augmented_delta
+arabic-003_03 project_train          huawei           59.00000                   59                  0.00535                    0.03001           0.02466                 0.02551                   0.12183          0.09631
+arabic-005_03 project_train          huawei           90.00000                   90                  0.01501                    0.01729           0.00227                 0.02873                   0.02869         -0.00005
+arabic-024_03       dev_val          huawei           78.00000                   78                  0.01428                    0.01924           0.00496                 0.02562                   0.02979          0.00417
+arabic-112_03 project_train          huawei           67.00000                   67                  0.00414                    0.04471           0.04057                 0.02608                   0.02817          0.00209
+
+Pairs:      /home/sush/ForgedDocDeepID/output/digital3_same_source_pairs.csv
+Summary:    /home/sush/ForgedDocDeepID/output/digital3_same_source_summary.csv
+Hardware:   /home/sush/ForgedDocDeepID/output/digital3_same_source_hardware.csv
+Unmatched:  /home/sush/ForgedDocDeepID/output/digital3_unmatched_project_cards.csv
+
+Interpretation rule:
+- Treat matched_dev_val as the primary evidence.
+- fraction_score_increased answers whether Digital-3 editing moves the model in the attack direction.
+- same_source_auc asks whether the edited versions rank above their corresponding source population.
+- Compare that with the official Digital-3 AUROC, which uses the separate 300-image bona-fide population.
+- project_train is secondary because those parent cards were used for model fitting.

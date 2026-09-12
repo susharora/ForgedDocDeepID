@@ -1,0 +1,75 @@
+Native 512x512 text patch cache complete.
+
+Patch rows:
+split          variant    role    
+dev_val        digital_1  attack       439
+                          bonafide     439
+               digital_2  attack       411
+                          bonafide     411
+digital3_dev   digital_3  attack       441
+                          bonafide     441
+project_train  digital_1  attack      1386
+                          bonafide    1386
+               digital_2  attack      1323
+                          bonafide    1323
+
+Patch pairs:
+split          variant  
+dev_val        digital_1     439
+               digital_2     411
+digital3_dev   digital_3     441
+project_train  digital_1    1386
+               digital_2    1323
+
+Field counts (attack side only):
+split          variant    field_name 
+dev_val        digital_1  alternative      9
+                          dob            145
+                          doe            141
+                          name            99
+                          name_en         42
+                          name_other       3
+               digital_2  alternative      9
+                          dob            123
+                          doe            138
+                          name            99
+                          name_en         39
+                          name_other       3
+digital3_dev   digital_3  alternative      9
+                          dob            147
+                          doe            141
+                          name            99
+                          name_en         42
+                          name_other       3
+project_train  digital_1  alternative     30
+                          dob            460
+                          doe            446
+                          name           312
+                          name_en        126
+                          name_other      12
+               digital_2  alternative     30
+                          dob            397
+                          doe            446
+                          name           312
+                          name_en        126
+                          name_other      12
+
+Face-overlap exclusions: 167
+split          variant    field_name  reason                  
+project_train  digital_1  doe         no_face_free_512_crop       34
+               digital_2  doe         no_face_free_512_crop       34
+               digital_1  dob         no_face_free_512_crop       20
+               digital_2  dob         no_face_free_512_crop       20
+dev_val        digital_1  doe         no_face_free_512_crop       12
+               digital_2  doe         no_face_free_512_crop       12
+digital3_dev   digital_3  doe         no_face_free_512_crop       12
+dev_val        digital_1  dob         no_face_free_512_crop        8
+               digital_2  dob         no_face_free_512_crop        6
+digital3_dev   digital_3  dob         no_face_free_512_crop        6
+dev_val        digital_2              image_dimension_mismatch     3
+
+Index:      /home/sush/ForgedDocDeepID/output/text_patch512_index.csv
+Exclusions: /home/sush/ForgedDocDeepID/output/text_patch512_exclusions.csv
+Cache:      /home/sush/ForgedDocDeepID/data/processed/text_patch512
+
+Digital-3 patches were prepared for diagnostic evaluation only.

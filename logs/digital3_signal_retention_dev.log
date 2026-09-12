@@ -1,0 +1,92 @@
+Held-out Digital-3 signal-retention audit:
+  pairs:       153
+  stems:       51
+  stages:
+    native_raw
+    native_policy_c
+    r512_raw
+    r512_policy_c
+processed 25/153
+processed 50/153
+processed 75/153
+processed 100/153
+processed 125/153
+processed 150/153
+processed 153/153
+
+HELD-OUT DEV — DIGITAL-3 SIGNAL RETENTION:
+          stage  n_pairs  n_stems  mean_gray_mad_inside  mean_gray_mad_outside  mean_gray_signal_ratio  mean_lap_mad_inside  mean_lap_mad_outside  mean_lap_signal_ratio  mean_gray_retention_vs_native  median_gray_retention_vs_native  gray_retention_ci_low  gray_retention_ci_high  mean_lap_retention_vs_native  median_lap_retention_vs_native  lap_retention_ci_low  lap_retention_ci_high  mean_changed_inside_ge2  mean_changed_inside_ge5  mean_changed_outside_ge2
+     native_raw      153       51               40.3194                 0.0500              12727.1725              20.9018                0.1218              1452.6199                         1.0000                           1.0000                 1.0000                  1.0000                        1.0000                          1.0000                1.0000                 1.0000                   0.8284                   0.6431                    0.0023
+native_policy_c      153       51               40.6184                 0.0947               4657.5754              24.3699                0.1779              1015.3986                         1.0076                           1.0052                 1.0062                  1.0090                        1.1687                          1.1530                1.1454                 1.1915                   0.8409                   0.6607                    0.0133
+       r512_raw      153       51               36.9496                 0.0419              11582.3182              47.7073                0.1539              2591.6717                         0.9152                           0.9178                 0.9109                  0.9194                        2.4110                          2.4289                2.3630                 2.4589                   0.8123                   0.6375                    0.0017
+  r512_policy_c      153       51               36.8738                 0.0645               6138.5464              47.7321                0.2351              1763.5713                         0.9134                           0.9154                 0.9091                  0.9175                        2.4116                          2.4514                2.3642                 2.4591                   0.8198                   0.6406                    0.0031
+
+HARDWARE BREAKDOWN:
+          stage hardware_source  n_pairs  mean_gray_mad_inside  mean_lap_mad_inside  mean_gray_retention_vs_native  mean_lap_retention_vs_native  mean_gray_signal_ratio  mean_lap_signal_ratio
+     native_raw          huawei       51               35.2488              13.5645                         1.0000                        1.0000               5811.3096               542.3456
+     native_raw     iphone15pro       51               43.1840              22.1857                         1.0000                        1.0000              19151.6304              2048.9485
+     native_raw            scan       51               42.5255              26.9553                         1.0000                        1.0000              13218.5774              1766.5655
+native_policy_c          huawei       51               35.4278              16.1152                         1.0052                        1.1844               2432.4912               483.1714
+native_policy_c     iphone15pro       51               43.5649              26.3840                         1.0091                        1.1858               7045.4997              1469.1333
+native_policy_c            scan       51               42.8625              30.6104                         1.0084                        1.1359               4494.7353              1093.8911
+       r512_raw          huawei       51               32.5716              40.4843                         0.9223                        2.9945               5089.1349              1125.0744
+       r512_raw     iphone15pro       51               39.2829              53.1852                         0.9082                        2.4030              17576.7276              3707.8385
+       r512_raw            scan       51               38.9944              49.4525                         0.9151                        1.8354              12081.0921              2942.1022
+  r512_policy_c          huawei       51               32.5293              40.4526                         0.9212                        2.9922               3019.0710               835.1209
+  r512_policy_c     iphone15pro       51               39.1914              53.1881                         0.9061                        2.4031               9953.0726              2728.7726
+  r512_policy_c            scan       51               38.9007              49.5555                         0.9128                        1.8394               5443.4956              1726.8205
+
+CORRELATION WITH CNN PAIRED SCORE RESPONSE:
+          stage      model_delta                   feature  spearman_r  p_value
+     native_raw controlled_delta           gray_mad_inside      0.0833   0.3060
+     native_raw controlled_delta            lap_mad_inside     -0.0180   0.8256
+     native_raw controlled_delta gray_inside_outside_ratio     -0.0277   0.7336
+     native_raw controlled_delta  lap_inside_outside_ratio     -0.0849   0.2967
+     native_raw  augmented_delta           gray_mad_inside     -0.0052   0.9491
+     native_raw  augmented_delta            lap_mad_inside     -0.1476   0.0686
+     native_raw  augmented_delta gray_inside_outside_ratio     -0.0100   0.9021
+     native_raw  augmented_delta  lap_inside_outside_ratio     -0.0460   0.5724
+native_policy_c controlled_delta           gray_mad_inside      0.0857   0.2922
+native_policy_c controlled_delta            lap_mad_inside     -0.0062   0.9393
+native_policy_c controlled_delta gray_inside_outside_ratio     -0.0083   0.9185
+native_policy_c controlled_delta  lap_inside_outside_ratio     -0.0860   0.2908
+native_policy_c  augmented_delta           gray_mad_inside     -0.0032   0.9688
+native_policy_c  augmented_delta            lap_mad_inside     -0.1028   0.2062
+native_policy_c  augmented_delta gray_inside_outside_ratio      0.0563   0.4894
+native_policy_c  augmented_delta  lap_inside_outside_ratio      0.0007   0.9927
+       r512_raw controlled_delta           gray_mad_inside      0.0808   0.3210
+       r512_raw controlled_delta            lap_mad_inside      0.1215   0.1348
+       r512_raw controlled_delta gray_inside_outside_ratio     -0.0682   0.4021
+       r512_raw controlled_delta  lap_inside_outside_ratio     -0.0705   0.3865
+       r512_raw  augmented_delta           gray_mad_inside     -0.0012   0.9879
+       r512_raw  augmented_delta            lap_mad_inside     -0.0314   0.6998
+       r512_raw  augmented_delta gray_inside_outside_ratio      0.0072   0.9295
+       r512_raw  augmented_delta  lap_inside_outside_ratio     -0.0184   0.8210
+  r512_policy_c controlled_delta           gray_mad_inside      0.0792   0.3306
+  r512_policy_c controlled_delta            lap_mad_inside      0.1206   0.1374
+  r512_policy_c controlled_delta gray_inside_outside_ratio     -0.0022   0.9784
+  r512_policy_c controlled_delta  lap_inside_outside_ratio     -0.0354   0.6644
+  r512_policy_c  augmented_delta           gray_mad_inside     -0.0018   0.9822
+  r512_policy_c  augmented_delta            lap_mad_inside     -0.0357   0.6617
+  r512_policy_c  augmented_delta gray_inside_outside_ratio      0.0937   0.2492
+  r512_policy_c  augmented_delta  lap_inside_outside_ratio      0.0487   0.5503
+
+Clipped altered boxes: 21
+Detail:      /home/sush/ForgedDocDeepID/output/digital3_signal_retention_dev.csv
+Summary:     /home/sush/ForgedDocDeepID/output/digital3_signal_retention_dev_summary.csv
+Hardware:    /home/sush/ForgedDocDeepID/output/digital3_signal_retention_dev_hardware.csv
+Correlation: /home/sush/ForgedDocDeepID/output/digital3_signal_retention_model_correlation.csv
+
+Interpretation guide:
+
+1. native_policy_c << native_raw
+   => compression control removes substantial local evidence.
+
+2. r512_raw << native_raw
+   => whole-document downscaling removes substantial evidence.
+
+3. native_policy_c remains high but r512_policy_c collapses
+   => resizing is the dominant information bottleneck.
+
+4. both retention measures remain high at r512_policy_c
+   => the evidence still exists in pixel space and the main problem is more likely representation/supervision rather than preprocessing information loss.

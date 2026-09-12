@@ -1,0 +1,46 @@
+processed 100/1385
+processed 200/1385
+processed 300/1385
+processed 400/1385
+processed 500/1385
+processed 600/1385
+processed 700/1385
+processed 800/1385
+processed 900/1385
+processed 1000/1385
+processed 1100/1385
+processed 1200/1385
+processed 1300/1385
+processed 1385/1385
+
+Official-test compression leakage after Policy C:
+
+final_table_only
+             family  n_attack  n_bonafide  auroc  mean_attack_score  mean_bonafide_score
+          digital_3       786         300 0.5000             0.5000               0.5000
+         facedancer       150         300 0.5000             0.5000               0.5000
+textdiffuserft_bfei       149         300 0.5000             0.5000               0.5000
+
+strict_jpeg_history
+             family  n_attack  n_bonafide  auroc  mean_attack_score  mean_bonafide_score
+          digital_3       786         300 0.5048             0.4997               0.4988
+         facedancer       150         300 0.5112             0.4998               0.4988
+textdiffuserft_bfei       149         300 0.4833             0.4975               0.4988
+
+blockiness_only
+             family  n_attack  n_bonafide  auroc  mean_attack_score  mean_bonafide_score
+          digital_3       786         300 0.7708             0.5000               0.4712
+         facedancer       150         300 0.5234             0.4720               0.4712
+textdiffuserft_bfei       149         300 0.5494             0.4744               0.4712
+
+all_compression_features
+             family  n_attack  n_bonafide  auroc  mean_attack_score  mean_bonafide_score
+          digital_3       786         300 0.7077             0.4997               0.4485
+         facedancer       150         300 0.5142             0.4513               0.4485
+textdiffuserft_bfei       149         300 0.5159             0.4519               0.4485
+
+Features: /home/sush/ForgedDocDeepID/output/official_test_policy_c_compression_features.csv
+Summary:  /home/sush/ForgedDocDeepID/output/official_test_policy_c_compression_leakage.csv
+
+Stop interpretation:
+If strict_jpeg_history remains near chance for all families, Policy C is suppressing the known JPEG history reasonably well even under test-family shift.

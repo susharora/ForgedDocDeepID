@@ -1,0 +1,65 @@
+experiment: POST_HOC_NATIVE_TEXT_PATCH512_DIAGNOSTIC
+seed:       10
+device:     cuda
+train rows: 5418
+dev rows:   1700
+d3 rows:    882
+input:      native 512x512
+resize:     NONE
+face overlap: ZERO
+gpu:        NVIDIA GeForce RTX 5090
+
+Stage 1: head only
+head 01/1 loss=0.6567 dev_patch_auc=0.8031 dev_doc_auc=0.8222 *
+
+Stage 2: full fine-tuning
+full 01/6 loss=0.1369 dev_patch_auc=0.9971 dev_doc_auc=0.9996 *
+full 02/6 loss=0.0289 dev_patch_auc=1.0000 dev_doc_auc=1.0000 *
+full 03/6 loss=0.0369 dev_patch_auc=1.0000 dev_doc_auc=1.0000 
+full 04/6 loss=0.0128 dev_patch_auc=0.9805 dev_doc_auc=0.9681 
+full 05/6 loss=0.0143 dev_patch_auc=1.0000 dev_doc_auc=1.0000 
+full 06/6 loss=0.0052 dev_patch_auc=1.0000 dev_doc_auc=1.0000 
+
+Best checkpoint:
+  stage: full
+  epoch: 2
+  dev document AUROC: 1.0000
+
+HELD-OUT D1/D2 TEXT-PATCH PERFORMANCE:
+  variant  n_patch_pairs  n_stems  patch_auc  patch_balanced_accuracy  document_auc_max  document_auc_mean
+      all            850       51     1.0000                   0.9971            1.0000             1.0000
+digital_1            439       51     1.0000                   0.9977            1.0000             1.0000
+digital_2            411       50     1.0000                   0.9964            1.0000             1.0000
+
+DIGITAL-3 SAME-SOURCE TEXT-PATCH DIAGNOSTIC:
+  variant  n_patch_pairs  n_stems  patch_auc  patch_balanced_accuracy  document_auc_max  document_auc_mean
+      all            441       51     0.6764                   0.5612            0.7398             0.7384
+digital_3            441       51     0.6764                   0.5612            0.7398             0.7384
+
+DIGITAL-3 BY ALTERED FIELD:
+ field_name  n_patch_pairs  n_stems  patch_auc  mean_parent_score  mean_attack_score  mean_delta  median_delta  fraction_score_increased
+        all            441       51     0.6764             0.0087             0.1380      0.1292        0.0012                    0.6757
+alternative              9        3     0.8272             0.0023             0.4587      0.4565        0.4068                    1.0000
+        dob            147       51     0.6465             0.0078             0.0882      0.0804        0.0008                    0.6599
+        doe            141       51     0.6435             0.0069             0.0517      0.0447        0.0005                    0.6383
+       name             99       33     0.8091             0.0116             0.3487      0.3371        0.0265                    0.7677
+    name_en             42       14     0.6380             0.0123             0.0460      0.0337        0.0001                    0.5714
+ name_other              3        1     0.4444             0.0169             0.0045     -0.0124        0.0002                    0.6667
+
+DIGITAL-3 IMAGE-LEVEL MAX-PATCH PAIRED RESPONSE:
+  n images: 153
+  mean parent max: 0.0205
+  mean attack max: 0.3170
+  mean delta: 0.2965
+  median delta: 0.0156
+  fraction increased: 0.7320
+
+Checkpoint:  /home/sush/ForgedDocDeepID/runs/text_patch512_resnet18_seed10/checkpoints/best.pt
+Predictions: /home/sush/ForgedDocDeepID/output/text_patch512_resnet18_seed10_predictions.csv
+Metrics:     /home/sush/ForgedDocDeepID/output/text_patch512_resnet18_seed10_metrics.csv
+Fields:      /home/sush/ForgedDocDeepID/output/text_patch512_resnet18_seed10_digital3_fields.csv
+
+Interpretation:
+- Strong D1/D2 dev + weak Digital-3 => manipulation-method shift.
+- Strong D1/D2 dev + strong Digital-3 => whole-document spatial dilution was a major cause of the previous failure.
+- Weak D1/D2 dev itself => this simple patch classifier is not a sufficient local-forensics representation.
