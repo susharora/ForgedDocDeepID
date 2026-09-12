@@ -1,0 +1,25 @@
+Counterfactual registration audit
+attack pairs:       1266
+bonafide sources:   633
+expected pairing:   same file_stem + hardware_source
+processed 100/1266
+processed 200/1266
+processed 300/1266
+processed 400/1266
+processed 500/1266
+processed 600/1266
+processed 700/1266
+processed 800/1266
+processed 900/1266
+processed 1000/1266
+processed 1100/1266
+processed 1200/1266
+processed 1266/1266
+
+Registration summary:
+  pairs:                 1266
+  dimension mismatches:  3
+  exact (0,0) shift:     1263/1266
+  within 1 audit pixel:  1263/1266
+
+Largest/non-zero registration cases:

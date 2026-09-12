@@ -1,0 +1,72 @@
+Alignment population:
+  total attacks:             1266
+  excluded dimension cases:    3
+  identity-coordinate pairs: 1263
+  geometric resizing:        OFF
+  registration warp:         OFF
+  MCU snapping:              OFF
+Held-out counterfactual population:
+  digital_1: 153 images / 51 stems
+  digital_2: 150 images / 50 stems
+  project_train counterfactuals: NOT evaluated
+
+Resolved Regions schema:
+  image_path -> image_path
+  semantic   -> field_name
+  status     -> region_provenance_raw
+  x          -> x
+  y          -> y
+  width      -> width
+  height     -> height
+
+Altered-region validation:
+  attack images: 303
+  missing face:  0
+  missing text:  0
+
+Augmented frozen checkpoint:
+  SHA256:  8f2dabaed22ecb176c82f6005cf2b0c358493d8fe4b5975a5981f0375984f2df
+  stage:   full
+  epoch:   2
+  dev_auc: 1.0000
+  device:  cuda
+processed 50/303
+processed 100/303
+processed 150/303
+processed 200/303
+processed 250/303
+processed 300/303
+processed 303/303
+
+Raw predictions saved.
+Maximum original pipeline error: 0
+Clipped altered boxes in dev: 21
+
+AUGMENTED MODEL — held-out dev counterfactuals:
+  variant          mode  n_images  n_stems  mean_attack_probability  median_attack_probability  attack_recall_at_0_5  mean_bonafide_probability  mean_delta_vs_original  median_delta_vs_original  fraction_score_decreased  mean_delta_vs_bonafide  median_delta_vs_bonafide  mean_restored_fraction
+digital_1      original       153       51                   0.9936                     1.0000                1.0000                     0.0372                  0.0000                    0.0000                    0.0000                  0.9565                    0.9690                  0.0000
+digital_1 face_restored       153       51                   0.9160                     0.9961                0.9412                     0.0372                 -0.0776                   -0.0034                    0.8497                  0.8788                    0.9579                  0.1411
+digital_1 text_restored       153       51                   0.8217                     0.9829                0.8170                     0.0372                 -0.1719                   -0.0151                    0.8627                  0.7845                    0.9430                  0.0159
+digital_1 both_restored       153       51                   0.0374                     0.0304                0.0000                     0.0372                 -0.9562                   -0.9690                    1.0000                  0.0002                    0.0001                  0.1569
+digital_2      original       150       50                   0.9893                     1.0000                1.0000                     0.0373                  0.0000                    0.0000                    0.0000                  0.9520                    0.9683                  0.0000
+digital_2 face_restored       150       50                   0.6383                     0.8333                0.6533                     0.0373                 -0.3510                   -0.1667                    0.9333                  0.6010                    0.7887                  0.0755
+digital_2 text_restored       150       50                   0.9609                     0.9995                0.9733                     0.0373                 -0.0283                   -0.0005                    0.5200                  0.9236                    0.9630                  0.0154
+digital_2 both_restored       150       50                   0.0374                     0.0303                0.0000                     0.0373                 -0.9519                   -0.9682                    1.0000                  0.0001                    0.0001                  0.0910
+
+CHANGE FROM ORIGINAL COMPRESSION-CONTROLLED MODEL:
+  variant          mode  baseline_mean_probability  augmented_mean_probability  change_mean_probability  baseline_attack_recall  augmented_attack_recall  change_attack_recall  augmented_delta_vs_bonafide
+digital_1      original                     0.9998                      0.9936                  -0.0061                  1.0000                   1.0000                0.0000                       0.9565
+digital_1 face_restored                     0.6225                      0.9160                   0.2935                  0.6601                   0.9412                0.2810                       0.8788
+digital_1 text_restored                     0.9598                      0.8217                  -0.1381                  0.9673                   0.8170               -0.1503                       0.7845
+digital_1 both_restored                     0.0484                      0.0374                  -0.0110                  0.0327                   0.0000               -0.0327                       0.0002
+digital_2      original                     0.9998                      0.9893                  -0.0105                  1.0000                   1.0000                0.0000                       0.9520
+digital_2 face_restored                     0.1375                      0.6383                   0.5008                  0.0800                   0.6533                0.5733                       0.6010
+digital_2 text_restored                     0.9981                      0.9609                  -0.0372                  1.0000                   0.9733               -0.0267                       0.9236
+digital_2 both_restored                     0.0495                      0.0374                  -0.0121                  0.0333                   0.0000               -0.0333                       0.0001
+
+Predictions: /home/sush/ForgedDocDeepID/output/counterfactual_augmented_seed10_dev_predictions.csv
+Summary:     /home/sush/ForgedDocDeepID/output/counterfactual_augmented_seed10_dev_summary.csv
+Comparison:  /home/sush/ForgedDocDeepID/output/counterfactual_augmented_vs_baseline_dev.csv
+
+Stop here.
+Do NOT evaluate the official test yet.

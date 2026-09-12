@@ -1,0 +1,131 @@
+Alignment population:
+  total attacks:             1266
+  excluded dimension cases:    3
+  identity-coordinate pairs: 1263
+  geometric resizing:        OFF
+  registration warp:         OFF
+  MCU snapping:              OFF
+
+Resolved Regions schema:
+  image_path -> image_path
+  semantic   -> field_name
+  status     -> region_provenance_raw
+  x          -> x
+  y          -> y
+  width      -> width
+  height     -> height
+
+Altered-region validation:
+  attack images: 1263
+  missing face:  0
+  missing text:  0
+
+Policy-C locality ('digital_1', 'huawei'):
+  outside 16px: changed=0, fraction=0.00000000, max_abs=0, mean_abs=0.00000000
+  outside 32px: changed=0, fraction=0.00000000, max_abs=0, mean_abs=0.00000000
+  outside 64px: changed=0, fraction=0.00000000, max_abs=0, mean_abs=0.00000000
+
+Policy-C locality ('digital_2', 'huawei'):
+  outside 16px: changed=0, fraction=0.00000000, max_abs=0, mean_abs=0.00000000
+  outside 32px: changed=0, fraction=0.00000000, max_abs=0, mean_abs=0.00000000
+  outside 64px: changed=0, fraction=0.00000000, max_abs=0, mean_abs=0.00000000
+
+Policy-C locality ('digital_1', 'iphone15pro'):
+  outside 16px: changed=920, fraction=0.00025600, max_abs=4, mean_abs=0.00019478
+  outside 32px: changed=0, fraction=0.00000000, max_abs=0, mean_abs=0.00000000
+  outside 64px: changed=0, fraction=0.00000000, max_abs=0, mean_abs=0.00000000
+
+Policy-C locality ('digital_2', 'iphone15pro'):
+  outside 16px: changed=527, fraction=0.00013959, max_abs=6, mean_abs=0.00010666
+  outside 32px: changed=0, fraction=0.00000000, max_abs=0, mean_abs=0.00000000
+  outside 64px: changed=0, fraction=0.00000000, max_abs=0, mean_abs=0.00000000
+
+Policy-C locality ('digital_1', 'scan'):
+  outside 16px: changed=934, fraction=0.00044668, max_abs=6, mean_abs=0.00042628
+  outside 32px: changed=0, fraction=0.00000000, max_abs=0, mean_abs=0.00000000
+  outside 64px: changed=0, fraction=0.00000000, max_abs=0, mean_abs=0.00000000
+
+Policy-C locality ('digital_2', 'scan'):
+  outside 16px: changed=832, fraction=0.00036955, max_abs=6, mean_abs=0.00038006
+  outside 32px: changed=0, fraction=0.00000000, max_abs=0, mean_abs=0.00000000
+  outside 64px: changed=0, fraction=0.00000000, max_abs=0, mean_abs=0.00000000
+
+Policy-C locality audit complete (diagnostic only; non-blocking).
+
+Counterfactual evaluation:
+  device:       cuda
+  checkpoint:   25ad8b1482be20e9d5e450770d6970b820ebc9470c9da3c4ec46db2558009402
+  source:
+    bona-fide -> attack JPEG parameters -> decode
+  restoration:
+    identity coordinates
+    annotation ∩ decoded-image bounds
+  model preprocessing:
+    frozen Policy C
+processed 50/1263
+processed 100/1263
+processed 150/1263
+processed 200/1263
+processed 250/1263
+processed 300/1263
+processed 350/1263
+processed 400/1263
+processed 450/1263
+processed 500/1263
+processed 550/1263
+processed 600/1263
+processed 650/1263
+processed 700/1263
+processed 750/1263
+processed 800/1263
+processed 850/1263
+processed 900/1263
+processed 950/1263
+processed 1000/1263
+processed 1050/1263
+processed 1100/1263
+processed 1150/1263
+processed 1200/1263
+processed 1250/1263
+processed 1263/1263
+
+Raw counterfactual predictions saved:
+  /home/sush/ForgedDocDeepID/output/counterfactual_policy_c_seed10_predictions.csv
+Maximum original pipeline error: 0
+Clipped altered boxes: 84
+Images with clipped boxes: 84
+
+DEV counterfactual evidence:
+  split   variant          mode  n_images  n_stems  mean_attack_probability  median_attack_probability  attack_recall_at_0_5  mean_bonafide_probability  mean_delta_vs_original  median_delta_vs_original  fraction_score_decreased  mean_delta_vs_bonafide  median_delta_vs_bonafide  mean_restored_fraction
+dev_val digital_1      original       153       51                   0.9998                     1.0000                1.0000                     0.0483                  0.0000                    0.0000                    0.0000                  0.9514                    0.9917                  0.0000
+dev_val digital_1 face_restored       153       51                   0.6225                     0.6772                0.6601                     0.0483                 -0.3773                   -0.3228                    1.0000                  0.5742                    0.6213                  0.1411
+dev_val digital_1 text_restored       153       51                   0.9598                     0.9990                0.9673                     0.0483                 -0.0400                   -0.0010                    0.5882                  0.9114                    0.9844                  0.0159
+dev_val digital_1 both_restored       153       51                   0.0484                     0.0082                0.0327                     0.0483                 -0.9513                   -0.9916                    1.0000                  0.0001                    0.0000                  0.1569
+dev_val digital_2      original       150       50                   0.9998                     1.0000                1.0000                     0.0492                  0.0000                    0.0000                    0.0000                  0.9505                    0.9910                  0.0000
+dev_val digital_2 face_restored       150       50                   0.1375                     0.0523                0.0800                     0.0492                 -0.8623                   -0.9477                    1.0000                  0.0882                    0.0334                  0.0755
+dev_val digital_2 text_restored       150       50                   0.9981                     1.0000                1.0000                     0.0492                 -0.0016                    0.0000                    0.1733                  0.9489                    0.9902                  0.0154
+dev_val digital_2 both_restored       150       50                   0.0495                     0.0085                0.0333                     0.0492                 -0.9503                   -0.9911                    1.0000                  0.0003                    0.0000                  0.0910
+
+TRAIN counterfactual comparison:
+        split   variant          mode  n_images  n_stems  mean_attack_probability  median_attack_probability  attack_recall_at_0_5  mean_bonafide_probability  mean_delta_vs_original  median_delta_vs_original  fraction_score_decreased  mean_delta_vs_bonafide  median_delta_vs_bonafide  mean_restored_fraction
+project_train digital_1      original       480      160                   0.9997                     1.0000                1.0000                     0.0054                  0.0000                    0.0000                    0.0000                  0.9943                    0.9965                  0.0000
+project_train digital_1 face_restored       480      160                   0.5180                     0.5325                0.5188                     0.0054                 -0.4817                   -0.4675                    1.0000                  0.5126                    0.5305                  0.1364
+project_train digital_1 text_restored       480      160                   0.9551                     0.9985                0.9667                     0.0054                 -0.0447                   -0.0015                    0.6875                  0.9496                    0.9916                  0.0160
+project_train digital_1 both_restored       480      160                   0.0055                     0.0034                0.0000                     0.0054                 -0.9942                   -0.9964                    1.0000                  0.0001                    0.0000                  0.1523
+project_train digital_2      original       480      160                   0.9996                     1.0000                1.0000                     0.0054                  0.0000                    0.0000                    0.0000                  0.9941                    0.9965                  0.0000
+project_train digital_2 face_restored       480      160                   0.0653                     0.0205                0.0271                     0.0054                 -0.9342                   -0.9792                    1.0000                  0.0599                    0.0151                  0.0719
+project_train digital_2 text_restored       480      160                   0.9951                     1.0000                0.9979                     0.0054                 -0.0045                    0.0000                    0.2146                  0.9897                    0.9959                  0.0156
+project_train digital_2 both_restored       480      160                   0.0055                     0.0034                0.0000                     0.0054                 -0.9941                   -0.9964                    1.0000                  0.0001                    0.0000                  0.0875
+
+Area diagnostics (one row per original attack):
+          face_fraction               text_fraction               both_fraction               face_text_overlap_fraction              
+                   mean median    max          mean median    max          mean median    max                       mean median    max
+variant                                                                                                                               
+digital_1        0.1375 0.1291 0.3165        0.0160 0.0151 0.0327        0.1535 0.1454 0.3311                     0.0000 0.0000 0.0028
+digital_2        0.0728 0.0681 0.1844        0.0155 0.0147 0.0327        0.0883 0.0822 0.2006                     0.0000 0.0000 0.0001
+
+Summary: /home/sush/ForgedDocDeepID/output/counterfactual_policy_c_seed10_summary.csv
+
+Primary scientific evidence is DEV only.
+Train is retained only as a memorisation/control comparison.
+These restored images are counterfactual composites, not naturally generated face-only or text-only attacks.

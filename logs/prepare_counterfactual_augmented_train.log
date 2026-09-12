@@ -1,0 +1,32 @@
+processed 100/960 attacks
+processed 200/960 attacks
+processed 300/960 attacks
+processed 400/960 attacks
+processed 500/960 attacks
+processed 600/960 attacks
+processed 700/960 attacks
+processed 800/960 attacks
+processed 900/960 attacks
+processed 960/960 attacks
+
+Counterfactual-augmented train cache complete.
+
+Source counts:
+source_type
+original_attack     960
+face_restored       960
+text_restored       960
+both_restored       960
+natural_bonafide    480
+
+Class counts:
+label
+0    1440
+1    2880
+
+Clipped altered boxes: 63
+
+Wrote /home/sush/ForgedDocDeepID/output/counterfactual_augmented_train_index.csv
+Cache: /home/sush/ForgedDocDeepID/data/processed/counterfactual_augmented_train
+
+No dev images or dev counterfactuals were used.

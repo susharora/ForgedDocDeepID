@@ -1,0 +1,40 @@
+experiment: POST_HOC_COUNTERFACTUAL_AUGMENTED_COMPRESSION_CONTROLLED_EXPERIMENT
+seed:       10
+device:     cuda
+train:      4320
+dev:        459
+head steps: 540
+full steps: 2160
+gpu:        NVIDIA GeForce RTX 5090
+class weights [bonafide, attack]: [1.5, 0.75]
+
+Stage 1: classifier head only
+head 01/1 train_loss=0.7324 dev_loss=0.6957 dev_auc=0.6680 *
+
+Stage 2: full fine-tuning
+full 01/4 train_loss=0.4728 dev_loss=0.1700 dev_auc=0.9997 *
+full 02/4 train_loss=0.1816 dev_loss=0.0238 dev_auc=1.0000 *
+full 03/4 train_loss=0.1051 dev_loss=0.0411 dev_auc=0.9996 
+full 04/4 train_loss=0.0899 dev_loss=0.1266 dev_auc=0.9966 
+
+Best checkpoint:
+  stage:   full
+  epoch:   2
+  dev_auc: 1.0000
+
+Untouched natural DEV metrics:
+               group_type       group   n  auroc  balanced_accuracy  attack_recall  bonafide_specificity  mean_attack_probability  mean_bonafide_probability
+                  overall         all 459 1.0000             1.0000         1.0000                1.0000                   0.9916                     0.0372
+attack_family_vs_bonafide   digital_1 306 1.0000             1.0000         1.0000                1.0000                   0.9936                     0.0372
+attack_family_vs_bonafide   digital_2 306 1.0000             1.0000         1.0000                1.0000                   0.9895                     0.0372
+                 hardware      huawei 153 1.0000             1.0000         1.0000                1.0000                   0.9893                     0.0431
+                 hardware iphone15pro 153 1.0000             1.0000         1.0000                1.0000                   0.9916                     0.0340
+                 hardware        scan 153 1.0000             1.0000         1.0000                1.0000                   0.9938                     0.0344
+
+checkpoint:  /home/sush/ForgedDocDeepID/runs/post_hoc_counterfactual_augmented_resnet18_seed10/checkpoints/best.pt
+predictions: /home/sush/ForgedDocDeepID/output/resnet18_counterfactual_augmented_seed10_predictions.csv
+metrics:     /home/sush/ForgedDocDeepID/output/resnet18_counterfactual_augmented_seed10_metrics.csv
+
+Stop here.
+Do NOT inspect the official test yet.
+Next decision: does the counterfactual-augmented model retain natural dev viability?
