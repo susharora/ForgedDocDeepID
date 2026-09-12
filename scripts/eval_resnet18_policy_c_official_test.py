@@ -261,16 +261,22 @@ def validate_test_index():
             f"Unexpected attack composition: {families}"
         )
 
-    if set(
-        df.hardware_source.unique()
-    ) != {
-        "huawei",
-        "iphone15pro",
-        "scan",
-    }:
+
+    hardware = sorted(
+    df.hardware_source
+    .dropna()
+    .unique()
+    )
+
+    if not hardware:
         raise RuntimeError(
-            "Unexpected hardware set"
-        )
+            "No hardware labels found"
+    )
+
+    print(
+        "Official-test hardware:",
+        hardware,
+    )
 
     if not np.array_equal(
         df.label.to_numpy(),
