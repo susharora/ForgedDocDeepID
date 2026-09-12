@@ -1,0 +1,5 @@
+feature_set,n_features,train_auc,dev_auc,bootstrap_mean_auc,stem_bootstrap_ci_low,stem_bootstrap_ci_high,features
+final_table_only,3,0.5,0.5,0.5,0.5,0.5,jpeg_quality|q_luma_mean|q_chroma_mean
+strict_jpeg_history,8,0.5249175347222221,0.5235379554872057,0.5249407877312146,0.517920457943526,0.5324661454995941,jpeg_quality|q_luma_mean|q_chroma_mean|lattice_q75_mean|lattice_q75_p90|lattice_current_mean|lattice_current_p90|recompress_current_mae
+blockiness_only,2,0.56505859375,0.5650177282241873,0.5672516553462343,0.5541031227305737,0.5823833781878764,blockiness_h|blockiness_v
+all_compression_features,10,0.5725520833333333,0.5858216925114272,0.5879470887265581,0.5724075142039386,0.6056030800119612,jpeg_quality|q_luma_mean|q_chroma_mean|lattice_q75_mean|lattice_q75_p90|lattice_current_mean|lattice_current_p90|recompress_current_mae|blockiness_h|blockiness_v

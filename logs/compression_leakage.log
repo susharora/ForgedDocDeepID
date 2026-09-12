@@ -1,0 +1,39 @@
+Data root: /home/sush/ForgedDocDeepID/data/FantasyID
+Frozen rows: train=1440, dev=459
+processed 100/1899
+processed 200/1899
+processed 300/1899
+processed 400/1899
+processed 500/1899
+processed 600/1899
+processed 700/1899
+processed 800/1899
+processed 900/1899
+processed 1000/1899
+processed 1100/1899
+processed 1200/1899
+processed 1300/1899
+processed 1400/1899
+processed 1500/1899
+processed 1600/1899
+processed 1700/1899
+processed 1800/1899
+processed 1899/1899
+
+Raw JPEG evidence:
+jpeg_quality    75   95
+traffic_type           
+attack        1266    0
+bonafide         0  633
+sampling: [np.int64(2)]
+
+Compression-only leakage model:
+A_raw                train=1.0000  dev=1.0000
+  strongest dev features: jpeg_quality=1.000, q_luma_mean=1.000, q_chroma_mean=1.000, lattice_q75_mean=1.000
+B_common_q75         train=0.6771  dev=0.6891
+  strongest dev features: recompress_current_mae=0.640, blockiness_v=0.572, blockiness_h=0.522, lattice_q75_mean=0.510
+C_q75_then_q50_90    train=0.5726  dev=0.5858
+  strongest dev features: blockiness_v=0.546, lattice_q75_p90=0.518, lattice_q75_mean=0.518, blockiness_h=0.510
+
+Wrote /home/sush/ForgedDocDeepID/output/compression_leakage.csv
+Stop here: choose B vs C only after inspecting dev leakage.

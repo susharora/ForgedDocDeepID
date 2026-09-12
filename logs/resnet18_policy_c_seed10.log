@@ -1,0 +1,47 @@
+experiment: POST_HOC_COMPRESSION_CONTROLLED_EXPERIMENT
+seed:       10
+device:     cuda
+train:      1440
+dev:        459
+gpu:        NVIDIA GeForce RTX 5090
+class weights [bonafide, attack]: [1.5, 0.75]
+
+Stage 1: classifier head only
+head 01/3 train_loss=0.7352 dev_loss=0.6857 dev_auc=0.6078 *
+head 02/3 train_loss=0.7421 dev_loss=0.6815 dev_auc=0.6492 *
+head 03/3 train_loss=0.7338 dev_loss=0.6907 dev_auc=0.7057 *
+
+Stage 2: full fine-tuning
+full 01/12 train_loss=0.3786 dev_loss=0.1056 dev_auc=0.9976 *
+full 02/12 train_loss=0.1196 dev_loss=0.0753 dev_auc=0.9973 
+full 03/12 train_loss=0.0666 dev_loss=0.0393 dev_auc=0.9998 *
+full 04/12 train_loss=0.0376 dev_loss=0.0803 dev_auc=0.9988 
+full 05/12 train_loss=0.0401 dev_loss=0.0901 dev_auc=0.9985 
+full 06/12 train_loss=0.0558 dev_loss=0.0392 dev_auc=0.9995 
+full 07/12 train_loss=0.0378 dev_loss=0.0254 dev_auc=0.9997 
+full 08/12 train_loss=0.0727 dev_loss=0.3717 dev_auc=0.9983 
+full 09/12 train_loss=0.0817 dev_loss=0.0939 dev_auc=0.9972 
+full 10/12 train_loss=0.0314 dev_loss=0.0280 dev_auc=0.9997 
+full 11/12 train_loss=0.0042 dev_loss=0.0374 dev_auc=0.9998 
+full 12/12 train_loss=0.0407 dev_loss=0.0450 dev_auc=1.0000 *
+
+Best checkpoint:
+  stage:   full
+  epoch:   12
+  dev_auc: 1.0000
+
+Frozen best-checkpoint metrics:
+        split                group_type       group    n  auroc  balanced_accuracy  attack_recall  bonafide_specificity
+project_train                   overall         all 1440 1.0000             1.0000         1.0000                1.0000
+      dev_val                   overall         all  459 1.0000             0.9837         1.0000                0.9673
+      dev_val attack_family_vs_bonafide   digital_1  306 1.0000             0.9837         1.0000                0.9673
+      dev_val attack_family_vs_bonafide   digital_2  306 1.0000             0.9837         1.0000                0.9673
+      dev_val                  hardware      huawei  153 1.0000             0.9804         1.0000                0.9608
+      dev_val                  hardware iphone15pro  153 1.0000             0.9804         1.0000                0.9608
+      dev_val                  hardware        scan  153 1.0000             0.9902         1.0000                0.9804
+
+checkpoint:  /home/sush/ForgedDocDeepID/runs/post_hoc_compression_controlled_resnet18_seed10/checkpoints/best.pt
+predictions: /home/sush/ForgedDocDeepID/output/resnet18_policy_c_seed10_predictions.csv
+metrics:     /home/sush/ForgedDocDeepID/output/resnet18_policy_c_seed10_metrics.csv
+
+Stop here. Do not inspect the official test set yet.

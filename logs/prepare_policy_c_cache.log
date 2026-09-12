@@ -1,0 +1,30 @@
+Preparing frozen Policy C:
+  raw
+  -> JPEG Q75 / 4:2:0
+  -> deterministic matched Q50-90 / 4:2:0
+
+images: 1899
+processed 100/1899
+processed 200/1899
+processed 300/1899
+processed 400/1899
+processed 500/1899
+processed 600/1899
+processed 700/1899
+processed 800/1899
+processed 900/1899
+processed 1000/1899
+processed 1100/1899
+processed 1200/1899
+processed 1300/1899
+processed 1400/1899
+processed 1500/1899
+processed 1600/1899
+processed 1700/1899
+processed 1800/1899
+processed 1899/1899
+
+Policy-C cache complete.
+index: /home/sush/ForgedDocDeepID/output/policy_c_cache_index.csv
+cache: /home/sush/ForgedDocDeepID/data/processed/policy_c
+Final-Q matching: PASS

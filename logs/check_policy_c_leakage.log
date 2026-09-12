@@ -1,0 +1,15 @@
+
+Final-Q matching check: PASS
+Policy C residual leakage analysis
+
+train: 1440 images / 160 stems
+dev:   459 images / 51 stems
+
+final_table_only          train=0.5000  dev=0.5000  stem-95%CI=[0.5000, 0.5000]
+strict_jpeg_history       train=0.5249  dev=0.5235  stem-95%CI=[0.5179, 0.5325]
+blockiness_only           train=0.5651  dev=0.5650  stem-95%CI=[0.5541, 0.5824]
+all_compression_features  train=0.5726  dev=0.5858  stem-95%CI=[0.5724, 0.6056]
+
+Wrote /home/sush/ForgedDocDeepID/output/compression_leakage_policy_c_summary.csv
+
+Stop here. Do not train ResNet until Policy C is frozen.

@@ -1,0 +1,35 @@
+Inventory path column: image_path
+
+Authoritative official test:
+  total:     1385
+  attack:    1085
+  bonafide:  300
+
+Attack families:
+variant
+digital_3              786
+facedancer             150
+textdiffuserft_bfei    149
+
+Preparing frozen Policy C:
+  raw
+  -> common JPEG Q75 / 4:2:0
+  -> deterministic matched Q50-90 / 4:2:0
+processed 100/1385
+processed 200/1385
+processed 300/1385
+processed 400/1385
+processed 500/1385
+processed 600/1385
+processed 700/1385
+processed 800/1385
+processed 900/1385
+processed 1000/1385
+processed 1100/1385
+processed 1200/1385
+processed 1300/1385
+processed 1385/1385
+
+Wrote /home/sush/ForgedDocDeepID/output/fantasyid_official_test_policy_c_index.csv
+Final-Q matching: PASS
+Official-test extraction: PASS
