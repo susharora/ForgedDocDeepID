@@ -1,0 +1,17 @@
+{
+  "alpha_255": 0.25,
+  "alpha_pixel": 0.000980392156862745,
+  "attack_support": "document_content_only",
+  "attack_target": "bonafide_class_0",
+  "checkpoint_sha256": "25ad8b1482be20e9d5e450770d6970b820ebc9470c9da3c4ec46db2558009402",
+  "epsilon_255": 1.0,
+  "epsilon_pixel": 0.00392156862745098,
+  "gradcam_layer": "layer4[-1]",
+  "gradcam_target": "attack_logit - bonafide_logit",
+  "n_boot": 5000,
+  "n_images": 456,
+  "padding_frozen": true,
+  "pgd_steps": 10,
+  "random_start": true,
+  "seed": 10
+}

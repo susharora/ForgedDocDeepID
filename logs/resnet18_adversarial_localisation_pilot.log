@@ -1,0 +1,59 @@
+processed 4/72
+processed 8/72
+processed 12/72
+processed 16/72
+processed 20/72
+processed 24/72
+processed 28/72
+processed 32/72
+processed 36/72
+processed 40/72
+processed 44/72
+processed 48/72
+processed 52/72
+processed 56/72
+processed 60/72
+processed 64/72
+processed 68/72
+processed 72/72
+
+RESNET18 ADVERSARIAL LOCALISATION PILOT
+
+checkpoint SHA: 25ad8b1482be20e9d5e450770d6970b820ebc9470c9da3c4ec46db2558009402
+device:         cuda
+gpu:            NVIDIA GeForce RTX 5090
+pilot images:   72
+clipped GT rectangles in pilot: 2
+attack: targeted bonafide pixel-space L_inf PGD
+epsilon: 4.0/255
+alpha:   1.0/255
+steps:   10
+random start: yes
+attack support: document content only
+padding: frozen exactly
+localisation evaluator: frozen clean_rma.compute_rma_metrics
+max pixel L_inf: 0.01568629
+max padding change: 0
+max clean-vs-saved probability error: 0.00097173
+
+PRIMARY PILOT SUMMARY:
+evaluation_split    variant  n  n_clean_correct  n_adv_correct  n_attack_success  clean_attack_accuracy  adv_attack_accuracy  attack_success_rate_clean_correct  clean_p_attack_mean  adv_p_attack_mean  clean_margin_mean  adv_margin_mean   A_mean  E_clean_mean  E_adv_mean  delta_E_mean  relative_E_change_mean  mu_w_clean_mean  mu_w_adv_mean  delta_mu_w_mean  relative_mu_w_change_mean  PG_clean   PG_adv  delta_PG  cam_cosine_mean  cam_tv_mean  clean_zero_cam_fraction  adv_zero_cam_fraction  pixel_linf_mean  pixel_linf_max  padding_max_abs_error  max_saved_probability_abs_error
+         dev_val  digital_1 24               24              0                24               1.000000                  0.0                                1.0             0.999554       8.938339e-13          12.593903       -33.418802 0.170129      0.723630    0.083333     -0.640297               -0.899523         4.422193       0.408334        -4.013859                  -0.899523  1.000000 0.083333 -0.916667         0.168028      0.91719                      0.0               0.833333         0.015686        0.015686                    0.0                         0.000149
+         dev_val  digital_2 24               24              0                24               1.000000                  0.0                                1.0             0.999224       7.256303e-14          15.428186       -37.917277 0.094091      0.566493    0.000000     -0.566493               -1.000000         6.227205       0.000000        -6.227205                  -1.000000  0.458333 0.000000 -0.458333         0.000000      1.00000                      0.0               0.958333         0.015686        0.015686                    0.0                         0.000193
+   official_test facedancer 24               22              0                22               0.916667                  0.0                                1.0             0.913517       4.832389e-13          12.137215       -33.640230 0.064790      0.477700    0.000000     -0.477700               -1.000000         7.701841       0.000000        -7.701841                  -1.000000  0.750000 0.000000 -0.750000              NaN          NaN                      0.0               1.000000         0.015686        0.015686                    0.0                         0.000972
+
+CLEAN-CORRECT OUTCOME DIAGNOSTIC:
+evaluation_split    variant  attack_success  n  delta_E_mean  delta_E_median  relative_E_change_mean  relative_E_change_median  delta_mu_w_mean  delta_mu_w_median  relative_mu_w_change_mean  relative_mu_w_change_median  delta_PG_mean  cam_cosine_mean  cam_tv_mean  adv_zero_cam_fraction  adv_probability_attack_mean
+         dev_val  digital_1            True 24     -0.640297       -0.689863               -0.899523                      -1.0        -4.013859          -4.345276                  -0.899523                         -1.0      -0.916667         0.168028      0.91719               0.833333                 8.938339e-13
+         dev_val  digital_2            True 24     -0.566493       -0.566273               -1.000000                      -1.0        -6.227205          -6.503904                  -1.000000                         -1.0      -0.458333         0.000000      1.00000               0.958333                 7.256303e-14
+   official_test facedancer            True 22     -0.498358       -0.535181               -1.000000                      -1.0        -7.732478          -7.662285                  -1.000000                         -1.0      -0.818182              NaN          NaN               1.000000                 5.268962e-13
+
+OUTPUTS:
+  selection:       /home/sush/ForgedDocDeepID/output/resnet18_adversarial_localisation_pilot/pgd_pilot_selection.csv
+  per image:       /home/sush/ForgedDocDeepID/output/resnet18_adversarial_localisation_pilot/pgd_pilot_per_image.csv
+  summary:         /home/sush/ForgedDocDeepID/output/resnet18_adversarial_localisation_pilot/pgd_pilot_summary.csv
+  outcome summary: /home/sush/ForgedDocDeepID/output/resnet18_adversarial_localisation_pilot/pgd_pilot_outcome_summary.csv
+  CAMs:            /home/sush/ForgedDocDeepID/output/resnet18_adversarial_localisation_pilot/pgd_pilot_cams.npz
+
+STOP HERE.
+Do not run another epsilon until this pilot has been inspected.

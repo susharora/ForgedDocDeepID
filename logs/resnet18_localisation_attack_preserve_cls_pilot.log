@@ -1,0 +1,48 @@
+Traceback (most recent call last):
+  File "/home/sush/ForgedDocDeepID/scripts/eval_resnet18_localisation_attack_preserve_cls_pilot.py", line 2854, in <module>
+    main()
+  File "/home/sush/ForgedDocDeepID/scripts/eval_resnet18_localisation_attack_preserve_cls_pilot.py", line 2160, in main
+    localisation_attack(
+  File "/home/sush/ForgedDocDeepID/scripts/eval_resnet18_localisation_attack_preserve_cls_pilot.py", line 1074, in localisation_attack
+    classification_feasible(
+  File "/home/sush/ForgedDocDeepID/scripts/eval_resnet18_localisation_attack_preserve_cls_pilot.py", line 707, in classification_feasible
+    margin = model_margin(
+             ^^^^^^^^^^^^^
+  File "/home/sush/ForgedDocDeepID/scripts/eval_resnet18_localisation_attack_preserve_cls_pilot.py", line 685, in model_margin
+    logits = model(
+             ^^^^^^
+  File "/home/sush/miniforge3/envs/idxai/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sush/miniforge3/envs/idxai/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sush/miniforge3/envs/idxai/lib/python3.11/site-packages/torchvision/models/resnet.py", line 285, in forward
+    return self._forward_impl(x)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sush/miniforge3/envs/idxai/lib/python3.11/site-packages/torchvision/models/resnet.py", line 276, in _forward_impl
+    x = self.layer4(x)
+        ^^^^^^^^^^^^^^
+  File "/home/sush/miniforge3/envs/idxai/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sush/miniforge3/envs/idxai/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sush/miniforge3/envs/idxai/lib/python3.11/site-packages/torch/nn/modules/container.py", line 253, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/home/sush/miniforge3/envs/idxai/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sush/miniforge3/envs/idxai/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1885, in _call_impl
+    return inner()
+           ^^^^^^^
+  File "/home/sush/miniforge3/envs/idxai/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1846, in inner
+    hook_result = hook(self, args, result)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sush/ForgedDocDeepID/scripts/eval_resnet18_gradcam_clean_rma.py", line 665, in _forward_hook
+    output.register_hook(
+  File "/home/sush/miniforge3/envs/idxai/lib/python3.11/site-packages/torch/_tensor.py", line 699, in register_hook
+    raise RuntimeError(
+RuntimeError: cannot register a hook on a tensor that doesn't require gradient
