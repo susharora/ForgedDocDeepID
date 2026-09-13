@@ -1,0 +1,2 @@
+source,n_images,metric,small_max,medium_max,large_rule
+project_train_d1_d2,960,rma_A,0.092866647283697,0.1335943628348321,A > medium_max

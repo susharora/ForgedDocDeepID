@@ -1,0 +1,102 @@
+CLEAN RESNET18 GRAD-CAM LOCALISATION
+
+checkpoint SHA:        25ad8b1482be20e9d5e450770d6970b820ebc9470c9da3c4ec46db2558009402
+selected stage:        full
+selected epoch:        12
+project-train attacks: 960
+held-out dev attacks:  306
+total attacks:         1266
+target layer:          layer4[-1]
+target scalar:         attack_logit - bonafide_logit
+clipped GT boxes:      84
+device:                cuda
+gpu:                   NVIDIA GeForce RTX 5090
+processed 52/1266
+processed 100/1266
+processed 152/1266
+processed 200/1266
+processed 252/1266
+processed 300/1266
+processed 352/1266
+processed 400/1266
+processed 452/1266
+processed 500/1266
+processed 552/1266
+processed 600/1266
+processed 652/1266
+processed 700/1266
+processed 752/1266
+processed 800/1266
+processed 852/1266
+processed 900/1266
+processed 952/1266
+processed 1000/1266
+processed 1052/1266
+processed 1100/1266
+processed 1152/1266
+processed 1200/1266
+processed 1252/1266
+processed 1266/1266
+
+INFERENCE CONSISTENCY:
+  max probability error: 0.00043100
+  project_train: n=960, recall@0.5=1.0000, zero_CAM=0.0000
+  dev_val: n=306, recall@0.5=1.0000, zero_CAM=0.0000
+
+PROJECT-TRAIN GRAD-CAM DIAGNOSTIC:
+                  group  n_images  n_stems  mean_attack_probability  mean_union_area_content  mean_union_energy_content  mean_union_enrichment_content  mean_energy_gain_union_content  energy_gain_ci_low  energy_gain_ci_high  pointing_union  mean_point_gain_union_canvas  point_gain_ci_low  point_gain_ci_high  mean_face_enrichment_content  mean_text_enrichment_content  mean_face_share_altered_energy  mean_padding_energy_canvas  pointing_padding
+project_train|digital_1       480      160                   0.9997                   0.1544                     0.6981                         4.8031                          0.5437              0.5309               0.5569          0.9917                        0.8452             0.8342              0.8546                        5.0687                        3.0529                          0.9211                      0.0025            0.0000
+project_train|digital_2       480      160                   0.9996                   0.0892                     0.5383                         6.2057                          0.4491              0.4343               0.4639          0.5792                        0.4945             0.4370              0.5506                        7.6276                        0.4383                          0.9846                      0.0030            0.0000
+
+HELD-OUT DEV GRAD-CAM LOCALISATION — PRIMARY:
+            group  n_images  n_stems  mean_attack_probability  mean_union_area_content  mean_union_energy_content  mean_union_enrichment_content  mean_energy_gain_union_content  energy_gain_ci_low  energy_gain_ci_high  pointing_union  mean_point_gain_union_canvas  point_gain_ci_low  point_gain_ci_high  mean_face_enrichment_content  mean_text_enrichment_content  mean_face_share_altered_energy  mean_padding_energy_canvas  pointing_padding
+dev_val|digital_1       153       51                   0.9998                   0.1590                     0.7066                         4.7745                          0.5477              0.5235               0.5719          1.0000                        0.8491             0.8346              0.8624                        5.0531                        2.8958                          0.9238                      0.0030            0.0000
+dev_val|digital_2       153       51                   0.9998                   0.0926                     0.5460                         6.1613                          0.4534              0.4271               0.4799          0.5229                        0.4350             0.3296              0.5351                        7.5876                        0.3575                          0.9880                      0.0046            0.0000
+
+TRAIN -> DEV LOCALISATION GENERALISATION:
+  variant  train_energy_gain_union_content  dev_energy_gain_union_content  delta_dev_minus_train_energy_gain_union_content  delta_ci_low_energy_gain_union_content  delta_ci_high_energy_gain_union_content  train_enrichment_union_content  dev_enrichment_union_content  delta_dev_minus_train_enrichment_union_content  train_point_union  dev_point_union  delta_dev_minus_train_point_union  delta_ci_low_point_union  delta_ci_high_point_union  train_face_share_altered_energy  dev_face_share_altered_energy  delta_dev_minus_train_face_share_altered_energy  train_energy_padding_canvas  dev_energy_padding_canvas
+digital_1                           0.5437                         0.5477                                           0.0039                                 -0.0228                                   0.0314                          4.8031                        4.7745                                         -0.0285             0.9917           1.0000                             0.0083                    0.0021                     0.0167                           0.9211                         0.9238                                           0.0027                       0.0025                     0.0030
+digital_2                           0.4491                         0.4534                                           0.0043                                 -0.0245                                   0.0339                          6.2057                        6.1613                                         -0.0444             0.5792           0.5229                            -0.0563                   -0.1758                     0.0691                           0.9846                         0.9880                                           0.0034                       0.0030                     0.0046
+
+VISUAL OUTPUT AUDIT:
+  expected attack images: 1266
+  heatmap PNGs:           1266
+  overlay PNGs:           1266
+  reviewer panels:        24
+
+OUTPUTS:
+  per-image metrics: /home/sush/ForgedDocDeepID/output/resnet18_gradcam_clean/gradcam_metrics.csv
+  summary:           /home/sush/ForgedDocDeepID/output/resnet18_gradcam_clean/gradcam_summary.csv
+  train/dev delta:   /home/sush/ForgedDocDeepID/output/resnet18_gradcam_clean/gradcam_train_dev_generalisation.csv
+  GT region audit:   /home/sush/ForgedDocDeepID/output/resnet18_gradcam_clean/gradcam_regions.csv
+  layer4 CAMs:       /home/sush/ForgedDocDeepID/output/resnet18_gradcam_clean/gradcam_layer4_maps.npz
+  all PNGs:          /home/sush/ForgedDocDeepID/output/resnet18_gradcam_clean/visuals
+  reviewer panels:   /home/sush/ForgedDocDeepID/output/resnet18_gradcam_clean/review_panels
+
+VISUAL CONVENTION:
+  WHITE   = top-positive CAM contour
+  CYAN    = altered face GT rectangle
+  MAGENTA = altered text GT rectangle
+  GREY    = document/padding boundary
+  * after label = original GT box was clipped to decoded image bounds
+
+CLEAN LOCALISATION GATE:
+
+Held-out DEV is the primary evidence.
+Training maps are diagnostic only.
+
+A useful clean Grad-CAM baseline should show:
+
+  dev energy_gain_union_content > 0
+  with stem-bootstrap CI entirely > 0
+
+and preferably:
+
+  dev point_gain_union_canvas > 0
+  with stem-bootstrap CI entirely > 0.
+
+Enrichment > 1 means altered rectangles receive more CAM energy than expected from their area inside the document.
+
+Do NOT treat the rectangle masks as pixel-perfect segmentation ground truth.
+
+Stop here before adversarial attacks.
