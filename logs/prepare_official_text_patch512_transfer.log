@@ -1,0 +1,89 @@
+Frozen eligible text fields:
+  alternative
+  dob
+  doe
+  name
+  name_en
+  name_other
+processed 100/1385
+processed 200/1385
+processed 300/1385
+processed 400/1385
+processed 500/1385
+processed 600/1385
+processed 700/1385
+processed 800/1385
+processed 900/1385
+processed 1000/1385
+processed 1100/1385
+processed 1200/1385
+processed 1300/1385
+processed 1385/1385
+
+OFFICIAL TEXT-PATCH CACHE WITH BONA-FIDE TRANSFER:
+  images total:             1385
+  images covered:           1384
+  attacks covered:          1085/1085
+  bona-fides covered:       299/300
+  images missing:           1
+  patches:                  4147
+  crop exclusions:          86
+  self-annotated images:    1085
+  transferred bona-fides:   299
+
+Patch counts by population:
+population
+bonafide                897
+digital_3              2353
+facedancer              450
+textdiffuserft_bfei     447
+
+Images covered by population:
+population
+bonafide               299
+digital_3              786
+facedancer             150
+textdiffuserft_bfei    149
+
+Patches per covered image:
+  min:    1
+  median: 3.0
+  mean:   3.00
+  max:    4
+
+Annotation source counts:
+annotation_source
+self_original              1085
+matched_attack_original     299
+
+Transferred bona-fide donor families:
+annotation_source_variant
+facedancer             150
+textdiffuserft_bfei    149
+
+Crop exclusions:
+traffic_type  variant    field_name  reason               
+attack        digital_3  dob         no_face_free_512_crop    28
+                         doe         no_face_free_512_crop    58
+
+MISSING IMAGES:
+                                                         image_path                                  file_stem hardware_source traffic_type variant                            reason annotation_source_image_path annotation_source_variant
+test/bonafide/huawei/chinese2-flickr_F_30990251270_6801e68759_c.jpg chinese2-flickr_F_30990251270_6801e68759_c          huawei     bonafide         no_exact_attack_annotation_source                                                       
+
+Index:          /home/sush/ForgedDocDeepID/output/text_patch512_official_index.csv
+Exclusions:     /home/sush/ForgedDocDeepID/output/text_patch512_official_exclusions.csv
+Missing:        /home/sush/ForgedDocDeepID/output/text_patch512_official_missing_images.csv
+Transfer audit: /home/sush/ForgedDocDeepID/output/text_patch512_official_annotation_transfer.csv
+Cache:          /home/sush/ForgedDocDeepID/data/processed/text_patch512_official
+
+SAFETY AUDIT:
+  altered annotations used:      NO
+  cross-hardware transfer:       NO
+  coordinate resizing/warping:   NO
+  exact donor dimensions:        REQUIRED
+  face overlap in saved patches: ZERO
+
+PARTIAL PASS: all attacks and 299/300 bona-fides are covered.
+One bona-fide has no safe exact-key annotation donor.
+Do NOT fabricate its coordinates.
+Evaluate all detectors on the same 1384-image common subset.
