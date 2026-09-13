@@ -1,0 +1,66 @@
+Frozen text-patch representation audit:
+  checkpoint SHA: 1b1719646819cb7233db4bcd1f57258f06ec94863b3c7c447e12ed883cc9fad2
+  selected stage: full
+  selected epoch: 2
+  rows:           8000
+  pairs:          4000
+  device:         cuda
+paired 500/4000
+paired 1000/4000
+paired 1500/4000
+paired 2000/4000
+paired 2500/4000
+paired 3000/4000
+paired 3500/4000
+paired 4000/4000
+
+REPRESENTATION SHIFT — HELD-OUT METHODS:
+   population  n_pairs  n_stems  same_source_auc  mean_feature_shift_norm  mean_attack_axis_projection  median_attack_axis_projection  fraction_positive_projection  mean_attack_axis_cosine  mean_cos_train_global  mean_cos_train_d1  mean_cos_train_d2  mean_cos_train_same_field  mean_gray_mad_inside  mean_changed_inside_ge5
+dev_digital_1      439       51           1.0000                  19.8771                      16.2681                        16.3442                        1.0000                   0.8202                 0.9741             0.9759             0.9698                     0.9780               55.8103                   0.8047
+dev_digital_2      411       50           1.0000                  19.2853                      15.7851                        15.5179                        1.0000                   0.8186                 0.9669             0.9637             0.9677                     0.9736               53.5361                   0.7349
+dev_digital_3      441       51           0.6764                   5.5111                       1.9605                         0.8901                        0.6757                   0.2000                 0.2181             0.2156             0.2201                     0.2168               41.5274                   0.6682
+
+DIGITAL-3 FIELD REPRESENTATION BREAKDOWN:
+ field_name  n_pairs  n_stems  same_source_auc  mean_probability_delta  mean_feature_shift_norm  mean_axis_projection  mean_axis_cosine  fraction_positive_projection  mean_cos_train_global  mean_cos_train_same_field  mean_gray_mad_inside  mean_changed_inside_ge5  mean_annotation_coverage
+        dob      147       51           0.6466                  0.0809                   4.9516                1.2392            0.1506                        0.6599                 0.1572                     0.1672               40.4872                   0.6565                    0.9680
+        doe      141       51           0.6435                  0.0450                   4.7144                1.1053            0.1500                        0.6383                 0.1564                     0.1628               36.8568                   0.6733                    0.9840
+       name       99       33           0.8091                  0.3377                   7.4860                4.3171            0.3624                        0.7677                 0.4141                     0.3856               47.5794                   0.6916                    0.8937
+    name_en       42       14           0.6378                  0.0338                   4.7747                1.0385            0.0987                        0.5714                 0.1057                     0.1056               44.1887                   0.6216                    0.9811
+alternative        9        3           0.8272                  0.4579                   9.0879                6.4267            0.5600                        1.0000                 0.6410                     0.5353               52.1426                   0.6985                    0.8524
+ name_other        3        1           0.4444                 -0.0125                   4.7722               -0.7624           -0.0543                        0.6667                -0.0631                        NaN               43.1995                   0.7899                    1.0000
+
+DIGITAL-3 CORRELATIONS WITH CLASSIFIER RESPONSE:
+   population                 feature                 target  spearman_r  p_value   n
+dev_digital_3         gray_mad_inside      probability_delta      0.0983   0.0392 441
+dev_digital_3         gray_mad_inside attack_axis_projection      0.0827   0.0828 441
+dev_digital_3          lap_mad_inside      probability_delta     -0.4850   0.0000 441
+dev_digital_3          lap_mad_inside attack_axis_projection     -0.5298   0.0000 441
+dev_digital_3      changed_inside_ge5      probability_delta     -0.0684   0.1513 441
+dev_digital_3      changed_inside_ge5 attack_axis_projection     -0.0812   0.0884 441
+dev_digital_3      feature_shift_norm      probability_delta      0.5648   0.0000 441
+dev_digital_3      feature_shift_norm attack_axis_projection      0.6005   0.0000 441
+dev_digital_3      attack_axis_cosine      probability_delta      0.9412   0.0000 441
+dev_digital_3      attack_axis_cosine attack_axis_projection      0.9827   0.0000 441
+dev_digital_3     cos_to_train_global      probability_delta      0.9415   0.0000 441
+dev_digital_3     cos_to_train_global attack_axis_projection      0.9808   0.0000 441
+dev_digital_3 cos_to_train_same_field      probability_delta      0.9302   0.0000 438
+dev_digital_3 cos_to_train_same_field attack_axis_projection      0.9761   0.0000 438
+
+Pairs:       /home/sush/ForgedDocDeepID/output/text_patch512_method_shift_pairs.csv
+Summary:     /home/sush/ForgedDocDeepID/output/text_patch512_method_shift_summary.csv
+Fields:      /home/sush/ForgedDocDeepID/output/text_patch512_method_shift_fields.csv
+Correlations:/home/sush/ForgedDocDeepID/output/text_patch512_method_shift_correlations.csv
+
+Decision guide:
+
+A) D3 pixel magnitude << D1/D2
+   => D3 itself is substantially subtler.
+
+B) D3 pixel magnitude similar, but feature_shift_norm << D1/D2
+   => backbone suppresses / fails to encode the D3 forensic evidence.
+
+C) D3 feature_shift_norm substantial, but attack_axis_projection/cosine << D1/D2
+   => D3 is represented, but mostly outside the learned forgery direction: strong evidence for manipulation-method-specific representation.
+
+D) D3 name has much stronger axis alignment than dob/doe despite comparable pixel magnitude
+   => the name/date gap is representational, not merely caused by more changed pixels.

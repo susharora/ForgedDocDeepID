@@ -1,0 +1,46 @@
+Frozen eligible text fields:
+  alternative
+  dob
+  doe
+  name
+  name_en
+  name_other
+processed 100/1385
+processed 200/1385
+processed 300/1385
+processed 400/1385
+processed 500/1385
+processed 600/1385
+processed 700/1385
+processed 800/1385
+processed 900/1385
+processed 1000/1385
+
+OFFICIAL TEXT-PATCH CACHE:
+  images total:   1385
+  images covered: 1085
+  images missing: 300
+  patches:        3250
+  exclusions:     86
+
+Patch counts by population:
+population
+digital_3              2353
+facedancer              450
+textdiffuserft_bfei     447
+
+Patches per image:
+  min:    1
+  median: 3.0
+  mean:   3.00
+  max:    4
+
+Exclusions:
+variant    field_name  reason               
+digital_3  dob         no_face_free_512_crop    28
+           doe         no_face_free_512_crop    58
+
+Index:      /home/sush/ForgedDocDeepID/output/text_patch512_official_index.csv
+Exclusions: /home/sush/ForgedDocDeepID/output/text_patch512_official_exclusions.csv
+Missing:    /home/sush/ForgedDocDeepID/output/text_patch512_official_missing_images.csv
+Cache:      /home/sush/ForgedDocDeepID/data/processed/text_patch512_official
