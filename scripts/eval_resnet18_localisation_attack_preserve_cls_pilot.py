@@ -69,7 +69,9 @@ so this is a second-order white-box explanation attack.
 Evaluation
 ----------
 Final clean/adversarial A, E, mu_w and PG are evaluated with the exact frozen
-clean_rma.compute_rma_metrics() implementation.
+clean_rma.compute_rma_metrics() implementation. The frozen clean Grad-CAM
+forward hook is scoped only to those evaluation calls and is removed before
+classification-feasibility checks.
 
 Also report:
     classification preservation
@@ -1572,6 +1574,53 @@ def cam_change_metrics(
 
 
 # =====================================================================
+# Scoped frozen Grad-CAM evaluation
+# =====================================================================
+
+def frozen_gradcam_generate(
+    model,
+    x,
+):
+    """
+    Run the exact frozen clean_rma.GradCAM implementation without leaving its
+    forward hook registered during the optimisation.
+
+    Why this is necessary
+    ---------------------
+    clean_rma.GradCAM._forward_hook() unconditionally calls
+    output.register_hook(...). Classification-feasibility checks in this
+    attack intentionally run under torch.no_grad(), so keeping a frozen
+    GradCAM instance registered during those checks would make PyTorch raise:
+
+        RuntimeError:
+        cannot register a hook on a tensor that doesn't require gradient
+
+    Therefore the frozen evaluation hook exists only for the duration of this
+    function call and is removed immediately afterwards.
+
+    The differentiable attack hook may remain registered: its forward hook only
+    stores activations and does not call Tensor.register_hook().
+    """
+    evaluator = (
+        clean_rma.GradCAM(
+            model,
+            model.layer4[-1],
+        )
+    )
+
+    try:
+        result = (
+            evaluator.generate(
+                x
+            )
+        )
+    finally:
+        evaluator.remove()
+
+    return result
+
+
+# =====================================================================
 # Scalar helpers / summary
 # =====================================================================
 
@@ -2039,13 +2088,6 @@ def main():
         )
     )
 
-    evaluation_cam = (
-        clean_rma.GradCAM(
-            model,
-            model.layer4[-1],
-        )
-    )
-
     records = []
 
     cam_keys = []
@@ -2116,8 +2158,9 @@ def main():
             # ------------------------------------------------------
 
             clean_eval = (
-                evaluation_cam.generate(
-                    batch_x
+                frozen_gradcam_generate(
+                    model,
+                    batch_x,
                 )
             )
 
@@ -2177,8 +2220,9 @@ def main():
             # ------------------------------------------------------
 
             adv_eval = (
-                evaluation_cam.generate(
-                    adv_x
+                frozen_gradcam_generate(
+                    model,
+                    adv_x,
                 )
             )
 
@@ -2628,7 +2672,6 @@ def main():
 
     finally:
         attack_cam.remove()
-        evaluation_cam.remove()
 
     # =================================================================
     # Save / summarise

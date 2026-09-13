@@ -1,48 +1,111 @@
-Traceback (most recent call last):
-  File "/home/sush/ForgedDocDeepID/scripts/eval_resnet18_localisation_attack_preserve_cls_pilot.py", line 2854, in <module>
-    main()
-  File "/home/sush/ForgedDocDeepID/scripts/eval_resnet18_localisation_attack_preserve_cls_pilot.py", line 2160, in main
-    localisation_attack(
-  File "/home/sush/ForgedDocDeepID/scripts/eval_resnet18_localisation_attack_preserve_cls_pilot.py", line 1074, in localisation_attack
-    classification_feasible(
-  File "/home/sush/ForgedDocDeepID/scripts/eval_resnet18_localisation_attack_preserve_cls_pilot.py", line 707, in classification_feasible
-    margin = model_margin(
-             ^^^^^^^^^^^^^
-  File "/home/sush/ForgedDocDeepID/scripts/eval_resnet18_localisation_attack_preserve_cls_pilot.py", line 685, in model_margin
-    logits = model(
-             ^^^^^^
-  File "/home/sush/miniforge3/envs/idxai/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/sush/miniforge3/envs/idxai/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/sush/miniforge3/envs/idxai/lib/python3.11/site-packages/torchvision/models/resnet.py", line 285, in forward
-    return self._forward_impl(x)
-           ^^^^^^^^^^^^^^^^^^^^^
-  File "/home/sush/miniforge3/envs/idxai/lib/python3.11/site-packages/torchvision/models/resnet.py", line 276, in _forward_impl
-    x = self.layer4(x)
-        ^^^^^^^^^^^^^^
-  File "/home/sush/miniforge3/envs/idxai/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/sush/miniforge3/envs/idxai/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
-    return forward_call(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/sush/miniforge3/envs/idxai/lib/python3.11/site-packages/torch/nn/modules/container.py", line 253, in forward
-    input = module(input)
-            ^^^^^^^^^^^^^
-  File "/home/sush/miniforge3/envs/idxai/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
-    return self._call_impl(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/sush/miniforge3/envs/idxai/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1885, in _call_impl
-    return inner()
-           ^^^^^^^
-  File "/home/sush/miniforge3/envs/idxai/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1846, in inner
-    hook_result = hook(self, args, result)
-                  ^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/home/sush/ForgedDocDeepID/scripts/eval_resnet18_gradcam_clean_rma.py", line 665, in _forward_hook
-    output.register_hook(
-  File "/home/sush/miniforge3/envs/idxai/lib/python3.11/site-packages/torch/_tensor.py", line 699, in register_hook
-    raise RuntimeError(
-RuntimeError: cannot register a hook on a tensor that doesn't require gradient
+processed 1/72
+processed 2/72
+processed 3/72
+processed 4/72
+processed 5/72
+processed 6/72
+processed 7/72
+processed 8/72
+processed 9/72
+processed 10/72
+processed 11/72
+processed 12/72
+processed 13/72
+processed 14/72
+processed 15/72
+processed 16/72
+processed 17/72
+processed 18/72
+processed 19/72
+processed 20/72
+processed 21/72
+processed 22/72
+processed 23/72
+processed 24/72
+processed 25/72
+processed 26/72
+processed 27/72
+processed 28/72
+processed 29/72
+processed 30/72
+processed 31/72
+processed 32/72
+processed 33/72
+processed 34/72
+processed 35/72
+processed 36/72
+processed 37/72
+processed 38/72
+processed 39/72
+processed 40/72
+processed 41/72
+processed 42/72
+processed 43/72
+processed 44/72
+processed 45/72
+processed 46/72
+processed 47/72
+processed 48/72
+processed 49/72
+processed 50/72
+processed 51/72
+processed 52/72
+processed 53/72
+processed 54/72
+processed 55/72
+processed 56/72
+processed 57/72
+processed 58/72
+processed 59/72
+processed 60/72
+processed 61/72
+processed 62/72
+processed 63/72
+processed 64/72
+processed 65/72
+processed 66/72
+processed 67/72
+processed 68/72
+processed 69/72
+processed 70/72
+processed 71/72
+processed 72/72
+
+RESNET18 CLASSIFICATION-PRESERVING LOCALISATION ATTACK PILOT
+
+checkpoint SHA: 25ad8b1482be20e9d5e450770d6970b820ebc9470c9da3c4ec46db2558009402
+device:         cuda
+gpu:            NVIDIA GeForce RTX 5090
+pilot images:   72
+clipped GT rectangles: 2
+population: clean-correct only
+objective: minimise Grad-CAM E
+constraint: attack_logit - bonafide_logit >= 0
+optimizer: projected sign-gradient with classification-boundary pull-back
+second-order Grad-CAM attack: yes
+epsilon: 1.00/255
+alpha:   0.25/255
+steps:   10
+bisection steps: 8
+attack support: document content only
+padding: frozen exactly
+final evaluator: frozen clean_rma.compute_rma_metrics
+max pixel L_inf: 0.00392159
+max padding change: 0
+max clean-vs-saved probability error: 0.00022632
+
+PRIMARY PILOT SUMMARY:
+evaluation_split    variant  n  n_stems  classification_preserved  classification_preservation_rate  clean_p_attack_mean  adv_p_attack_mean  clean_margin_mean  adv_margin_mean   A_mean  E_clean_mean  E_adv_mean  absolute_E_degradation_mean  relative_E_degradation_mean  E_strictly_improved_fraction  mu_w_clean_mean  mu_w_adv_mean  absolute_mu_w_degradation_mean  relative_mu_w_degradation_mean  PG_clean   PG_adv  absolute_PG_degradation  cam_cosine_mean  cam_tv_mean  clean_zero_cam_fraction  adv_zero_cam_fraction  cam_change_defined_fraction  pixel_linf_mean  pixel_linf_max  accepted_steps_mean  boundary_pullbacks_mean  max_saved_probability_abs_error
+         dev_val  digital_1 24       18                        24                               1.0             0.999553           0.931412          12.593182         5.558425 0.170129      0.723628    0.155460                     0.568168                     0.780411                           1.0         4.422189       0.948140                        3.474049                        0.780411  1.000000 0.708333                 0.291667         0.310947     0.760409                      0.0                    0.0                          1.0         0.003492        0.003922             6.166667                 0.416667                         0.000150
+         dev_val  digital_2 24       19                        24                               1.0             0.999222           0.845361          15.426758         3.859128 0.094091      0.566496    0.093442                     0.473054                     0.837742                           1.0         6.227236       1.054701                        5.172534                        0.837742  0.458333 0.291667                 0.166667         0.240930     0.775251                      0.0                    0.0                          1.0         0.003922        0.003922             9.208333                 0.791667                         0.000194
+   official_test facedancer 24       20                        24                               1.0             0.984029           0.901586          13.693683         5.678148 0.066420      0.494201    0.021939                     0.472262                     0.957679                           1.0         7.818697       0.305983                        7.512714                        0.957679  0.791667 0.000000                 0.791667         0.087695     0.911289                      0.0                    0.0                          1.0         0.003881        0.003922             8.666667                 0.166667                         0.000226
+
+OUTPUTS:
+  config:    /home/sush/ForgedDocDeepID/output/resnet18_localisation_attack_preserve_cls_pilot/localisation_attack_config.json
+  selection: /home/sush/ForgedDocDeepID/output/resnet18_localisation_attack_preserve_cls_pilot/localisation_attack_selection.csv
+  per image: /home/sush/ForgedDocDeepID/output/resnet18_localisation_attack_preserve_cls_pilot/localisation_attack_per_image.csv
+  summary:   /home/sush/ForgedDocDeepID/output/resnet18_localisation_attack_preserve_cls_pilot/localisation_attack_summary.csv
+  CAMs:      /home/sush/ForgedDocDeepID/output/resnet18_localisation_attack_preserve_cls_pilot/localisation_attack_layer4_maps.npz
+
+STOP HERE.
+Inspect classification preservation and localisation degradation before running a full-population attack.

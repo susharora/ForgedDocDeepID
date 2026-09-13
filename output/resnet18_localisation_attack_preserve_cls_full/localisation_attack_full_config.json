@@ -1,0 +1,20 @@
+{
+  "alpha_255": 0.25,
+  "attack_support": "document_content_only",
+  "bisection_steps": 8,
+  "checkpoint_sha256": "25ad8b1482be20e9d5e450770d6970b820ebc9470c9da3c4ec46db2558009402",
+  "classification_margin_floor": 0.0,
+  "epsilon_255": 1.0,
+  "gradcam_layer": "layer4[-1]",
+  "gradcam_target": "attack_logit - bonafide_logit",
+  "n_boot": 5000,
+  "n_images": 450,
+  "objective": "minimise_gradcam_E",
+  "padding_frozen": true,
+  "second_order_attack": true,
+  "seed": 10,
+  "steps": 10,
+  "visual_audit": true,
+  "visual_convention": "WHITE CAM top-positive contour; CYAN altered face GT; MAGENTA altered text GT; GREY document boundary",
+  "visual_pngs_per_image": 3
+}
