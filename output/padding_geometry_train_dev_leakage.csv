@@ -1,0 +1,5 @@
+evaluation,feature_set,n_train,n_eval,n_eval_stems,auroc,auc_ci_low,auc_ci_high
+project_train_to_dev,padding_only,1440,459,51,0.5,0.5,0.5
+project_train_to_dev,aspect_ratio_only,1440,459,51,0.5,0.5,0.5
+project_train_to_dev,native_size_only,1440,459,51,0.5,0.5,0.5
+project_train_to_dev,all_geometry,1440,459,51,0.5,0.5,0.5

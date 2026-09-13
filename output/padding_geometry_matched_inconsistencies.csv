@@ -1,0 +1,4 @@
+split,file_stem,hardware_source,n_rows,n_native_width,n_native_height,n_content_width,n_pad,native_dimension_mismatch,r512_padding_mismatch
+dev_val,chinese-001_03,huawei,3,2,2,2,2,True,True
+dev_val,chinese-001_03,iphone15pro,3,2,1,2,2,True,True
+dev_val,chinese-001_03,scan,3,2,2,2,2,True,True

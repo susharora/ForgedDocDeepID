@@ -1,0 +1,138 @@
+PADDING / GEOMETRY LEAKAGE AUDIT
+
+Frozen preprocessing:
+  content height: 512
+  canvas:         512 x 864
+  aspect ratio:   preserved
+  horizontal:     centred
+  pad value:      ImageNet mean
+project: geometry 500/1899
+project: geometry 1000/1899
+project: geometry 1500/1899
+project: geometry 1899/1899
+official: geometry 500/1385
+official: geometry 1000/1385
+official: geometry 1385/1385
+
+MATCHED PROJECT GEOMETRY:
+  stem+hardware groups:       633
+  groups with !=3 rows:       0
+  native dimension mismatch:  3
+  r512 padding mismatch:       3
+
+Matched inconsistencies:
+  split      file_stem hardware_source  n_rows  n_native_width  n_native_height  n_content_width  n_pad  native_dimension_mismatch  r512_padding_mismatch
+dev_val chinese-001_03          huawei       3               2                2                2      2                       True                   True
+dev_val chinese-001_03     iphone15pro       3               2                1                2      2                       True                   True
+dev_val chinese-001_03            scan       3               2                2                2      2                       True                   True
+
+PROJECT TRAIN -> HELD-OUT DEV GEOMETRY LABEL LEAKAGE:
+      feature_set  n_train  n_eval  n_eval_stems  auroc  auc_ci_low  auc_ci_high
+     padding_only     1440     459            51 0.5000      0.5000       0.5000
+aspect_ratio_only     1440     459            51 0.5000      0.5000       0.5000
+ native_size_only     1440     459            51 0.5000      0.5000       0.5000
+     all_geometry     1440     459            51 0.5000      0.5000       0.5000
+
+DIGITAL-3 SAME-SOURCE GEOMETRY:
+  matched images:              633
+  matched stems:               211
+  native dimensions identical: 1.0000
+  r512 width identical:        1.0000
+  padding identical:           1.0000
+
+OFFICIAL POPULATION GEOMETRY:
+         population  n_images  n_stems  mean_aspect_ratio  mean_content_width  min_content_width  max_content_width  mean_total_pad  min_total_pad  max_total_pad
+           bonafide       300      100             1.5933            815.7433                796                829         48.2567             35             68
+          digital_3       786      262             1.6001            819.2659                797                843         44.7341             21             67
+         facedancer       150       89             1.5938            815.9467                798                829         48.0533             35             66
+textdiffuserft_bfei       149       88             1.5929            815.5973                796                826         48.4027             38             68
+
+OFFICIAL HARDWARE COMPOSITION:
+hardware_source      huawei  iphone15  iphone15pro  scan
+population                                              
+bonafide                100       100            0   100
+digital_3               262         0          262   262
+facedancer               53        44            0    53
+textdiffuserft_bfei      46        56            0    47
+
+OFFICIAL GEOMETRY-ONLY DISCRIMINATION:
+             family           scope      shared_hardware       feature_set  n_attack  n_bonafide  n_stems  auroc  auc_ci_low  auc_ci_high
+          digital_3    all_hardware          huawei|scan      padding_only       786         300      362 0.6028      0.5787       0.6268
+          digital_3    all_hardware          huawei|scan aspect_ratio_only       786         300      362 0.6029      0.5788       0.6265
+          digital_3    all_hardware          huawei|scan  native_size_only       786         300      362 0.6305      0.6094       0.6521
+          digital_3    all_hardware          huawei|scan      all_geometry       786         300      362 0.6015      0.5774       0.6251
+          digital_3 shared_hardware          huawei|scan      padding_only       524         200      362 0.7492      0.7199       0.7769
+          digital_3 shared_hardware          huawei|scan aspect_ratio_only       524         200      362 0.7473      0.7186       0.7755
+          digital_3 shared_hardware          huawei|scan  native_size_only       524         200      362 0.7607      0.7355       0.7858
+          digital_3 shared_hardware          huawei|scan      all_geometry       524         200      362 0.7673      0.7406       0.7940
+         facedancer    all_hardware huawei|iphone15|scan      padding_only       150         300      100 0.4670      0.4334       0.5009
+         facedancer    all_hardware huawei|iphone15|scan aspect_ratio_only       150         300      100 0.4706      0.4368       0.5045
+         facedancer    all_hardware huawei|iphone15|scan  native_size_only       150         300      100 0.4646      0.4326       0.4974
+         facedancer    all_hardware huawei|iphone15|scan      all_geometry       150         300      100 0.4470      0.4136       0.4805
+         facedancer shared_hardware huawei|iphone15|scan      padding_only       150         300      100 0.4670      0.4334       0.5009
+         facedancer shared_hardware huawei|iphone15|scan aspect_ratio_only       150         300      100 0.4706      0.4368       0.5045
+         facedancer shared_hardware huawei|iphone15|scan  native_size_only       150         300      100 0.4646      0.4326       0.4974
+         facedancer shared_hardware huawei|iphone15|scan      all_geometry       150         300      100 0.4470      0.4136       0.4805
+textdiffuserft_bfei    all_hardware huawei|iphone15|scan      padding_only       149         300      100 0.4721      0.4392       0.5050
+textdiffuserft_bfei    all_hardware huawei|iphone15|scan aspect_ratio_only       149         300      100 0.4761      0.4437       0.5092
+textdiffuserft_bfei    all_hardware huawei|iphone15|scan  native_size_only       149         300      100 0.4808      0.4496       0.5145
+textdiffuserft_bfei    all_hardware huawei|iphone15|scan      all_geometry       149         300      100 0.4763      0.4445       0.5075
+textdiffuserft_bfei shared_hardware huawei|iphone15|scan      padding_only       149         300      100 0.4721      0.4392       0.5050
+textdiffuserft_bfei shared_hardware huawei|iphone15|scan aspect_ratio_only       149         300      100 0.4761      0.4437       0.5092
+textdiffuserft_bfei shared_hardware huawei|iphone15|scan  native_size_only       149         300      100 0.4808      0.4496       0.5145
+textdiffuserft_bfei shared_hardware huawei|iphone15|scan      all_geometry       149         300      100 0.4763      0.4445       0.5075
+
+FROZEN CNN SCORE CORRELATION WITH GEOMETRY:
+     model          population         feature   n  n_stems  spearman_r
+controlled            bonafide  pad_total_r512 300      100      0.0764
+controlled            bonafide    aspect_ratio 300      100     -0.0756
+controlled            bonafide log_native_area 300      100     -0.0403
+controlled           digital_3  pad_total_r512 786      262      0.1539
+controlled           digital_3    aspect_ratio 786      262     -0.1538
+controlled           digital_3 log_native_area 786      262     -0.0168
+controlled          facedancer  pad_total_r512 150       89      0.1599
+controlled          facedancer    aspect_ratio 150       89     -0.1564
+controlled          facedancer log_native_area 150       89      0.0711
+controlled textdiffuserft_bfei  pad_total_r512 149       88      0.0446
+controlled textdiffuserft_bfei    aspect_ratio 149       88     -0.0491
+controlled textdiffuserft_bfei log_native_area 149       88     -0.0322
+ augmented            bonafide  pad_total_r512 300      100      0.0100
+ augmented            bonafide    aspect_ratio 300      100     -0.0060
+ augmented            bonafide log_native_area 300      100      0.0480
+ augmented           digital_3  pad_total_r512 786      262     -0.0004
+ augmented           digital_3    aspect_ratio 786      262      0.0019
+ augmented           digital_3 log_native_area 786      262     -0.0291
+ augmented          facedancer  pad_total_r512 150       89      0.0480
+ augmented          facedancer    aspect_ratio 150       89     -0.0413
+ augmented          facedancer log_native_area 150       89      0.0728
+ augmented textdiffuserft_bfei  pad_total_r512 149       88      0.0336
+ augmented textdiffuserft_bfei    aspect_ratio 149       88     -0.0325
+ augmented textdiffuserft_bfei log_native_area 149       88      0.0620
+
+OUTPUTS:
+  features:        /home/sush/ForgedDocDeepID/output/padding_geometry_features.csv
+  train/dev:       /home/sush/ForgedDocDeepID/output/padding_geometry_train_dev_leakage.csv
+  official probe:  /home/sush/ForgedDocDeepID/output/padding_geometry_official_discrimination.csv
+  populations:     /home/sush/ForgedDocDeepID/output/padding_geometry_population_summary.csv
+  correlations:    /home/sush/ForgedDocDeepID/output/padding_geometry_model_score_correlations.csv
+  inconsistencies: /home/sush/ForgedDocDeepID/output/padding_geometry_matched_inconsistencies.csv
+  D3 matched:      /home/sush/ForgedDocDeepID/output/padding_geometry_digital3_same_source.csv
+
+INTERPRETATION GUIDE:
+
+1. project train->dev padding_only ~0.50
+   => padding width was not a useful attack-label shortcut inside the training distribution.
+
+2. Digital-3 same-source padding_match == 1.0
+   => padding cannot explain the paired Digital-3 score increase/decrease relative to its own parent.
+
+3. Official Digital-3 vs bona padding_only substantially >0.50
+   => padding encodes card-population/domain information and could contribute to the catastrophic official inversion.
+
+4. If that remains high under shared_hardware, the effect is not merely iphone15pro vs iphone15 composition.
+
+5. Large |Spearman rho| between pad_total_r512 and frozen CNN scores would make a causal padding perturbation worth running next.
+
+6. Geometry discrimination alone does NOT prove the CNN uses padding. Only a controlled padding intervention can establish that.
+
+Stop here before changing preprocessing or retraining.
