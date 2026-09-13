@@ -1,0 +1,2 @@
+image_path,file_stem,traffic_type,variant,hardware_source,label,controlled_score,augmented_score
+test/bonafide/huawei/chinese2-flickr_F_30990251270_6801e68759_c.jpg,chinese2-flickr_F_30990251270_6801e68759_c,bonafide,,huawei,0,0.9990234375,0.99853515625
