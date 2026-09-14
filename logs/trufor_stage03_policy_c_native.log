@@ -1,0 +1,81 @@
+localisation/visuals processed 50/1391 | visuals=50
+localisation/visuals processed 100/1391 | visuals=100
+localisation/visuals processed 150/1391 | visuals=150
+localisation/visuals processed 200/1391 | visuals=200
+localisation/visuals processed 250/1391 | visuals=250
+localisation/visuals processed 300/1391 | visuals=300
+localisation/visuals processed 350/1391 | visuals=350
+localisation/visuals processed 400/1391 | visuals=400
+localisation/visuals processed 450/1391 | visuals=450
+localisation/visuals processed 500/1391 | visuals=500
+localisation/visuals processed 550/1391 | visuals=550
+localisation/visuals processed 600/1391 | visuals=600
+localisation/visuals processed 650/1391 | visuals=650
+localisation/visuals processed 700/1391 | visuals=700
+localisation/visuals processed 750/1391 | visuals=750
+localisation/visuals processed 800/1391 | visuals=800
+localisation/visuals processed 850/1391 | visuals=850
+localisation/visuals processed 900/1391 | visuals=900
+localisation/visuals processed 950/1391 | visuals=950
+localisation/visuals processed 1000/1391 | visuals=1000
+localisation/visuals processed 1050/1391 | visuals=1050
+localisation/visuals processed 1100/1391 | visuals=1100
+localisation/visuals processed 1150/1391 | visuals=1150
+localisation/visuals processed 1200/1391 | visuals=1200
+localisation/visuals processed 1250/1391 | visuals=1250
+localisation/visuals processed 1300/1391 | visuals=1300
+localisation/visuals processed 1350/1391 | visuals=1350
+localisation/visuals processed 1391/1391 | visuals=1391
+
+PRETRAINED TRUFOR — FANTASYID CLEAN BASELINE
+
+Condition: policy_c_native ONLY
+Preprocessing: frozen Policy C JPEG -> native HxW TruFor RGB / 256.0
+No raw-native baseline; no resize/crop/padding; no adaptation.
+Checkpoint SHA256: ac1d90e329a72e0d66e8665e123a19e94bfae3209c3ef8a4f9ca3b91578c7844
+Inventory SHA256: 54fa68d9e3695ffbe200917ad59b47f9c2a855d47d974896f53a5fd171abfe6a
+
+DETECTION (threshold 0.5 for accuracy/recall/specificity):
+   eval_split                group_type               group    n  n_attack  n_bonafide  auroc  balanced_accuracy  attack_recall  bonafide_specificity  mean_attack_score  mean_bonafide_score
+      dev_val                   overall                 all  459       306         153 0.8428             0.6454         0.9575                0.3333             0.7780               0.5409
+      dev_val attack_family_vs_bonafide           digital_1  306       153         153 0.9862             0.6667         1.0000                0.3333             0.9181               0.5409
+      dev_val attack_family_vs_bonafide           digital_2  306       153         153 0.6994             0.6242         0.9150                0.3333             0.6379               0.5409
+official_test                   overall                 all 1385      1085         300 0.9439             0.6330         0.9760                0.2900             0.9240               0.5465
+official_test attack_family_vs_bonafide           digital_3 1086       786         300 0.9990             0.6450         1.0000                0.2900             0.9786               0.5465
+official_test attack_family_vs_bonafide          facedancer  450       150         300 0.6013             0.5583         0.8267                0.2900             0.5845               0.5465
+official_test attack_family_vs_bonafide textdiffuserft_bfei  449       149         300 0.9987             0.6450         1.0000                0.2900             0.9774               0.5465
+
+ANNOTATION COVERAGE:
+   eval_split             variant  n_attacks  n_annotated  n_stems  coverage
+      dev_val           digital_1        153          153       51    1.0000
+      dev_val           digital_2        153          153       51    1.0000
+official_test           digital_3        786          786      262    1.0000
+official_test          facedancer        150          150       89    1.0000
+official_test textdiffuserft_bfei        149          149       88    1.0000
+
+NATIVE LOCALISATION — altered-union primary metrics:
+   eval_split               group  n_images  n_stems  mean_A  mean_E  mean_mu_w  mean_PG  mean_E_minus_A  mean_E_ci_low  mean_E_ci_high  mean_mu_w_ci_low  mean_mu_w_ci_high  mean_PG_ci_low  mean_PG_ci_high
+      dev_val           digital_1       153       51  0.1569  0.5552     3.9049   1.0000          0.3983         0.5332          0.5784            3.5609             4.2539          1.0000           1.0000
+      dev_val           digital_2       153       51  0.0909  0.1878     2.0760   0.4902          0.0969         0.1680          0.2089            1.9353             2.2236          0.4248           0.5556
+official_test           digital_3       786      262  0.0287  0.6420    23.2634   0.9911          0.6134         0.6268          0.6572           22.5038            24.0378          0.9835           0.9975
+official_test          facedancer       150       89  0.0644  0.1081     1.7709   0.4267          0.0437         0.1010          0.1155            1.6610             1.8872          0.3506           0.5033
+official_test textdiffuserft_bfei       149       88  0.0416  0.7032    17.1302   1.0000          0.6616         0.6647          0.7401           16.1209            18.1076          1.0000           1.0000
+
+INTERPRETATION:
+  A    = fraction of native image covered by altered GT rectangles.
+  E    = fraction of total TruFor anomaly-map mass inside those rectangles.
+  mu_w = E/A; 1.0 is spatially uniform map mass.
+  PG   = fraction whose native-map maximum lies inside altered GT.
+  CIs  = 95% stem-cluster bootstrap intervals.
+  Face/text scope rows are in localisation_summary.csv.
+  Localisation uses ALL annotated attacks; it is NOT conditioned on correct detection.
+  Rectangles are coarse region annotations, not pixel-perfect segmentation masks.
+
+clipped altered rectangles: 108
+attack heatmap/overlay pairs rendered: 1391
+
+STOP HERE before TruFor adaptation or adversarial attacks.
+Review detection, annotation coverage, localisation RMA/enrichment/PG, and PNGs first.
+
+STAGE 3 PASS
+report: /home/sush/ForgedDocDeepID/output/trufor_pretrained_policy_c_native/baseline_report.txt

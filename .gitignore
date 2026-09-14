@@ -56,3 +56,7 @@ runs/*/diagnostics/
 *.npz
 *.onnx
 .~lock.*#
+
+# Run visuals — regenerate from checkpoints, don't track
+output/**/visuals/
+output/**/*.png

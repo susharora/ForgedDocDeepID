@@ -1,0 +1,39 @@
+{
+  "archive_member": null,
+  "archive_member_sha256": null,
+  "cache_sha_rechecked": true,
+  "canonical_source_sha256": {
+    "dataset/dataset_test.py": "53de9aeb6a13727ada9b9d43cf7a0d85595e655951f48445ffa54802d875f72a",
+    "lib/config/trufor_ph3.yaml": "a87108eb0df40d9bab6a303eb91419564b7c106d5105bbd5d8ecaec1567b5b8b",
+    "lib/models/cmx/builder_np_conf.py": "b31b02a96417b424228f0301ac653a44d257e522c3ddede414d3c95209d80ded",
+    "test.py": "403c554f96fe7923572543cc62cf9d50792fe1ef57e2b6eb8418baaa8577b18e"
+  },
+  "checkpoint": "/home/sush/ForgedDocDeepID/external/TruFor/test_docker/src/weights/trufor.pth.tar",
+  "checkpoint_epoch": 81,
+  "checkpoint_sha256": "ac1d90e329a72e0d66e8665e123a19e94bfae3209c3ef8a4f9ca3b91578c7844",
+  "condition": "policy_c_native",
+  "device": "cuda:0",
+  "elapsed_seconds": 2410.0998668670654,
+  "gpu": "NVIDIA GeForce RTX 5090",
+  "manifest": "output/trufor_pretrained_policy_c_native/inference_manifest.csv",
+  "n_images": 1844,
+  "native_height_max": 2088,
+  "native_height_min": 1242,
+  "native_width_max": 3257,
+  "native_width_min": 1989,
+  "nuisance_condition": "Policy-C only: Q75 4:2:0 -> matched deterministic Q50-90 4:2:0",
+  "official_archive": "/home/sush/ForgedDocDeepID/external/TruFor/test_docker/src/TruFor_weights.zip",
+  "official_archive_md5": "7bee48f3476c75616c3c5721ab256ff8",
+  "preprocessing": "native RGB HxW -> float32 / 256.0",
+  "project_git_head": "f751c438a18f2c731d37d9fedf9949171e870241",
+  "split_counts": {
+    "dev_val": 459,
+    "official_test": 1385
+  },
+  "stage": "02_infer_policy_c_native",
+  "status": "PASS",
+  "tracked_upstream_status": "",
+  "trufor_code": "/home/sush/ForgedDocDeepID/external/TruFor/TruFor_train_test",
+  "trufor_commit": "ae54475df6f41a491d7615100feb19263dec13f7",
+  "trufor_repo": "/home/sush/ForgedDocDeepID/external/TruFor"
+}

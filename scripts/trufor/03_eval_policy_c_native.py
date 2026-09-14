@@ -383,7 +383,7 @@ def mask_boundary(mask: np.ndarray, thickness: int = 2) -> np.ndarray:
 
 
 def heatmap_rgb(amap: np.ndarray) -> np.ndarray:
-    from matplotlib import cm
+    from matplotlib import colormaps
 
     values = np.asarray(amap, dtype=np.float32)
     lo = float(np.quantile(values, 0.05))
@@ -396,7 +396,7 @@ def heatmap_rgb(amap: np.ndarray) -> np.ndarray:
     else:
         norm = np.clip((values - lo) / (hi - lo), 0.0, 1.0)
 
-    rgba = cm.get_cmap("inferno")(norm)
+    rgba = colormaps["inferno"](norm)
     rgb = np.clip(rgba[..., :3] * 255.0, 0, 255).astype(np.uint8)
     return rgb
 
