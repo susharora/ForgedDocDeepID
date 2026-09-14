@@ -1,0 +1,74 @@
+/home/sush/miniforge3/envs/idxai/lib/python3.11/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+TRUFOR STAGE 2 — POLICY-C NATIVE INFERENCE
+condition: Policy-C only
+preprocessing: native HxW RGB -> float32 / 256.0
+NO resize, crop, padding, or extra JPEG stage
+images: 1844
+device: cuda:0
+gpu: NVIDIA GeForce RTX 5090
+processed 25/1844 | elapsed=0.6 min | last=dev_val::huawei
+processed 50/1844 | elapsed=1.1 min | last=dev_val:digital_2:iphone15pro
+processed 75/1844 | elapsed=1.6 min | last=dev_val:digital_1:scan
+Traceback (most recent call last):
+  File "/home/sush/ForgedDocDeepID/scripts/trufor/02_infer_policy_c_native.py", line 152, in main
+    result = infer_one(model, source, device, include_conf=False)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sush/ForgedDocDeepID/scripts/trufor/trufor_common.py", line 394, in infer_one
+    pred, conf, det, _ = model(x, save_np=False)
+                         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sush/miniforge3/envs/idxai/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sush/miniforge3/envs/idxai/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sush/ForgedDocDeepID/external/TruFor/TruFor_train_test/lib/models/cmx/builder_np_conf.py", line 291, in forward
+    out, conf, det = self.encode_decode(rgb, modal_x)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sush/ForgedDocDeepID/external/TruFor/TruFor_train_test/lib/models/cmx/builder_np_conf.py", line 219, in encode_decode
+    x = self.backbone(rgb, modal_x)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sush/miniforge3/envs/idxai/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sush/miniforge3/envs/idxai/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sush/ForgedDocDeepID/external/TruFor/TruFor_train_test/lib/models/cmx/encoders/dual_segformer.py", line 449, in forward
+    out = self.forward_features(x_rgb, x_e)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sush/ForgedDocDeepID/external/TruFor/TruFor_train_test/lib/models/cmx/encoders/dual_segformer.py", line 383, in forward_features
+    x_rgb = blk(x_rgb, H, W)
+            ^^^^^^^^^^^^^^^^
+  File "/home/sush/miniforge3/envs/idxai/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sush/miniforge3/envs/idxai/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sush/ForgedDocDeepID/external/TruFor/TruFor_train_test/lib/models/cmx/encoders/dual_segformer.py", line 175, in forward
+    x = x + self.drop_path(self.attn(self.norm1(x), H, W))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sush/miniforge3/envs/idxai/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sush/miniforge3/envs/idxai/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sush/ForgedDocDeepID/external/TruFor/TruFor_train_test/lib/models/cmx/encoders/dual_segformer.py", line 128, in forward
+    attn = (q @ k.transpose(-2, -1)) * self.scale
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 9.25 GiB. GPU 0 has a total capacity of 31.36 GiB of which 7.37 GiB is free. Including non-PyTorch memory, this process has 23.95 GiB memory in use. Of the allocated memory 10.38 GiB is allocated by PyTorch, and 12.96 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sush/ForgedDocDeepID/scripts/trufor/02_infer_policy_c_native.py", line 276, in <module>
+    main()
+  File "/home/sush/ForgedDocDeepID/scripts/trufor/02_infer_policy_c_native.py", line 158, in main
+    raise RuntimeError(
+RuntimeError: CUDA OOM during NATIVE TruFor inference. No resize was applied. Stop here rather than changing preprocessing.
+image: train/attack/digital_1/huawei/chinese-NF-1085.jpg
+native WxH: 3222x1985
+Paste this log before deciding whether a documented memory-control strategy is scientifically acceptable.

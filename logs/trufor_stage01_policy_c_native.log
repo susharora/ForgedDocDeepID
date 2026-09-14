@@ -1,0 +1,29 @@
+/home/sush/miniforge3/envs/idxai/lib/python3.11/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+TRUFOR STAGE 1 — PROVENANCE + CANONICAL INFERENCE PARITY
+project root: /home/sush/ForgedDocDeepID
+
+Running canonical upstream test.py on one frozen Policy-C dev attack...
+command: /home/sush/miniforge3/envs/idxai/bin/python test.py -g 0 -in /home/sush/ForgedDocDeepID/data/processed/policy_c/train/attack/digital_1/huawei/arabic-024_03.jpg -out /home/sush/ForgedDocDeepID/output/trufor_pretrained_policy_c_native/stage01_smoke/canonical_upstream.npz -exp trufor_ph3 TEST.MODEL_FILE /home/sush/ForgedDocDeepID/external/TruFor/test_docker/src/weights/trufor.pth.tar
+/home/sush/ForgedDocDeepID/external/TruFor/TruFor_train_test/test.py:82: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  checkpoint = torch.load(model_state_file, map_location=torch.device(device))
+/home/sush/miniforge3/envs/idxai/lib/python3.11/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+=> loading model from /home/sush/ForgedDocDeepID/external/TruFor/test_docker/src/weights/trufor.pth.tar
+Epoch: 81
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:01<00:00,  1.62s/it]
+100%|██████████| 1/1 [00:01<00:00,  1.62s/it]
+
+
+PARITY
+  map max abs error:   0
+  conf max abs error:  0
+  score abs error:     0
+  native HxW:          (1971, 3211)
+
+STAGE 1 PASS
+provenance: /home/sush/ForgedDocDeepID/output/trufor_pretrained_policy_c_native/stage01_provenance.json
+Canonical native-resolution inference is reproduced.
+Proceed to Stage 2 only after this PASS.
