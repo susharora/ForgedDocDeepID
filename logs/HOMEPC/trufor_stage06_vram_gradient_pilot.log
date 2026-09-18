@@ -1,0 +1,35 @@
+/home/sush/miniforge3/envs/idxai/lib/python3.11/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+TRUFOR STAGE 06 — ONE-BACKWARD-PASS VRAM/GRADIENT PILOT
+run tag: HOMEPC
+device: cuda:0
+gpu: NVIDIA GeForce RTX 5090
+total VRAM: 31.36 GiB
+frozen threshold: 0.532955974
+epsilon physical: 0.003921569 (=1/255)
+alpha physical:   0.000980392 (=0.25/255)
+No resize/crop/re-JPEG. One backward pass + one projected step per image.
+
+[1/6] textdiffuserft_bfei | 3248x2088 | score=0.976692 | test/attack/textdiffuserft_bfei/huawei/chinese2-flickr_M_33552319041_2631ab0a0c_c.jpg
+  OOM during gradient_forward
+  CUDA out of memory. Tried to allocate 14.55 GiB. GPU 0 has a total capacity of 31.36 GiB of which 14.12 GiB is free. Including non-PyTorch memory, this process has 17.20 GiB memory in use. Of the allocated memory 16.53 GiB is allocated by PyTorch, and 63.02 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+[2/6] facedancer | 3253x2073 | score=0.759986 | test/attack/facedancer/huawei/chinese2-flickr_F_16858102101_d4c5c1e7a2_c.jpg
+  OOM during gradient_forward
+  CUDA out of memory. Tried to allocate 14.47 GiB. GPU 0 has a total capacity of 31.36 GiB of which 14.21 GiB is free. Including non-PyTorch memory, this process has 17.10 GiB memory in use. Of the allocated memory 16.44 GiB is allocated by PyTorch, and 57.24 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+[3/6] facedancer | 3229x2055 | score=0.566475 | test/attack/facedancer/huawei/netherland-flickr_F_20301931855_4cd18f8166_k.jpg
+  OOM during gradient_forward
+  CUDA out of memory. Tried to allocate 14.24 GiB. GPU 0 has a total capacity of 31.36 GiB of which 11.30 GiB is free. Including non-PyTorch memory, this process has 20.01 GiB memory in use. Of the allocated memory 19.35 GiB is allocated by PyTorch, and 62.22 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+[4/6] digital_3 | 3235x2013 | score=0.996051 | test/attack/digital_3/huawei/usa-01_0038_000-0ee87df5_0.jpg
+  OOM during gradient_forward
+  CUDA out of memory. Tried to allocate 13.97 GiB. GPU 0 has a total capacity of 31.36 GiB of which 11.66 GiB is free. Including non-PyTorch memory, this process has 19.66 GiB memory in use. Of the allocated memory 18.99 GiB is allocated by PyTorch, and 66.03 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+[5/6] digital_1 | 3242x2002 | score=0.645807 | train/attack/digital_1/huawei/turkiye-115_03.jpg
+  OOM during gradient_forward
+  CUDA out of memory. Tried to allocate 13.93 GiB. GPU 0 has a total capacity of 31.36 GiB of which 11.73 GiB is free. Including non-PyTorch memory, this process has 19.58 GiB memory in use. Of the allocated memory 18.93 GiB is allocated by PyTorch, and 49.56 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+[6/6] digital_2 | 3242x2002 | score=0.664725 | train/attack/digital_2/huawei/turkiye-115_03.jpg
+  OOM during gradient_forward
+  CUDA out of memory. Tried to allocate 13.93 GiB. GPU 0 has a total capacity of 31.36 GiB of which 11.73 GiB is free. Including non-PyTorch memory, this process has 19.58 GiB memory in use. Of the allocated memory 18.93 GiB is allocated by PyTorch, and 49.56 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+
+STAGE 06 COMPLETE
+results: /home/sush/ForgedDocDeepID/output/HOMEPC/trufor_vram_gradient_pilot/vram_pilot_results.csv
+attempted=6 PASS=0 OOM=6
+Run Stage 07 to summarise the memory gate. Do not start the full attack yet.

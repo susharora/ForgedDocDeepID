@@ -1,0 +1,27 @@
+{
+  "alpha_physical_rgb01": 0.000980392156862745,
+  "alpha_trufor_model_coordinates": 0.0009765625,
+  "clean_correct_attacks": "output/trufor_policy_c_frozen_protocol/stage04_clean_evaluation_accuracy/clean_correct_attacks.csv",
+  "clean_correct_attacks_sha256": "7e2a5a7566c0f6f3b8fc00821ada004161c17b352d225d5e8a3355f5bec3415f",
+  "epsilon_physical_rgb01": 0.00392156862745098,
+  "epsilon_trufor_model_coordinates": 0.00390625,
+  "frozen_threshold": 0.5329559743404388,
+  "gradient_contract": [
+    "All TruFor weights remain unchanged and requires_grad=False.",
+    "Official phase-3 no_grad wrappers around FIX_MODULES are bypassed only to expose input gradients.",
+    "The same frozen submodules and arithmetic are called in eval mode.",
+    "Clean anomaly-map/score parity with frozen Stage-2 output is mandatory before backward.",
+    "Only one projected sign step is attempted; no multi-step attack or hyperparameter search occurs here.",
+    "No resize, crop, padding, re-JPEG or uint8 requantisation is introduced."
+  ],
+  "n_images": 6,
+  "objective": "minimise native TruFor anomaly-map relevance mass E inside the frozen altered-union rectangle mask",
+  "pilot_selection": "output/HOMEPC/trufor_vram_gradient_pilot/pilot_selection.csv",
+  "pilot_selection_sha256": "17d6d20358e092b07630435df75860c7496c1add094864c724f95343207e9612",
+  "purpose": "native-resolution one-backward-pass VRAM feasibility pilot; not the final adversarial experiment",
+  "run_tag": "HOMEPC",
+  "stage": "05_prepare_trufor_vram_pilot",
+  "stage4_provenance": "output/trufor_policy_c_frozen_protocol/stage04_clean_evaluation_accuracy/stage04_provenance.json",
+  "status": "PREPARED",
+  "threshold_json": "output/trufor_policy_c_frozen_protocol/stage03_dev_calibration_accuracy/frozen_threshold.json"
+}

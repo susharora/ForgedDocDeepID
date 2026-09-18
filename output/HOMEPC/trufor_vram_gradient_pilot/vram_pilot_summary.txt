@@ -1,0 +1,21 @@
+TRUFOR NATIVE VRAM / INPUT-GRADIENT PILOT SUMMARY
+
+ order              family       WxH    MP status        oom_phase  peak_reserved_GiB  peak_allocated_GiB cls_preserved  E_drop
+     1 textdiffuserft_bfei 3248x2088 6.782    OOM gradient_forward                NaN                 NaN                   NaN
+     2          facedancer 3253x2073 6.743    OOM gradient_forward                NaN                 NaN                   NaN
+     3          facedancer 3229x2055 6.636    OOM gradient_forward                NaN                 NaN                   NaN
+     4           digital_3 3235x2013 6.512    OOM gradient_forward                NaN                 NaN                   NaN
+     5           digital_1 3242x2002 6.490    OOM gradient_forward                NaN                 NaN                   NaN
+     6           digital_2 3242x2002 6.490    OOM gradient_forward                NaN                 NaN                   NaN
+
+attempted: 6
+PASS:      0
+OOM:       6
+
+MEMORY GATE:
+At least one legitimate frozen clean-correct image OOMed.
+Do NOT resize/crop/omit it to keep the Home run alive.
+This is evidence to move the complete canonical attack experiment to the 48-GB Lab GPU.
+
+STOP HERE.
+Paste this summary before implementing/running the multi-step classification-preserving TruFor attack.
