@@ -1,0 +1,22 @@
+TRUFOR DEV THRESHOLD FREEZE
+
+Pretrained TruFor weights: unchanged
+Condition: policy_c_native
+Calibration set: dev_val only (459 images, 51 stems)
+Objective: maximum balanced accuracy
+Tie-break: closest to upstream 0.5; then lower threshold
+
+Dev AUROC: 0.842838
+Upstream threshold: 0.500000000
+Frozen threshold:   0.725242138
+
+DEV OPERATING POINTS
+0.5        bACC=0.6454 attack_recall=0.9575 bonafide_specificity=0.3333
+calibrated bACC=0.7582 attack_recall=0.5817 bonafide_specificity=0.9346
+
+STEM-CLUSTER BOOTSTRAP DIAGNOSTIC
+selected threshold median=0.699148, 95% CI=[0.626315, 0.752417]
+fixed-threshold bACC median=0.7582, 95% CI=[0.7369, 0.7778]
+
+The threshold is now frozen. Do not refit after Stage 4 begins.
+Proceed to Stage 4 for official-test evaluation and clean-correct subset freeze.
