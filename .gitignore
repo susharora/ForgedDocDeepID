@@ -60,3 +60,7 @@ runs/*/diagnostics/
 # Run visuals — regenerate from checkpoints, don't track
 output/**/visuals/
 output/**/*.png
+!data/processed/policy_c/
+!data/processed/policy_c/**
+!data/processed/policy_c_official_test/
+!data/processed/policy_c_official_test/**
