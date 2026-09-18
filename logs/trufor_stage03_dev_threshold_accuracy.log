@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/home/u5757978/ForgedDocDeepID/scripts/trufor/03_calibrate_dev_threshold_accuracy.py", line 541, in <module>
+    main()
+  File "/home/u5757978/ForgedDocDeepID/scripts/trufor/03_calibrate_dev_threshold_accuracy.py", line 340, in main
+    verify_trufor_provenance(check_archive_member=False)
+  File "/home/u5757978/ForgedDocDeepID/scripts/trufor/trufor_common.py", line 114, in verify_trufor_provenance
+    require_dir(TRUFOR_CODE)
+  File "/home/u5757978/ForgedDocDeepID/scripts/trufor/trufor_common.py", line 74, in require_dir
+    raise RuntimeError(f"Required directory missing:\n{path}")
+RuntimeError: Required directory missing:
+/home/u5757978/ForgedDocDeepID/external/TruFor/TruFor_train_test
