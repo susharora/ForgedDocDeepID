@@ -1,0 +1,49 @@
+TRUFOR LABPC CROSS-MACHINE CLEAN REPRODUCIBILITY GATE
+
+Frozen threshold (NOT refit): 0.532955974
+Threshold objective origin: maximize pooled ordinary image-level accuracy on dev_val
+HOME manifest SHA256: d324260d2b864aa7f0f7726da87d509f5859dc2669f6a908d84c4c49bfed2f00
+LAB manifest SHA256:  e3dacc130e47fff8757af3af16dd0a9561a5dc4ef33af0ae631d363bb83df69a
+LAB GPU: NVIDIA RTX PRO 5000 Blackwell
+LAB torch: 2.11.0+cu128
+LAB CUDA: 12.8
+
+HARD INPUT/POPULATION INTEGRITY
+  image paths: PASS
+  labels/families/hardware: PASS
+  Policy-C cache SHA256 values: PASS
+  native geometry: PASS
+  TruFor checkpoint SHA256: PASS
+
+NUMERICAL DRIFT
+  score abs diff median: 0
+  score abs diff p95:    2.38418579e-07
+  score abs diff max:    1.12652779e-05
+  map-mean abs diff max: 1.18613243e-05
+  frozen-threshold decision flips: 0/1844
+
+OVERALL DETECTION AT THE SAME FROZEN THRESHOLD
+  HOME accuracy=0.831887 attack_recall=0.956147 BF_specificity=0.450331
+  LAB  accuracy=0.831887 attack_recall=0.956147 BF_specificity=0.450331
+
+CLEAN-CORRECT ATTACK COUNTS
+eval_split_home        variant_home   n  home_clean_correct  lab_clean_correct  decision_flips
+        dev_val           digital_1 153                 153                153               0
+        dev_val           digital_2 153                 135                135               0
+  official_test           digital_3 786                 786                786               0
+  official_test          facedancer 150                 107                107               0
+  official_test textdiffuserft_bfei 149                 149                149               0
+
+SCIENTIFIC GATE
+No clean decision membership changed at the frozen threshold.
+This is strong evidence that machine-level floating-point drift does not
+alter the clean-correct attack population used by the next LAB stages.
+
+STOP HERE.
+Do not run LAB localisation or the six-image gradient pilot until this
+cross-machine report has been reviewed.
+
+report: /home/u5757978/ForgedDocDeepID/output/LABPC/trufor_cross_machine_reproducibility/reproducibility_report.txt
+per-image: /home/u5757978/ForgedDocDeepID/output/LABPC/trufor_cross_machine_reproducibility/home_vs_lab_per_image.csv
+grouped: /home/u5757978/ForgedDocDeepID/output/LABPC/trufor_cross_machine_reproducibility/home_vs_lab_grouped.csv
+decision flips: /home/u5757978/ForgedDocDeepID/output/LABPC/trufor_cross_machine_reproducibility/decision_flips.csv

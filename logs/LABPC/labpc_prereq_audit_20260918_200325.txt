@@ -1,0 +1,96 @@
+===== REPO / MACHINE =====
+repo root: /home/u5757978/ForgedDocDeepID
+hostname:  IMTA134
+branch:    main
+HEAD:      74dc59f857a580846ad17421d1503e80c7dfd8c7
+?? audit_labpc_trufor_prereqs.sh
+?? audit_labpc_trufor_prereqs.sh:Zone.Identifier
+?? logs/LABPC/
+
+GPU:
+0, NVIDIA RTX PRO 5000 Blackwell, 48935 MiB, 595.71
+Python: Python 3.11.15
+PyTorch: 2.11.0+cu128
+CUDA available: True
+torch GPU 0: NVIDIA RTX PRO 5000 Blackwell; 47.79 GiB
+
+===== TRUFOR =====
+[OK] external/TruFor
+[OK] external/TruFor/TruFor_train_test
+[OK] external/TruFor/test_docker/src/TruFor_weights.zip
+[OK] external/TruFor/test_docker/src/weights/trufor.pth.tar
+TruFor HEAD: ae54475df6f41a491d7615100feb19263dec13f7
+[OK] TruFor frozen commit
+Tracked TruFor changes:
+weights ZIP MD5: 7bee48f3476c75616c3c5721ab256ff8
+[OK] ZIP MD5
+checkpoint SHA256: ac1d90e329a72e0d66e8665e123a19e94bfae3209c3ef8a4f9ca3b91578c7844
+[OK] checkpoint SHA256
+
+===== FANTASYID / POLICY-C =====
+[OK] data/FantasyID
+[OK] data/processed/policy_c
+[OK] data/processed/policy_c_official_test
+[OK] output/policy_c_cache_index.csv
+[OK] output/fantasyid_official_test_policy_c_index.csv
+[OK] output/fantasyid_inventory_2026-09-05_023126.xlsx
+inventory SHA256: 54fa68d9e3695ffbe200917ad59b47f9c2a855d47d974896f53a5fd171abfe6a
+[OK] inventory SHA256
+raw image files: 3292
+
+project Policy-C:
+  index rows: 1899 (expected 1899)
+  referenced cache files present: 1899/1899
+  referenced cache files missing: 0
+
+official Policy-C:
+  index rows: 1385 (expected 1385)
+  referenced cache files present: 1385/1385
+  referenced cache files missing: 0
+
+===== TRUFOR SCRIPTS =====
+[OK tracked]   scripts/trufor/trufor_common.py
+[OK tracked]   scripts/trufor/01_verify_trufor_policy_c_native.py
+[OK tracked]   scripts/trufor/02_infer_policy_c_native.py
+[OK tracked]   scripts/trufor/03_calibrate_dev_threshold.py
+[OK tracked]   scripts/trufor/04_eval_frozen_threshold.py
+[OK tracked]   scripts/trufor/03_calibrate_dev_threshold_accuracy.py
+[OK tracked]   scripts/trufor/04_eval_frozen_threshold_accuracy.py
+
+===== EXISTING STAGE-2 OUTPUTS =====
+[OK] output/trufor_pretrained_policy_c_native/stage01_provenance.json
+[OK] output/trufor_pretrained_policy_c_native/stage02_inference_provenance.json
+[OK] output/trufor_pretrained_policy_c_native/inference_manifest.csv
+Stage-2 manifest rows: 1844 (expected 1844)
+Stage-2 referenced .npz maps present: 0/1844
+Stage-2 referenced .npz maps missing: 1844
+   output/trufor_pretrained_policy_c_native/maps/dev_val/train/attack/digital_1/huawei/arabic-024_03.jpg.npz
+   output/trufor_pretrained_policy_c_native/maps/dev_val/train/attack/digital_1/iphone15pro/arabic-024_03.jpg.npz
+   output/trufor_pretrained_policy_c_native/maps/dev_val/train/attack/digital_1/scan/arabic-024_03.jpg.npz
+   output/trufor_pretrained_policy_c_native/maps/dev_val/train/attack/digital_2/huawei/arabic-024_03.jpg.npz
+   output/trufor_pretrained_policy_c_native/maps/dev_val/train/attack/digital_2/iphone15pro/arabic-024_03.jpg.npz
+   output/trufor_pretrained_policy_c_native/maps/dev_val/train/attack/digital_2/scan/arabic-024_03.jpg.npz
+   output/trufor_pretrained_policy_c_native/maps/dev_val/train/bonafide/huawei/arabic-024_03.jpg.npz
+   output/trufor_pretrained_policy_c_native/maps/dev_val/train/bonafide/iphone15pro/arabic-024_03.jpg.npz
+   output/trufor_pretrained_policy_c_native/maps/dev_val/train/bonafide/scan/arabic-024_03.jpg.npz
+   output/trufor_pretrained_policy_c_native/maps/dev_val/train/attack/digital_1/huawei/arabic-120_03.jpg.npz
+   ... plus 1834 more
+Stage-2 maps directory absent.
+
+===== LABPC NAMESPACE =====
+[EXISTS] logs/LABPC
+[NOT YET] output/LABPC
+[NOT YET] output/LABPC/trufor_pretrained_policy_c_native
+[NOT YET] output/LABPC/trufor_policy_c_frozen_protocol
+
+===== DISK =====
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sdd       1007G   46G  910G   5% /
+
+===== INTERPRETATION =====
+- Old Stage-2 .npz maps are optional if we choose a fresh LABPC rerun.
+- For a fresh LABPC rerun, TruFor source/weights + FantasyID data + frozen manifests are essential.
+- Complete Policy-C caches let us rerun TruFor immediately; if incomplete, regenerate Policy-C first.
+- This script is read-only except for writing this report.
+
+Report: /home/u5757978/ForgedDocDeepID/logs/LABPC/labpc_prereq_audit_20260918_200325.txt

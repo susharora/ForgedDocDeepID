@@ -1,0 +1,29 @@
+/home/u5757978/miniforge3/envs/idxai/lib/python3.11/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+LABPC STAGE 08 — TRUFOR PROVENANCE + CANONICAL PARITY
+project root: /home/u5757978/ForgedDocDeepID
+output root:  /home/u5757978/ForgedDocDeepID/output/LABPC/trufor_pretrained_policy_c_native
+
+Running unmodified upstream test.py on one frozen Policy-C dev attack...
+command: /home/u5757978/miniforge3/envs/idxai/bin/python test.py -g 0 -in /home/u5757978/ForgedDocDeepID/data/processed/policy_c/train/attack/digital_1/huawei/arabic-024_03.jpg -out /home/u5757978/ForgedDocDeepID/output/LABPC/trufor_pretrained_policy_c_native/stage08_smoke/canonical_upstream.npz -exp trufor_ph3 TEST.MODEL_FILE /home/u5757978/ForgedDocDeepID/external/TruFor/test_docker/src/weights/trufor.pth.tar
+/home/u5757978/ForgedDocDeepID/external/TruFor/TruFor_train_test/test.py:82: UserWarning: Environment variable TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD detected, since the`weights_only` argument was not explicitly passed to `torch.load`, forcing weights_only=False.
+  checkpoint = torch.load(model_state_file, map_location=torch.device(device))
+/home/u5757978/miniforge3/envs/idxai/lib/python3.11/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+=> loading model from /home/u5757978/ForgedDocDeepID/external/TruFor/test_docker/src/weights/trufor.pth.tar
+Epoch: 81
+
+  0%|          | 0/1 [00:00<?, ?it/s]
+100%|██████████| 1/1 [00:03<00:00,  3.92s/it]
+100%|██████████| 1/1 [00:03<00:00,  3.92s/it]
+
+
+PARITY
+  map max abs error:   0
+  conf max abs error:  0
+  score abs error:     0
+  native HxW:          (1971, 3211)
+
+LABPC STAGE 08 PASS
+provenance: /home/u5757978/ForgedDocDeepID/output/LABPC/trufor_pretrained_policy_c_native/stage08_provenance.json
+Proceed to LABPC Stage 09 only after this PASS.

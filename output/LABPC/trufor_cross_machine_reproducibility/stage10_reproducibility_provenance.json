@@ -1,0 +1,28 @@
+{
+  "frozen_threshold": 0.5329559743404388,
+  "lab_clean_correct_attacks": "output/LABPC/trufor_cross_machine_reproducibility/lab_clean_correct_attacks.csv",
+  "lab_clean_correct_attacks_sha256": "e061e70e580f2bf68aff04c900b4c62e4833fc430ea75767f75f82cc969c8c4f",
+  "lab_clean_correct_bonafides": "output/LABPC/trufor_cross_machine_reproducibility/lab_clean_correct_bonafides.csv",
+  "lab_clean_correct_bonafides_sha256": "7c97cfdc8d67473485459af4b6a390b87f9267defc5f5f8c4d4511d0fb6a98ca",
+  "lab_manifest": "output/LABPC/trufor_pretrained_policy_c_native/inference_manifest.csv",
+  "lab_manifest_sha256": "e3dacc130e47fff8757af3af16dd0a9561a5dc4ef33af0ae631d363bb83df69a",
+  "map_mean_abs_diff_max": 1.1861324310302734e-05,
+  "n_decision_flips": 0,
+  "n_images": 1844,
+  "report": "output/LABPC/trufor_cross_machine_reproducibility/reproducibility_report.txt",
+  "run_tag": "LABPC",
+  "scientific_contract": [
+    "No threshold was fit or refit on LABPC.",
+    "The canonical HOME dev-calibrated threshold was applied unchanged.",
+    "Exact Policy-C cache hashes and native geometries were required to match.",
+    "Numerical drift is reported rather than silently normalised away."
+  ],
+  "score_abs_diff_max": 1.1265277862548828e-05,
+  "score_abs_diff_median": 0.0,
+  "score_abs_diff_p95": 2.384185791015625e-07,
+  "stage": "10_labpc_cross_machine_reproducibility",
+  "status": "PASS_INTEGRITY_REVIEW_NUMERICS",
+  "threshold_json": "output/trufor_policy_c_frozen_protocol/stage03_dev_calibration_accuracy/frozen_threshold.json",
+  "threshold_json_sha256": "44aad4b18dad629e5f60fdd12a1b46c9b5c5f4493162a8638540b38d5f4f9ee6",
+  "threshold_origin_home_manifest_sha256": "d324260d2b864aa7f0f7726da87d509f5859dc2669f6a908d84c4c49bfed2f00"
+}

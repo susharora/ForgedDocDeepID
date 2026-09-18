@@ -1,0 +1,6 @@
+eval_split_home,variant_home,n,home_clean_correct,lab_clean_correct,decision_flips
+dev_val,digital_1,153,153,153,0
+dev_val,digital_2,153,135,135,0
+official_test,digital_3,786,786,786,0
+official_test,facedancer,150,107,107,0
+official_test,textdiffuserft_bfei,149,149,149,0
