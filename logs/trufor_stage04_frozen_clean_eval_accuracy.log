@@ -1,0 +1,113 @@
+/home/sush/miniforge3/envs/idxai/lib/python3.11/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+TRUFOR STAGE 4 — ACCURACY-CALIBRATED CLEAN EVALUATION
+frozen threshold: 0.532955974
+calibration objective: maximize pooled ordinary image-level accuracy on dev_val
+output root: /home/sush/ForgedDocDeepID/output/trufor_policy_c_frozen_protocol/stage04_clean_evaluation_accuracy
+base evaluator: scripts/trufor/04_eval_frozen_threshold.py
+
+TRUFOR STAGE 4 — FROZEN-THRESHOLD CLEAN EVALUATION
+weights: pretrained / unchanged
+condition: policy_c_native
+operational threshold frozen on dev: 0.532955974
+official test is evaluation-only in this stage
+attack localisation 100/1391 | visuals=100
+attack localisation 200/1391 | visuals=200
+attack localisation 300/1391 | visuals=300
+attack localisation 400/1391 | visuals=400
+attack localisation 500/1391 | visuals=500
+attack localisation 600/1391 | visuals=600
+attack localisation 700/1391 | visuals=700
+attack localisation 800/1391 | visuals=800
+attack localisation 900/1391 | visuals=900
+attack localisation 1000/1391 | visuals=1000
+attack localisation 1100/1391 | visuals=1100
+attack localisation 1200/1391 | visuals=1200
+attack localisation 1300/1391 | visuals=1300
+attack localisation 1391/1391 | visuals=1391
+bona-fide confidence rerun device: cuda:0
+gpu: NVIDIA GeForce RTX 5090
+bona-fide confidence/visuals 25/453
+bona-fide confidence/visuals 50/453
+bona-fide confidence/visuals 75/453
+bona-fide confidence/visuals 100/453
+bona-fide confidence/visuals 125/453
+bona-fide confidence/visuals 150/453
+bona-fide confidence/visuals 175/453
+bona-fide confidence/visuals 200/453
+bona-fide confidence/visuals 225/453
+bona-fide confidence/visuals 250/453
+bona-fide confidence/visuals 275/453
+bona-fide confidence/visuals 300/453
+bona-fide confidence/visuals 325/453
+bona-fide confidence/visuals 350/453
+bona-fide confidence/visuals 375/453
+bona-fide confidence/visuals 400/453
+bona-fide confidence/visuals 425/453
+bona-fide confidence/visuals 450/453
+bona-fide confidence/visuals 453/453
+
+PRETRAINED TRUFOR — FROZEN POLICY-C PROTOCOL
+
+Weights: unchanged pretrained TruFor
+Input: frozen Policy C -> canonical native-resolution TruFor
+Checkpoint SHA256: ac1d90e329a72e0d66e8665e123a19e94bfae3209c3ef8a4f9ca3b91578c7844
+Frozen dev threshold: 0.532955974
+Decision rule: attack iff score >= frozen threshold
+
+DETECTION AT FROZEN THRESHOLD
+   eval_split                group_type               group    n  n_attack  n_bonafide  auroc  balanced_accuracy  attack_recall  bonafide_specificity  mean_attack_score  mean_bonafide_score
+      dev_val                   overall                 all  459       306         153 0.8428             0.7092         0.9412                0.4771             0.7780               0.5409
+      dev_val attack_family_vs_bonafide           digital_1  306       153         153 0.9862             0.7386         1.0000                0.4771             0.9181               0.5409
+      dev_val attack_family_vs_bonafide           digital_2  306       153         153 0.6994             0.6797         0.8824                0.4771             0.6379               0.5409
+official_test                   overall                 all 1385      1085         300 0.9439             0.6985         0.9604                0.4367             0.9240               0.5465
+official_test attack_family_vs_bonafide           digital_3 1086       786         300 0.9990             0.7183         1.0000                0.4367             0.9786               0.5465
+official_test attack_family_vs_bonafide          facedancer  450       150         300 0.6013             0.5750         0.7133                0.4367             0.5845               0.5465
+official_test attack_family_vs_bonafide textdiffuserft_bfei  449       149         300 0.9987             0.7183         1.0000                0.4367             0.9774               0.5465
+
+CLEAN-CORRECT ATTACK POPULATIONS (future localisation attack eligibility)
+   eval_split             variant  n_total  n_clean_correct  n_stems  n_clean_correct_stems  clean_correct_rate
+      dev_val           digital_1      153              153       51                     51              1.0000
+      dev_val           digital_2      153              135       51                     51              0.8824
+official_test           digital_3      786              786      262                    262              1.0000
+official_test          facedancer      150              107       89                     74              0.7133
+official_test textdiffuserft_bfei      149              149       88                     88              1.0000
+
+CLEAN-CORRECT BONA-FIDE POPULATIONS
+   eval_split  n_total  n_clean_correct  n_stems  n_clean_correct_stems  clean_correct_rate
+      dev_val      153               73       51                     43              0.4771
+official_test      300              131      100                     86              0.4367
+
+NATIVE LOCALISATION (union rectangles)
+   eval_split             variant            population  n_images  n_stems  mean_A  mean_E  mean_mu_w  mean_PG  mean_E_ci_low  mean_E_ci_high  mean_mu_w_ci_low  mean_mu_w_ci_high  mean_PG_ci_low  mean_PG_ci_high
+      dev_val           digital_1           all_attacks       153       51  0.1569  0.5552     3.9049   1.0000         0.5328          0.5779            3.5556             4.2498          1.0000           1.0000
+      dev_val           digital_1 clean_correct_attacks       153       51  0.1569  0.5552     3.9049   1.0000         0.5330          0.5770            3.5534             4.2473          1.0000           1.0000
+      dev_val           digital_2           all_attacks       153       51  0.0909  0.1878     2.0760   0.4902         0.1679          0.2088            1.9354             2.2222          0.4248           0.5556
+      dev_val           digital_2 clean_correct_attacks       135       51  0.0926  0.1924     2.0906   0.5037         0.1701          0.2156            1.9317             2.2614          0.4317           0.5758
+official_test           digital_3           all_attacks       786      262  0.0287  0.6420    23.2634   0.9911         0.6272          0.6568           22.5138            24.0226          0.9835           0.9975
+official_test           digital_3 clean_correct_attacks       786      262  0.0287  0.6420    23.2634   0.9911         0.6271          0.6569           22.5210            24.0142          0.9847           0.9975
+official_test          facedancer           all_attacks       150       89  0.0644  0.1081     1.7709   0.4267         0.1009          0.1154            1.6612             1.8894          0.3490           0.5065
+official_test          facedancer clean_correct_attacks       107       74  0.0690  0.1119     1.6998   0.4019         0.1038          0.1201            1.5735             1.8323          0.3084           0.4953
+official_test textdiffuserft_bfei           all_attacks       149       88  0.0416  0.7032    17.1302   1.0000         0.6644          0.7411           16.1254            18.0855          1.0000           1.0000
+official_test textdiffuserft_bfei clean_correct_attacks       149       88  0.0416  0.7032    17.1302   1.0000         0.6639          0.7410           16.1372            18.1204          1.0000           1.0000
+
+LOCALISATION DEFINITIONS
+  A    = altered GT union area / native image area
+  E    = anomaly-map mass inside altered union / total anomaly-map mass
+  mu_w = E/A; 1.0 means spatially uniform anomaly mass
+  PG   = native anomaly-map maximum inside altered union
+  CIs  = 95% stem-cluster bootstrap intervals
+  Bona-fides have anomaly/confidence maps but no A/E/mu_w/PG because there is no forged GT.
+
+clipped altered rectangles: 108
+attack visual pairs rendered: 1391
+bona-fide visual sets rendered: 453
+bona-fide rerun max map abs error: 0
+bona-fide rerun max score abs error: 0
+
+STOP HERE before adversarial attacks.
+Review the frozen threshold, clean-correct population sizes, localisation baselines,
+and bona-fide anomaly/confidence reviewer sheets before defining the attack population.
+
+STAGE 4 PASS
+report: /home/sush/ForgedDocDeepID/output/trufor_policy_c_frozen_protocol/stage04_clean_evaluation_accuracy/clean_protocol_report.txt

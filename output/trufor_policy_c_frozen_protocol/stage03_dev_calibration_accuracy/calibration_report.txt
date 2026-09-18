@@ -1,15 +1,3 @@
-TRUFOR STAGE 3A — DEV THRESHOLD CALIBRATION BY ORDINARY ACCURACY
-model weights: unchanged
-condition: policy_c_native
-selection data: dev_val ONLY (459 images / 51 stems)
-objective: maximum pooled IMAGE-LEVEL ACCURACY
-tie-break: nearest to upstream 0.5, then lower threshold
-upstream threshold: 0.500000000
-frozen candidate:   0.532955974
-dev AUROC:          0.842838
-dev @0.5:        acc=0.7495 bACC=0.6454 recall=0.9575 specificity=0.3333 d1=1.0000 d2=0.9150 correct=344/459
-dev @calibrated: acc=0.7865 bACC=0.7092 recall=0.9412 specificity=0.4771 d1=1.0000 d2=0.8824 correct=361/459
-
 TRUFOR DEV THRESHOLD FREEZE — ORDINARY ACCURACY
 
 Pretrained TruFor weights: unchanged
@@ -36,9 +24,3 @@ SCIENTIFIC GATE
 Inspect the selected threshold, bootstrap stability, overall attack recall,
 d1/d2 recall, bona-fide specificity, and hardware diagnostics BEFORE Stage 4.
 Do not run Stage 4 if calibration achieves accuracy by an unacceptable family collapse.
-
-STAGE 3A PASS — ACCURACY THRESHOLD WRITTEN
-threshold:   /home/sush/ForgedDocDeepID/output/trufor_policy_c_frozen_protocol/stage03_dev_calibration_accuracy/frozen_threshold.json
-diagnostics: /home/sush/ForgedDocDeepID/output/trufor_policy_c_frozen_protocol/stage03_dev_calibration_accuracy/dev_detection_diagnostics.csv
-report:      /home/sush/ForgedDocDeepID/output/trufor_policy_c_frozen_protocol/stage03_dev_calibration_accuracy/calibration_report.txt
-STOP HERE FOR SCIENTIFIC REVIEW BEFORE STAGE 4.

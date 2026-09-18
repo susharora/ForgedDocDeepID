@@ -1,0 +1,6 @@
+eval_split,variant,n_total,n_clean_correct,n_stems,n_clean_correct_stems,clean_correct_rate
+dev_val,digital_1,153,153,51,51,1.0
+dev_val,digital_2,153,135,51,51,0.8823529411764706
+official_test,digital_3,786,786,262,262,1.0
+official_test,facedancer,150,107,89,74,0.7133333333333334
+official_test,textdiffuserft_bfei,149,149,88,88,1.0

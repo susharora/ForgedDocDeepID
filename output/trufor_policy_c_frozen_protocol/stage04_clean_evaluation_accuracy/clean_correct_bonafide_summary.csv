@@ -1,0 +1,3 @@
+eval_split,n_total,n_clean_correct,n_stems,n_clean_correct_stems,clean_correct_rate
+dev_val,153,73,51,43,0.477124183006536
+official_test,300,131,100,86,0.43666666666666665
