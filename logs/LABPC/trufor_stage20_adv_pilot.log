@@ -1,0 +1,78 @@
+/home/u5757978/miniforge3/envs/idxai/lib/python3.11/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+TRUFOR STAGE 20 — SIX-IMAGE MULTI-STEP ADVERSARIAL PILOT
+run tag:       LABPC
+device:        cuda:0
+GPU:           NVIDIA RTX PRO 5000 Blackwell
+protocol SHA:  9fcca6cf6c22a88bd1a95242770062a2605219fc6adf928f8e55a7320853dc4e
+threshold:     0.532955974340439
+backend:       frozen/default allocator contract PASS
+
+CPU-first dual-model load PASS
+{
+  "attack_model_parameter_device": "cuda:0",
+  "checkpoint_epoch": 81,
+  "checkpoint_tensor_device": "cpu",
+  "reference_model_parameter_device": "cuda:0",
+  "strict_attack_missing": 0,
+  "strict_attack_unexpected": 0,
+  "strict_reference_missing": 0,
+  "strict_reference_unexpected": 0
+}
+Memory route:
+{
+  "attention_modules": 32,
+  "dncnn_segments": 4,
+  "inplace_activations_disabled": 38,
+  "max_score_elems": 300000000,
+  "mlp_modules": 32
+}
+model load/patch wall time: 7.4s
+
+[1/6] textdiffuserft_bfei | 3248x2088 | clean score=0.976692 | test/attack/textdiffuserft_bfei/huawei/chinese2-flickr_M_33552319041_2631ab0a0c_c.jpg
+Traceback (most recent call last):
+  File "/home/u5757978/ForgedDocDeepID/scripts/trufor/20_run_trufor_adversarial_pilot.py", line 147, in <module>
+    main()
+  File "/home/u5757978/ForgedDocDeepID/scripts/trufor/20_run_trufor_adversarial_pilot.py", line 104, in main
+    state = run_one_pilot_image(
+            ^^^^^^^^^^^^^^^^^^^^
+  File "/home/u5757978/ForgedDocDeepID/scripts/trufor/trufor_adversarial_attack_common.py", line 1242, in run_one_pilot_image
+    grad_state = gradient_step(
+                 ^^^^^^^^^^^^^^
+  File "/home/u5757978/ForgedDocDeepID/scripts/trufor/trufor_adversarial_attack_common.py", line 827, in gradient_step
+    out, conf, det = memory_efficient_differentiable_forward(attack_model, x)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/u5757978/ForgedDocDeepID/scripts/trufor/trufor_adversarial_attack_common.py", line 759, in memory_efficient_differentiable_forward
+    features = model.backbone(rgb_branch, modal_x)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/u5757978/miniforge3/envs/idxai/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/u5757978/miniforge3/envs/idxai/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/u5757978/ForgedDocDeepID/external/TruFor/TruFor_train_test/lib/models/cmx/encoders/dual_segformer.py", line 449, in forward
+    out = self.forward_features(x_rgb, x_e)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/u5757978/ForgedDocDeepID/external/TruFor/TruFor_train_test/lib/models/cmx/encoders/dual_segformer.py", line 417, in forward_features
+    x_rgb = blk(x_rgb, H, W)
+            ^^^^^^^^^^^^^^^^
+  File "/home/u5757978/miniforge3/envs/idxai/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/u5757978/miniforge3/envs/idxai/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/u5757978/ForgedDocDeepID/external/TruFor/TruFor_train_test/lib/models/cmx/encoders/dual_segformer.py", line 175, in forward
+    x = x + self.drop_path(self.attn(self.norm1(x), H, W))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/u5757978/miniforge3/envs/idxai/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1779, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/u5757978/miniforge3/envs/idxai/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1790, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/u5757978/ForgedDocDeepID/scripts/trufor/trufor_adversarial_attack_common.py", line 659, in chunked_forward
+    attn = (q_chunk @ kt) * self.scale
+           ~~~~~~~~~~~~~~~^~~~~~~~~~~~
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 1.12 GiB. GPU 0 has a total capacity of 47.79 GiB of which 0 bytes is free. Of the allocated memory 145.94 GiB is allocated by PyTorch, and 1.08 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)

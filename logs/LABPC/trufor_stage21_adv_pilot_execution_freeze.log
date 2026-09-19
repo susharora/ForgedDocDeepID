@@ -1,0 +1,13 @@
+TRUFOR STAGE 21 — SIX-IMAGE PILOT EXECUTION FREEZE
+run tag:              LABPC
+scientific protocol:  5840aa9bee076b493c6a645e140edaad892373433c7e919e95ed4e60e44158d5
+memory gate SHA256:   80ef393bae9334fb12fde0eee06597b9c37ff52bda96ab968c4a76bc8ee84030
+execution freeze:     /home/u5757978/ForgedDocDeepID/output/LABPC/trufor_adversarial_localisation_attack/pilot_execution_freeze.json
+execution freeze SHA: 3978b75cc3d525d6c77b4bae284546494f5dd0fa930dbf202f2115101c65354a
+
+memory gate prerequisite: PASS
+execution file hashes frozen: PASS
+scientific protocol changed: NO
+
+STAGE 21 PASS
+Next: Stage 22 six-image x 10-step pilot.

@@ -1,0 +1,48 @@
+/home/u5757978/miniforge3/envs/idxai/lib/python3.11/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+TRUFOR STAGE 20 — CORRECTED LARGEST-IMAGE ONE-STEP MEMORY GATE
+run tag:       LABPC
+device:        cuda:0
+GPU:           NVIDIA RTX PRO 5000 Blackwell
+protocol SHA:  5840aa9bee076b493c6a645e140edaad892373433c7e919e95ed4e60e44158d5
+threshold:     0.532955974340439
+MAX_SCORE_ELEMS: 300,000,000
+scope:         ONE image, ONE gradient step, then STOP
+
+CPU-first dual-model load PASS
+{
+  "attack_model_parameter_device": "cuda:0",
+  "checkpoint_epoch": 81,
+  "checkpoint_tensor_device": "cpu",
+  "reference_model_parameter_device": "cuda:0",
+  "strict_attack_missing": 0,
+  "strict_attack_unexpected": 0,
+  "strict_reference_missing": 0,
+  "strict_reference_unexpected": 0
+}
+Corrected memory route:
+{
+  "attention_chunk_activation_checkpointing": true,
+  "attention_chunk_checkpoint_use_reentrant": false,
+  "attention_modules": 32,
+  "dncnn_segments": 4,
+  "inplace_activations_disabled": 38,
+  "max_score_elems": 300000000,
+  "mlp_modules": 32
+}
+model load/patch wall time: 6.9s
+
+clean reference PASS | score=0.976691961 | E=0.755467735
+differentiable forward/backward PASS
+chunk regression PASS | total=148 | split=32/32 | max=10
+gradient timing | forward=2.6s | backward=58.4s
+memory peak | allocated=46.72 GiB | reserved=66.17 GiB
+one projected step PASS | Linf=0.000980392215 | E=0.755468->0.052624 | score=0.976692->0.850684
+Stage-18 rounded regression PASS | |ΔE_ref|=1.69e-07 | |Δscore_ref|=3.11e-07
+
+STAGE 20 PASS — CORRECTED MEMORY ROUTE VALIDATED ON 6.782 MP IMAGE
+result: /home/u5757978/ForgedDocDeepID/output/LABPC/trufor_adversarial_localisation_attack/memory_gate/stage20_memory_gate_result.json
+result SHA256: 80ef393bae9334fb12fde0eee06597b9c37ff52bda96ab968c4a76bc8ee84030
+
+STOP HERE.
+Do NOT run Stage 21 or the six-image 10-step pilot yet. Paste this Stage-20 log/result for review.

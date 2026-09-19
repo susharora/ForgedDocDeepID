@@ -1,0 +1,147 @@
+{
+  "attack_protocol_config": "output/LABPC/trufor_adversarial_localisation_attack/attack_protocol_config.json",
+  "attack_protocol_config_sha256": "5840aa9bee076b493c6a645e140edaad892373433c7e919e95ed4e60e44158d5",
+  "attention_chunk_checkpoint_equivalence_self_test": {
+    "chunk_rows": 11,
+    "k_grad_max_abs_error": 4.76837158203125e-07,
+    "output_max_abs_error": 0.0,
+    "q_grad_max_abs_error": 0.0,
+    "status": "PASS",
+    "use_reentrant": false,
+    "v_grad_max_abs_error": 1.9073486328125e-06
+  },
+  "clean_correct_attacks": "output/trufor_policy_c_frozen_protocol/stage04_clean_evaluation_accuracy/clean_correct_attacks.csv",
+  "clean_correct_attacks_sha256": "7e2a5a7566c0f6f3b8fc00821ada004161c17b352d225d5e8a3355f5bec3415f",
+  "frozen_threshold": 0.5329559743404388,
+  "frozen_threshold_payload": {
+    "bootstrap": {
+      "cluster": "file_stem",
+      "fixed_threshold_accuracy_ci_high": 0.8104575163398693,
+      "fixed_threshold_accuracy_ci_low": 0.7625272331154684,
+      "fixed_threshold_accuracy_median": 0.7864923747276689,
+      "fixed_threshold_attack_recall_ci_high": 0.9673202614379085,
+      "fixed_threshold_attack_recall_ci_low": 0.9117647058823529,
+      "fixed_threshold_attack_recall_median": 0.9411764705882353,
+      "fixed_threshold_bacc_ci_high": 0.7434640522875817,
+      "fixed_threshold_bacc_ci_low": 0.6748366013071896,
+      "fixed_threshold_bacc_median": 0.7091503267973857,
+      "fixed_threshold_bonafide_specificity_ci_high": 0.5491830065359454,
+      "fixed_threshold_bonafide_specificity_ci_low": 0.39869281045751637,
+      "fixed_threshold_bonafide_specificity_median": 0.477124183006536,
+      "replicates": 5000,
+      "seed": 1701,
+      "selected_threshold_ci_high": 0.5505045056343079,
+      "selected_threshold_ci_low": 0.5289566218852997,
+      "selected_threshold_median": 0.5354447960853577
+    },
+    "calibration_n_attack": 306,
+    "calibration_n_bonafide": 153,
+    "calibration_n_images": 459,
+    "calibration_n_stems": 51,
+    "calibration_script_sha256": "e74d7d4808bc2b7fcecef2ee895a45cbb276c0fde188d9c5eb2623e3ff829a45",
+    "calibration_split": "dev_val",
+    "checkpoint_sha256": "ac1d90e329a72e0d66e8665e123a19e94bfae3209c3ef8a4f9ca3b91578c7844",
+    "condition": "policy_c_native",
+    "decision_rule": "attack iff trufor_score >= threshold",
+    "dev_at_frozen_threshold": {
+      "accuracy": 0.7864923747276689,
+      "attack_recall": 0.9411764705882353,
+      "balanced_accuracy": 0.7091503267973857,
+      "bonafide_specificity": 0.477124183006536,
+      "fn": 18,
+      "fp": 80,
+      "n": 459,
+      "n_correct": 361,
+      "threshold": 0.5329559743404388,
+      "tn": 73,
+      "tp": 288
+    },
+    "dev_at_upstream_0p5": {
+      "accuracy": 0.7494553376906318,
+      "attack_recall": 0.9575163398692811,
+      "balanced_accuracy": 0.6454248366013072,
+      "bonafide_specificity": 0.3333333333333333,
+      "fn": 13,
+      "fp": 102,
+      "n": 459,
+      "n_correct": 344,
+      "threshold": 0.5,
+      "tn": 51,
+      "tp": 293
+    },
+    "dev_attack_family_recall": {
+      "frozen_threshold": {
+        "digital_1": 1.0,
+        "digital_2": 0.8823529411764706
+      },
+      "upstream_0p5": {
+        "digital_1": 1.0,
+        "digital_2": 0.9150326797385621
+      }
+    },
+    "dev_auroc": 0.8428382246144646,
+    "discarded_previous_balanced_accuracy_calibration": {
+      "path": "output/trufor_policy_c_frozen_protocol/stage03_dev_calibration/frozen_threshold.json",
+      "reason": "balanced-accuracy objective gave equal total class weight and sacrificed too many attacks",
+      "sha256": "688bd0db6311e61644203bb1cbb95250649765018551d9cbe704eb4b1b1ce155",
+      "status": "scientifically_discarded_before_final_test_protocol"
+    },
+    "frozen_threshold": 0.5329559743404388,
+    "project_git_head": "e7bd2e8f3e0c3699d7131de50f656f95549ea1a7",
+    "scientific_contract": [
+      "No TruFor weights were adapted to FantasyID.",
+      "No official-test score was used to choose the threshold.",
+      "Exactly one global threshold is frozen for all families and hardware.",
+      "Every dev image has equal weight in the calibration objective.",
+      "Bootstrap is diagnostic and does not alter the frozen point estimate.",
+      "The earlier balanced-accuracy calibration is preserved only as discarded provenance."
+    ],
+    "selection_objective": "maximize pooled ordinary image-level accuracy on dev_val",
+    "stage": "03_calibrate_dev_threshold_accuracy",
+    "stage2_manifest": "output/trufor_pretrained_policy_c_native/inference_manifest.csv",
+    "stage2_manifest_sha256": "d324260d2b864aa7f0f7726da87d509f5859dc2669f6a908d84c4c49bfed2f00",
+    "status": "FROZEN",
+    "threshold_candidate_rule": "midpoints between adjacent distinct dev scores plus endpoint partitions",
+    "tie_break": "nearest to 0.5; residual tie -> lower threshold",
+    "upstream_reference_threshold": 0.5
+  },
+  "implementation_sha256": {
+    "19_freeze_trufor_adversarial_protocol.py": "cf410c3f1ac020ca7df2602dd5fce240387a52356a201a24dceb322457590758",
+    "20_run_trufor_adversarial_pilot.py": "4f3db7b296d76098af1e43add9926a68fd48ad3ba98064ef5d57670b442646ce",
+    "trufor_adversarial_attack_common.py": "b941e248c365bb7de0de43a7fa75a6c4d2c3c01c11b7ad465e12485eeb008c76"
+  },
+  "localisation_per_image": "output/trufor_policy_c_frozen_protocol/stage04_clean_evaluation_accuracy/localisation_per_image.csv",
+  "localisation_per_image_sha256": "b062c44b87c49da1c0e2911f738b6f384428d1c71481d339ae73f8bb2064d484",
+  "n_pilot_images": 6,
+  "pilot_selection": "output/LABPC/trufor_adversarial_localisation_attack/pilot_selection.csv",
+  "pilot_selection_sha256": "501d0aca7bfc0675ad9b83fc37f3f5b862cc0014f52cd64f9e1ebc7283c9d6ea",
+  "project_root": "/home/u5757978/ForgedDocDeepID",
+  "run_tag": "LABPC",
+  "scientific_note": "Hyperparameters and acceptance rule are frozen before the six-image multi-step pilot. Pilot effect size is not a pass criterion.",
+  "stage": "19_freeze_trufor_adversarial_protocol",
+  "stage4_provenance": "output/trufor_policy_c_frozen_protocol/stage04_clean_evaluation_accuracy/stage04_provenance.json",
+  "stage4_provenance_sha256": "4b9d0f1514345d4a2346601c5c6cb727dc4c6b64d64ef1036ac86225cca3df14",
+  "status": "FROZEN",
+  "trufor_provenance": {
+    "archive_member": null,
+    "archive_member_sha256": null,
+    "canonical_source_sha256": {
+      "dataset/dataset_test.py": "53de9aeb6a13727ada9b9d43cf7a0d85595e655951f48445ffa54802d875f72a",
+      "lib/config/trufor_ph3.yaml": "a87108eb0df40d9bab6a303eb91419564b7c106d5105bbd5d8ecaec1567b5b8b",
+      "lib/models/cmx/builder_np_conf.py": "b31b02a96417b424228f0301ac653a44d257e522c3ddede414d3c95209d80ded",
+      "test.py": "403c554f96fe7923572543cc62cf9d50792fe1ef57e2b6eb8418baaa8577b18e"
+    },
+    "checkpoint": "/home/u5757978/ForgedDocDeepID/external/TruFor/test_docker/src/weights/trufor.pth.tar",
+    "checkpoint_sha256": "ac1d90e329a72e0d66e8665e123a19e94bfae3209c3ef8a4f9ca3b91578c7844",
+    "nuisance_condition": "Policy-C only: Q75 4:2:0 -> matched deterministic Q50-90 4:2:0",
+    "official_archive": "/home/u5757978/ForgedDocDeepID/external/TruFor/test_docker/src/TruFor_weights.zip",
+    "official_archive_md5": "7bee48f3476c75616c3c5721ab256ff8",
+    "preprocessing": "native RGB HxW -> float32 / 256.0",
+    "project_git_head": "e269b7fb460362341ad1c13d435150ae4ccbe0cc",
+    "status": "PASS",
+    "tracked_upstream_status": "",
+    "trufor_code": "/home/u5757978/ForgedDocDeepID/external/TruFor/TruFor_train_test",
+    "trufor_commit": "ae54475df6f41a491d7615100feb19263dec13f7",
+    "trufor_repo": "/home/u5757978/ForgedDocDeepID/external/TruFor"
+  }
+}

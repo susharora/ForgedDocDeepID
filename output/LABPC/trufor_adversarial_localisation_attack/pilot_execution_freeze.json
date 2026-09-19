@@ -1,0 +1,36 @@
+{
+  "alpha_physical_rgb01": 0.000980392156862745,
+  "attack_steps_per_image": 10,
+  "bisection_steps": 8,
+  "classification_threshold": 0.5329559743404388,
+  "engineering_revision": "v2_attention_chunk_activation_checkpoint",
+  "epsilon_physical_rgb01": 0.00392156862745098,
+  "execution_file_sha256": {
+    "21_freeze_trufor_adversarial_pilot_execution.py": "0e0d9634151f67836c4db9c6325f2b7f68a5770f64055617e2b799ab3142b79d",
+    "22_run_trufor_adversarial_pilot.py": "4bb0e85f22d8a154ff450ab32f183863c245b0d4e3b03238580fd6deecadf1b1",
+    "23_validate_trufor_adversarial_pilot.py": "2a48d52247183516f7ca4abfcb7b6375c2d4e906dd7efe805b02fbaae7886c72",
+    "trufor_adversarial_attack_common.py": "b941e248c365bb7de0de43a7fa75a6c4d2c3c01c11b7ad465e12485eeb008c76"
+  },
+  "memory_gate_chunk_regression": {
+    "attention_modules_observed": 32,
+    "max_chunks_one_attention": 10,
+    "split_attention_modules": 32,
+    "total_query_chunks": 148
+  },
+  "memory_gate_result": "output/LABPC/trufor_adversarial_localisation_attack/memory_gate/stage20_memory_gate_result.json",
+  "memory_gate_result_sha256": "80ef393bae9334fb12fde0eee06597b9c37ff52bda96ab968c4a76bc8ee84030",
+  "n_pilot_images": 6,
+  "objective": "minimise altered-union anomaly-map mass E",
+  "pilot_selection_sha256": "501d0aca7bfc0675ad9b83fc37f3f5b862cc0014f52cd64f9e1ebc7283c9d6ea",
+  "protocol_config": "output/LABPC/trufor_adversarial_localisation_attack/attack_protocol_config.json",
+  "protocol_config_sha256": "5840aa9bee076b493c6a645e140edaad892373433c7e919e95ed4e60e44158d5",
+  "protocol_sha256": "5840aa9bee076b493c6a645e140edaad892373433c7e919e95ed4e60e44158d5",
+  "resume_policy": "one image atomic; hash-valid COMPLETE images skipped; incomplete image restarted from clean",
+  "run_tag": "LABPC",
+  "scientific_note": "The six-image multi-step execution implementation is frozen before observing any corrected-route multi-step pilot result.",
+  "scientific_protocol_changed": false,
+  "stage": "21_freeze_trufor_adversarial_pilot_execution",
+  "stage19_provenance": "output/LABPC/trufor_adversarial_localisation_attack/stage19_protocol_provenance.json",
+  "stage19_provenance_sha256": "9cb68fcf9681b22926e4b7ce9db379a3d1c33ffce0f2f863c3ecd6b7bf1d3aa0",
+  "status": "FROZEN"
+}

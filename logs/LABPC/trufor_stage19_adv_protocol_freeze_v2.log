@@ -1,0 +1,17 @@
+TRUFOR STAGE 19 — ADVERSARIAL LOCALISATION PROTOCOL FREEZE
+run tag: LABPC
+threshold: 0.532955974340439
+protocol SHA256: 5840aa9bee076b493c6a645e140edaad892373433c7e919e95ed4e60e44158d5
+selection SHA256: 501d0aca7bfc0675ad9b83fc37f3f5b862cc0014f52cd64f9e1ebc7283c9d6ea
+
+ pilot_order                               pilot_role             variant  native_width  native_height  clean_score_stage4  E_union_stage4
+           1 largest_textdiffuser_and_largest_overall textdiffuserft_bfei          3248           2088            0.976692        0.755468
+           2                       largest_facedancer          facedancer          3253           2073            0.759986        0.077290
+           3          large_near_threshold_facedancer          facedancer          3229           2055            0.566475        0.084343
+           4                        largest_digital_3           digital_3          3235           2013            0.996051        0.583072
+           5                        largest_digital_1           digital_1          3242           2002            0.645807        0.219569
+           6        largest_digital_2_same_stem_as_d1           digital_2          3242           2002            0.664725        0.067161
+
+attention chunk checkpoint self-test: PASS
+STAGE 19 PASS — scientific protocol unchanged; corrected implementation frozen.
+Next: Stage 20 largest-image ONE-STEP memory gate only. Do not launch the six-image pilot yet.

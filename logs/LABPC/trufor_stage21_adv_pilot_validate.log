@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "/home/u5757978/ForgedDocDeepID/scripts/trufor/21_validate_trufor_adversarial_pilot.py", line 284, in <module>
+    main()
+  File "/home/u5757978/ForgedDocDeepID/scripts/trufor/21_validate_trufor_adversarial_pilot.py", line 59, in main
+    result, trace, image_dir = load_completed_result(
+                               ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/u5757978/ForgedDocDeepID/scripts/trufor/trufor_adversarial_attack_common.py", line 1541, in load_completed_result
+    raise RuntimeError(
+RuntimeError: Pilot image is not hash-valid COMPLETE: test/attack/textdiffuserft_bfei/huawei/chinese2-flickr_M_33552319041_2631ab0a0c_c.jpg
