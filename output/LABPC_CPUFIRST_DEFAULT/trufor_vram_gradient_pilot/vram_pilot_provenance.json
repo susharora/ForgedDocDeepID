@@ -1,0 +1,27 @@
+{
+  "alpha_physical_rgb01": 0.000980392156862745,
+  "environment": {
+    "checkpoint_sha256": "ac1d90e329a72e0d66e8665e123a19e94bfae3209c3ef8a4f9ca3b91578c7844",
+    "cuda_device": "cuda:0",
+    "gpu_name": "NVIDIA RTX PRO 5000 Blackwell",
+    "gpu_total_memory_gib": 47.78765869140625,
+    "hostname": "IMTA134",
+    "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+    "project_git_head": "de78c4545aa5521cfe6452ab585227add2ebc75d",
+    "python": "3.11.15",
+    "torch": "2.11.0+cu128",
+    "torch_cuda_version": "12.8"
+  },
+  "epsilon_physical_rgb01": 0.00392156862745098,
+  "frozen_threshold": 0.5329559743404388,
+  "n_attempted": 1,
+  "n_oom": 1,
+  "n_pass": 0,
+  "n_requested": 6,
+  "results": "output/LABPC_CPUFIRST_DEFAULT/trufor_vram_gradient_pilot/vram_pilot_results.csv",
+  "results_sha256": "c01162953b513906f43306466123bdbe189011eab21b6f0e4d83b85762b5f94f",
+  "run_tag": "LABPC_CPUFIRST_DEFAULT",
+  "scientific_note": "This stage tests native-resolution input-gradient/VRAM feasibility only. It does not constitute the final multi-step adversarial attack.",
+  "stage": "13_run_labpc_vram_pilot",
+  "status": "PASS"
+}

@@ -1,0 +1,38 @@
+/home/u5757978/miniforge3/envs/idxai/lib/python3.11/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+LABPC STAGE 13 — ONE-BACKWARD-PASS VRAM/GRADIENT PILOT
+run tag: LABPC_CPUFIRST_DEFAULT
+device: cuda:0
+gpu: NVIDIA RTX PRO 5000 Blackwell
+total VRAM: 47.79 GiB
+frozen threshold: 0.532955974
+epsilon physical: 0.003921569 (=1/255)
+alpha physical:   0.000980392 (=0.25/255)
+No resize/crop/re-JPEG. One backward pass + one projected step per image.
+
+[1/6] textdiffuserft_bfei | 3248x2088 | score=0.976692 | test/attack/textdiffuserft_bfei/huawei/chinese2-flickr_M_33552319041_2631ab0a0c_c.jpg
+  OOM during gradient_forward
+  CUDA out of memory. Tried to allocate 5.18 GiB. GPU 0 has a total capacity of 47.79 GiB of which 0 bytes is free. Including non-PyTorch memory, this process has 17179869184.00 GiB memory in use. Of the allocated memory 140.55 GiB is allocated by PyTorch, and 3.96 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://docs.pytorch.org/docs/stable/notes/cuda.html#optimizing-memory-usage-with-pytorch-cuda-alloc-conf)
+  --stop-on-oom requested; stopping after first OOM.
+
+STAGE 13 COMPLETE
+results: /home/u5757978/ForgedDocDeepID/output/LABPC_CPUFIRST_DEFAULT/trufor_vram_gradient_pilot/vram_pilot_results.csv
+summary: /home/u5757978/ForgedDocDeepID/output/LABPC_CPUFIRST_DEFAULT/trufor_vram_gradient_pilot/vram_pilot_summary.txt
+attempted=1 PASS=0 OOM=1
+
+TRUFOR LABPC NATIVE VRAM / INPUT-GRADIENT PILOT SUMMARY
+
+ order              family       WxH    MP status        oom_phase  peak_reserved_GiB  peak_allocated_GiB cls_preserved  E_drop
+     1 textdiffuserft_bfei 3248x2088 6.782    OOM gradient_forward                NaN                 NaN                   NaN
+
+attempted: 1
+PASS:      0
+OOM:       1
+
+MEMORY GATE:
+At least one legitimate frozen clean-correct image OOMed even on LABPC.
+Do NOT freeze a full multi-step native attack yet.
+
+STOP HERE.
+Review this summary before designing/running the full multi-step classification-preserving TruFor attack.
+

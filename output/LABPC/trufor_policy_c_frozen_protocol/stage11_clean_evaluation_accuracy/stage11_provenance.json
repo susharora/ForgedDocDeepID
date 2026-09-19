@@ -1,0 +1,23 @@
+{
+  "attack_png_panels": 1391,
+  "bonafide_panels": 60,
+  "frozen_threshold": 0.5329559743404388,
+  "lab_manifest": "output/LABPC/trufor_pretrained_policy_c_native/inference_manifest.csv",
+  "lab_manifest_sha256": "e3dacc130e47fff8757af3af16dd0a9561a5dc4ef33af0ae631d363bb83df69a",
+  "n_attack_images": 1391,
+  "n_clean_correct_attacks": 1330,
+  "n_clean_correct_bonafides": 204,
+  "n_images_total": 1844,
+  "report": "output/LABPC/trufor_policy_c_frozen_protocol/stage11_clean_evaluation_accuracy/stage11_report.txt",
+  "run_tag": "LABPC",
+  "scientific_contract": [
+    "No threshold was fit or refit on LABPC.",
+    "Localisation was measured from fresh LAB-generated clean anomaly maps.",
+    "Attack visuals were rendered for all annotated attacks.",
+    "Selected bona-fide panels were rerun with confidence output only for visual inspection."
+  ],
+  "stage": "11_labpc_eval_frozen_threshold_accuracy",
+  "status": "PASS",
+  "threshold_json": "output/trufor_policy_c_frozen_protocol/stage03_dev_calibration_accuracy/frozen_threshold.json",
+  "threshold_json_sha256": "44aad4b18dad629e5f60fdd12a1b46c9b5c5f4493162a8638540b38d5f4f9ee6"
+}

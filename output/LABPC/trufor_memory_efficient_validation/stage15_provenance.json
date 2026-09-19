@@ -1,0 +1,45 @@
+{
+  "acceptance": {
+    "E_route_atol": 2e-05,
+    "gradient_cosine_min": 0.9999,
+    "gradient_sign_all_min": 0.999,
+    "map_route_atol": 2e-05,
+    "score_route_atol": 2e-05
+  },
+  "gpu": "NVIDIA RTX PRO 5000 Blackwell",
+  "hostname": "IMTA134",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "results": "output/LABPC/trufor_memory_efficient_validation/stage15_equivalence_per_image.csv",
+  "results_sha256": "d7bca38fb3241718112e531beba37f040ca2c99ec6198aa293009899c0b2968f",
+  "route_info": {
+    "attention_modules_chunked": 32,
+    "dncnn_segments": 4,
+    "inplace_activations_disabled": 38,
+    "max_score_elems": 400000000,
+    "mlp_modules_checkpointed": 32,
+    "route": "encoder_ckpt_exact_query_chunked_attention",
+    "stack_depths": {
+      "block1": 3,
+      "block2": 4,
+      "block3": 6,
+      "block4": 3,
+      "extra_block1": 3,
+      "extra_block2": 4,
+      "extra_block3": 6,
+      "extra_block4": 3
+    }
+  },
+  "scientific_contract": [
+    "Full native-resolution images; no spatial tiling.",
+    "Exact query-row chunking inside SegFormer self-attention.",
+    "Activation checkpoint/recomputation only; weights unchanged.",
+    "First-order input gradient only; create_graph=False.",
+    "Authoritative final attack evaluation remains on an unmodified TruFor instance."
+  ],
+  "selection": "output/LABPC/trufor_memory_efficient_validation/stage15_validation_selection.csv",
+  "selection_sha256": "6cebfa0d7da8eeee9bb6714c825c4be6cbe883111c69c99646d0876371b9bd22",
+  "stage": "15_labpc_validate_memory_efficient_route",
+  "status": "PASS",
+  "torch": "2.11.0+cu128",
+  "torch_cuda": "12.8"
+}

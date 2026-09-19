@@ -1,0 +1,36 @@
+LABPC STAGE 17 — FORCED-CHUNK EQUIVALENCE + BACKEND AUDIT
+
+STATUS: PASS
+GPU: NVIDIA RTX PRO 5000 Blackwell
+max_score_elems: 300000000
+dncnn_segments: 4
+rows passed: 3/3
+
+Backend state preserved from this project's TruFor loader:
+{
+  "CUBLAS_WORKSPACE_CONFIG": null,
+  "PYTORCH_ALLOC_CONF": null,
+  "PYTORCH_CUDA_ALLOC_CONF": null,
+  "cuda.matmul.allow_tf32": false,
+  "cudnn.allow_tf32": true,
+  "cudnn.benchmark": false,
+  "cudnn.deterministic": false,
+  "cudnn.enabled": false,
+  "deterministic_algorithms": false,
+  "float32_matmul_precision": "highest"
+}
+
+            variant  efficient_vs_plain_map_max_abs_error  efficient_vs_plain_score_abs_error  efficient_vs_plain_E_abs_error  gradient_cosine  gradient_sign_agreement  total_query_chunks  n_attention_modules_actually_split  max_chunks_in_one_attention  forced_chunking_exercised  passed
+          digital_1                        9.53674316e-07                                   0                               0                1              0.999998523                  38                                   6                            2                       True    True
+         facedancer                                     0                                   0                               0                1                        1                  38                                   6                            2                       True    True
+textdiffuserft_bfei                                     0                                   0                               0                1                        1                  38                                   6                            2                       True    True
+
+Acceptance gate:
+  map max abs <= 5e-06
+  score abs <= 5e-06
+  E abs <= 5e-06
+  gradient cosine >= 0.99999
+  gradient sign agreement >= 0.9999
+  genuine query splitting REQUIRED
+
+Proceed to Stage 18 largest-image gate.

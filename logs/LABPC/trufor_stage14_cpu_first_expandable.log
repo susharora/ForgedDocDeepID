@@ -1,0 +1,13 @@
+LABPC STAGE 14 — CPU-FIRST TRUFOR LOADER VALIDATION
+run tag: expandable_segments
+device: cuda:0
+GPU: NVIDIA RTX PRO 5000 Blackwell
+PYTORCH_ALLOC_CONF='expandable_segments:True'
+PYTORCH_CUDA_ALLOC_CONF=''
+Traceback (most recent call last):
+  File "/home/u5757978/ForgedDocDeepID/scripts/trufor/14_labpc_validate_cpu_first_loader.py", line 260, in <module>
+    main()
+  File "/home/u5757978/ForgedDocDeepID/scripts/trufor/14_labpc_validate_cpu_first_loader.py", line 119, in main
+    probe = torch.zeros(1, device=device)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: CUDA driver error: unknown error

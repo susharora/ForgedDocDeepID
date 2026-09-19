@@ -1,0 +1,17 @@
+LABPC STAGE 12 — LARGEST-IMAGE VRAM PILOT SELECTION
+run tag: LABPC
+frozen threshold: 0.532955974
+images: 6
+
+ pilot_order                               pilot_role    eval_split             variant hardware_source  trufor_score  score_margin_above_threshold  native_width  native_height  native_pixels                                                                            image_path
+           1 largest_textdiffuser_and_largest_overall official_test textdiffuserft_bfei          huawei      0.976692                      0.443736          3248           2088        6781824 test/attack/textdiffuserft_bfei/huawei/chinese2-flickr_M_33552319041_2631ab0a0c_c.jpg
+           2                       largest_facedancer official_test          facedancer          huawei      0.759986                      0.227030          3253           2073        6743469          test/attack/facedancer/huawei/chinese2-flickr_F_16858102101_d4c5c1e7a2_c.jpg
+           3          large_near_threshold_facedancer official_test          facedancer          huawei      0.566475                      0.033519          3229           2055        6635595        test/attack/facedancer/huawei/netherland-flickr_F_20301931855_4cd18f8166_k.jpg
+           4                        largest_digital_3 official_test           digital_3          huawei      0.996051                      0.463095          3235           2013        6512055                           test/attack/digital_3/huawei/usa-01_0038_000-0ee87df5_0.jpg
+           5                        largest_digital_1       dev_val           digital_1          huawei      0.645807                      0.112851          3242           2002        6490484                                      train/attack/digital_1/huawei/turkiye-115_03.jpg
+           6        largest_digital_2_same_stem_as_d1       dev_val           digital_2          huawei      0.664725                      0.131769          3242           2002        6490484                                      train/attack/digital_2/huawei/turkiye-115_03.jpg
+
+selection: /home/u5757978/ForgedDocDeepID/output/LABPC/trufor_vram_gradient_pilot/pilot_selection.csv
+config:    /home/u5757978/ForgedDocDeepID/output/LABPC/trufor_vram_gradient_pilot/pilot_config.json
+STAGE 12 PASS
+Proceed to Stage 13 only after this PASS.

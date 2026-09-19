@@ -1,0 +1,79 @@
+/home/u5757978/miniforge3/envs/idxai/lib/python3.11/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+LABPC STAGE 15 — MEMORY-EFFICIENT TRUFOR EQUIVALENCE VALIDATION
+device: cuda:0
+GPU: NVIDIA RTX PRO 5000 Blackwell
+max_score_elems: 400000000
+dncnn_segments: 4
+allocator: default
+
+CUDA trivial allocation PASS: tensor([0.], device='cuda:0')
+
+Validation images — smallest clean-correct image per family:
+ validation_order             variant hardware_source  native_width  native_height  native_pixels                                                                            image_path
+                1           digital_1            scan          1992           1246        2482032                                       train/attack/digital_1/scan/russian-NF-1089.jpg
+                2           digital_2            scan          1992           1246        2482032                                       train/attack/digital_2/scan/russian-NF-1089.jpg
+                3           digital_3            scan          1993           1245        2481285                                            test/attack/digital_3/scan/usa-NF-1009.jpg
+                4          facedancer            scan          1994           1244        2480536          test/attack/facedancer/scan/netherland-flickr_F_31998547103_f617b19dfc_h.jpg
+                5 textdiffuserft_bfei            scan          1996           1243        2481028 test/attack/textdiffuserft_bfei/scan/netherland-flickr_M_17339867026_3135c7e76f_k.jpg
+
+Loading PLAIN differentiable TruFor...
+PLAIN 1/5 | digital_1 | train/attack/digital_1/scan/russian-NF-1089.jpg
+  cached parity map=0 score=0 | peak_reserved=58.16 GiB
+PLAIN 2/5 | digital_2 | train/attack/digital_2/scan/russian-NF-1089.jpg
+  cached parity map=0 score=0 | peak_reserved=58.17 GiB
+PLAIN 3/5 | digital_3 | test/attack/digital_3/scan/usa-NF-1009.jpg
+  cached parity map=0 score=0 | peak_reserved=58.26 GiB
+PLAIN 4/5 | facedancer | test/attack/facedancer/scan/netherland-flickr_F_31998547103_f617b19dfc_h.jpg
+  cached parity map=0 score=0 | peak_reserved=57.85 GiB
+PLAIN 5/5 | textdiffuserft_bfei | test/attack/textdiffuserft_bfei/scan/netherland-flickr_M_17339867026_3135c7e76f_k.jpg
+  cached parity map=0 score=0 | peak_reserved=57.85 GiB
+
+Loading MEMORY-EFFICIENT TruFor attack route...
+route: {"attention_modules_chunked": 32, "dncnn_segments": 4, "inplace_activations_disabled": 38, "max_score_elems": 400000000, "mlp_modules_checkpointed": 32, "route": "encoder_ckpt_exact_query_chunked_attention", "stack_depths": {"block1": 3, "block2": 4, "block3": 6, "block4": 3, "extra_block1": 3, "extra_block2": 4, "extra_block3": 6, "extra_block4": 3}}
+EFFICIENT 1/5 | digital_1 | train/attack/digital_1/scan/russian-NF-1089.jpg
+  map_max=0 score=0 E=0 | grad_cos=1.000000000 sign=1.000000 | chunks=32 | PASS=True
+EFFICIENT 2/5 | digital_2 | train/attack/digital_2/scan/russian-NF-1089.jpg
+  map_max=0 score=0 E=0 | grad_cos=1.000000000 sign=1.000000 | chunks=32 | PASS=True
+EFFICIENT 3/5 | digital_3 | test/attack/digital_3/scan/usa-NF-1009.jpg
+  map_max=0 score=0 E=0 | grad_cos=1.000000000 sign=1.000000 | chunks=32 | PASS=True
+EFFICIENT 4/5 | facedancer | test/attack/facedancer/scan/netherland-flickr_F_31998547103_f617b19dfc_h.jpg
+  map_max=0 score=0 E=0 | grad_cos=1.000000000 sign=1.000000 | chunks=32 | PASS=True
+EFFICIENT 5/5 | textdiffuserft_bfei | test/attack/textdiffuserft_bfei/scan/netherland-flickr_M_17339867026_3135c7e76f_k.jpg
+  map_max=0 score=0 E=0 | grad_cos=1.000000000 sign=1.000000 | chunks=32 | PASS=True
+
+LABPC STAGE 15 — CHECKPOINTED / QUERY-CHUNKED TRUFOR VALIDATION
+
+STATUS: PASS
+GPU: NVIDIA RTX PRO 5000 Blackwell
+allocator: default
+max_score_elems: 400000000
+dncnn_segments: 4
+images passed: 5/5
+
+            variant  native_width  native_height  efficient_vs_plain_map_max_abs_error  efficient_vs_plain_score_abs_error  efficient_vs_plain_E_abs_error  gradient_cosine  gradient_sign_agreement_all  total_query_chunks  plain_peak_reserved_gib  efficient_peak_reserved_gib  passed
+          digital_1          1992           1246                                     0                                   0                               0                1                  0.999999866                  32               58.1621094                   20.8632812    True
+          digital_2          1992           1246                                     0                                   0                               0                1                  0.999999866                  32               58.1660156                   20.8652344    True
+          digital_3          1993           1245                                     0                                   0                               0                1                  0.999999866                  32               58.2597656                       20.875    True
+         facedancer          1994           1244                                     0                                   0                               0                1                  0.999999866                  32               57.8515625                   20.8222656    True
+textdiffuserft_bfei          1996           1243                                     0                                   0                               0                1                  0.999999866                  32               57.8515625                   20.8222656    True
+
+Acceptance thresholds:
+  map max abs <= 2e-05
+  score abs <= 2e-05
+  E abs <= 2e-05
+  gradient cosine >= 0.9999
+  gradient sign agreement(all elements) >= 0.999
+
+Reviewer reference (not assumed as our result):
+  map abs difference <= 8.94e-07
+  gradient cosine >= 0.99999988
+  gradient sign agreement >= 0.999992
+
+SCIENTIFIC GATE:
+The memory-efficient route reproduces the ordinary differentiable
+TruFor route closely enough on images where both routes fit.
+Proceed to Stage 16 six-largest-image native VRAM pilot.
+
+report: /home/u5757978/ForgedDocDeepID/output/LABPC/trufor_memory_efficient_validation/stage15_report.txt
+results: /home/u5757978/ForgedDocDeepID/output/LABPC/trufor_memory_efficient_validation/stage15_equivalence_per_image.csv

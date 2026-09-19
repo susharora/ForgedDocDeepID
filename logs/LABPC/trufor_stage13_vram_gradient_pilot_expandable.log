@@ -1,0 +1,50 @@
+LABPC STAGE 13 — ONE-BACKWARD-PASS VRAM/GRADIENT PILOT
+run tag: LABPC_EXPANDABLE
+device: cuda:0
+gpu: NVIDIA RTX PRO 5000 Blackwell
+total VRAM: 47.79 GiB
+frozen threshold: 0.532955974
+epsilon physical: 0.003921569 (=1/255)
+alpha physical:   0.000980392 (=0.25/255)
+No resize/crop/re-JPEG. One backward pass + one projected step per image.
+
+Traceback (most recent call last):
+  File "/home/u5757978/ForgedDocDeepID/scripts/trufor/13_run_labpc_vram_pilot.py", line 436, in <module>
+    main()
+  File "/home/u5757978/ForgedDocDeepID/scripts/trufor/13_run_labpc_vram_pilot.py", line 336, in main
+    model, _, _ = load_trufor_model(device)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/u5757978/ForgedDocDeepID/scripts/trufor/trufor_common.py", line 359, in load_trufor_model
+    checkpoint = _safe_torch_load(TRUFOR_CHECKPOINT, device)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/u5757978/ForgedDocDeepID/scripts/trufor/trufor_common.py", line 314, in _safe_torch_load
+    return torch.load(path, map_location=device, weights_only=False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/u5757978/miniforge3/envs/idxai/lib/python3.11/site-packages/torch/serialization.py", line 1579, in load
+    return _load(
+           ^^^^^^
+  File "/home/u5757978/miniforge3/envs/idxai/lib/python3.11/site-packages/torch/serialization.py", line 2190, in _load
+    result = unpickler.load()
+             ^^^^^^^^^^^^^^^^
+  File "/home/u5757978/miniforge3/envs/idxai/lib/python3.11/site-packages/torch/serialization.py", line 2154, in persistent_load
+    typed_storage = load_tensor(
+                    ^^^^^^^^^^^^
+  File "/home/u5757978/miniforge3/envs/idxai/lib/python3.11/site-packages/torch/serialization.py", line 2116, in load_tensor
+    wrap_storage = restore_location(storage, location)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/u5757978/miniforge3/envs/idxai/lib/python3.11/site-packages/torch/serialization.py", line 1920, in restore_location
+    return default_restore_location(storage, str(map_location))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/u5757978/miniforge3/envs/idxai/lib/python3.11/site-packages/torch/serialization.py", line 734, in default_restore_location
+    result = fn(storage, location)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/u5757978/miniforge3/envs/idxai/lib/python3.11/site-packages/torch/serialization.py", line 668, in _deserialize
+    return obj.to(device=device)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/u5757978/miniforge3/envs/idxai/lib/python3.11/site-packages/torch/storage.py", line 289, in to
+    return _to(self, device, non_blocking)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/u5757978/miniforge3/envs/idxai/lib/python3.11/site-packages/torch/_utils.py", line 106, in _to
+    untyped_storage = torch.UntypedStorage(self.size(), device=device)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: CUDA driver error: unknown error

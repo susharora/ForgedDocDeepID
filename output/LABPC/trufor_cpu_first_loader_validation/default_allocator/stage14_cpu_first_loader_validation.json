@@ -1,0 +1,51 @@
+{
+  "allocator_env": {
+    "PYTORCH_ALLOC_CONF": "",
+    "PYTORCH_CUDA_ALLOC_CONF": ""
+  },
+  "checkpoint_epoch": 81,
+  "checkpoint_first_tensor_device": "cpu",
+  "checkpoint_sha256": "ac1d90e329a72e0d66e8665e123a19e94bfae3209c3ef8a4f9ca3b91578c7844",
+  "cuda_memory_after_clean_inference": {
+    "allocated_gib": 0.26580142974853516,
+    "free_gib": 19.6142578125,
+    "reserved_gib": 26.6640625,
+    "total_gib": 47.78765869140625
+  },
+  "cuda_memory_after_model_load": {
+    "allocated_gib": 0.25689029693603516,
+    "free_gib": 46.0068359375,
+    "reserved_gib": 0.283203125,
+    "total_gib": 47.78765869140625
+  },
+  "cuda_memory_before_model_load": {
+    "allocated_gib": 0.0,
+    "free_gib": 46.2900390625,
+    "reserved_gib": 0.0,
+    "total_gib": 47.78765869140625
+  },
+  "gpu": "NVIDIA RTX PRO 5000 Blackwell",
+  "hostname": "IMTA134",
+  "model_first_parameter_device": "cuda:0",
+  "native_hw": [
+    1971,
+    3211
+  ],
+  "parity_abs_score": 0.0,
+  "parity_atol_map": 2e-06,
+  "parity_atol_score": 2e-06,
+  "parity_max_abs_conf": 0.0,
+  "parity_max_abs_map": 0.0,
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "project_git_head": "de78c4545aa5521cfe6452ab585227add2ebc75d",
+  "python": "3.11.15",
+  "reference_npz": "output/LABPC/trufor_pretrained_policy_c_native/stage08_smoke/direct_wrapper.npz",
+  "reference_npz_sha256": "d59803e26771182986e7cd72bae5c7d5380e981cc4a19993a1d1394b0470bbbc",
+  "run_tag": "default_allocator",
+  "scientific_note": "Loader-only validation. Checkpoint bytes, architecture, preprocessing, clean inference arithmetic, threshold and attack protocol are unchanged.",
+  "smoke_cache_path": "data/processed/policy_c/train/attack/digital_1/huawei/arabic-024_03.jpg",
+  "stage": "14_labpc_validate_cpu_first_loader",
+  "status": "PASS",
+  "torch": "2.11.0+cu128",
+  "torch_cuda": "12.8"
+}

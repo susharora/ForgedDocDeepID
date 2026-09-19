@@ -1,0 +1,22 @@
+/home/u5757978/miniforge3/envs/idxai/lib/python3.11/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+LABPC STAGE 14 — CPU-FIRST TRUFOR LOADER VALIDATION
+run tag: default_allocator
+device: cuda:0
+GPU: NVIDIA RTX PRO 5000 Blackwell
+PYTORCH_ALLOC_CONF=''
+PYTORCH_CUDA_ALLOC_CONF=''
+CUDA trivial allocation PASS: 1.0
+
+CPU-FIRST / CLEAN PARITY
+  checkpoint epoch:            81
+  checkpoint tensor device:    cpu
+  model parameter device:      cuda:0
+  map max abs error:           0
+  conf max abs error:          0
+  score abs error:             0
+  native HxW:                  (1971, 3211)
+
+STAGE 14 PASS
+report: /home/u5757978/ForgedDocDeepID/output/LABPC/trufor_cpu_first_loader_validation/default_allocator/stage14_report.txt
+json:   /home/u5757978/ForgedDocDeepID/output/LABPC/trufor_cpu_first_loader_validation/default_allocator/stage14_cpu_first_loader_validation.json

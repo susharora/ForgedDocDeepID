@@ -308,13 +308,12 @@ def resolve_device(gpu: int):
 
 
 def _safe_torch_load(path: Path, device):
-    """Deserialize TruFor checkpoint storage on CPU first."""
     import torch
 
     try:
-        return torch.load(path, map_location="cpu", weights_only=False)
+        return torch.load(path, map_location=device, weights_only=False)
     except TypeError:
-        return torch.load(path, map_location="cpu")
+        return torch.load(path, map_location=device)
 
 
 def load_trufor_model(device):
@@ -361,60 +360,10 @@ def load_trufor_model(device):
     if "state_dict" not in checkpoint:
         raise RuntimeError("TruFor checkpoint does not contain state_dict")
 
-    epoch = checkpoint.get("epoch", None)
-    if epoch is None or int(epoch) != 81:
-        raise RuntimeError(
-            f"Unexpected TruFor checkpoint epoch: expected 81, got {epoch!r}"
-        )
-
-    first_state_tensor = next(
-        (
-            value
-            for value in checkpoint["state_dict"].values()
-            if torch.is_tensor(value)
-        ),
-        None,
-    )
-    if first_state_tensor is None:
-        raise RuntimeError("TruFor checkpoint state_dict contains no tensors")
-    if first_state_tensor.device.type != "cpu":
-        raise RuntimeError(
-            "CPU-first checkpoint invariant failed: "
-            f"state_dict tensor is on {first_state_tensor.device}"
-        )
-
     model = get_model(cfg)
-
-    first_model_param = next(model.parameters(), None)
-    if first_model_param is None:
-        raise RuntimeError("Constructed TruFor model has no parameters")
-    if first_model_param.device.type != "cpu":
-        raise RuntimeError(
-            "Expected TruFor model construction on CPU before state_dict load; "
-            f"got {first_model_param.device}"
-        )
-
-    load_result = model.load_state_dict(
-        checkpoint["state_dict"],
-        strict=True,
-    )
-
-    if load_result.missing_keys or load_result.unexpected_keys:
-        raise RuntimeError(
-            "Strict TruFor state_dict load mismatch:\n"
-            f"missing={load_result.missing_keys}\n"
-            f"unexpected={load_result.unexpected_keys}"
-        )
-
+    model.load_state_dict(checkpoint["state_dict"])
     model = model.to(device)
     model.eval()
-
-    first_model_param = next(model.parameters())
-    if first_model_param.device != device:
-        raise RuntimeError(
-            "TruFor model did not move to requested device: "
-            f"expected {device}, got {first_model_param.device}"
-        )
 
     return model, checkpoint, cfg
 

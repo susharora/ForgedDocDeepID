@@ -1,0 +1,26 @@
+{
+  "alpha_physical_rgb01": 0.000980392156862745,
+  "alpha_trufor_model_coordinates": 0.0009765625,
+  "epsilon_physical_rgb01": 0.00392156862745098,
+  "epsilon_trufor_model_coordinates": 0.00390625,
+  "frozen_threshold": 0.5329559743404388,
+  "gradient_contract": [
+    "All TruFor weights remain unchanged and requires_grad=False.",
+    "The same frozen submodules/arithmetic are used; inference no_grad wrappers are bypassed only to expose input gradients.",
+    "Clean anomaly-map/score parity with LAB Stage-09 clean output is mandatory before backward.",
+    "Clean A/E/mu/PG parity with LAB Stage-11 localisation is mandatory before backward.",
+    "Only one projected sign step is attempted."
+  ],
+  "n_images": 6,
+  "objective": "minimise native TruFor anomaly-map mass E inside the altered-union mask",
+  "pilot_selection": "output/LABPC/trufor_vram_gradient_pilot/pilot_selection.csv",
+  "pilot_selection_sha256": "57874eaf518a91905fc2664131622a3372782b0b42749b12987b232a53b6017d",
+  "purpose": "native-resolution one-backward-pass VRAM feasibility pilot on LAB-generated clean baseline",
+  "run_tag": "LABPC",
+  "stage": "12_prepare_labpc_vram_pilot",
+  "stage11_localisation": "output/LABPC/trufor_policy_c_frozen_protocol/stage11_clean_evaluation_accuracy/localisation_per_image.csv",
+  "stage11_localisation_sha256": "87858db2f1a9fa4c2bedb1b471a4953df69f4a0fa2e8bebf81c195de8e93f72c",
+  "stage11_provenance": "output/LABPC/trufor_policy_c_frozen_protocol/stage11_clean_evaluation_accuracy/stage11_provenance.json",
+  "stage11_provenance_sha256": "e3ebe4f7347613c8414569a4e467e29e8b1bab03562fad2cb6f87dfe25fc6d0e",
+  "status": "PREPARED"
+}

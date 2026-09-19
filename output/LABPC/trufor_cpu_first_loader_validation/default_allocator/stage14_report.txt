@@ -1,0 +1,14 @@
+LABPC STAGE 14 — CPU-FIRST TRUFOR LOADER VALIDATION
+
+status: PASS
+run tag: default_allocator
+allocator: {'PYTORCH_ALLOC_CONF': '', 'PYTORCH_CUDA_ALLOC_CONF': ''}
+checkpoint epoch: 81
+checkpoint tensor device: cpu
+model parameter device: cuda:0
+map max abs error: 0
+conf max abs error: 0
+score abs error: 0
+native HxW: (1971, 3211)
+
+Interpretation: CPU-first loading is numerically clean relative to the frozen LAB Stage-08 wrapper output.

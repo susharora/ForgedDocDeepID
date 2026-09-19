@@ -1,0 +1,32 @@
+LABPC STAGE 15 — CHECKPOINTED / QUERY-CHUNKED TRUFOR VALIDATION
+
+STATUS: PASS
+GPU: NVIDIA RTX PRO 5000 Blackwell
+allocator: default
+max_score_elems: 400000000
+dncnn_segments: 4
+images passed: 5/5
+
+            variant  native_width  native_height  efficient_vs_plain_map_max_abs_error  efficient_vs_plain_score_abs_error  efficient_vs_plain_E_abs_error  gradient_cosine  gradient_sign_agreement_all  total_query_chunks  plain_peak_reserved_gib  efficient_peak_reserved_gib  passed
+          digital_1          1992           1246                                     0                                   0                               0                1                  0.999999866                  32               58.1621094                   20.8632812    True
+          digital_2          1992           1246                                     0                                   0                               0                1                  0.999999866                  32               58.1660156                   20.8652344    True
+          digital_3          1993           1245                                     0                                   0                               0                1                  0.999999866                  32               58.2597656                       20.875    True
+         facedancer          1994           1244                                     0                                   0                               0                1                  0.999999866                  32               57.8515625                   20.8222656    True
+textdiffuserft_bfei          1996           1243                                     0                                   0                               0                1                  0.999999866                  32               57.8515625                   20.8222656    True
+
+Acceptance thresholds:
+  map max abs <= 2e-05
+  score abs <= 2e-05
+  E abs <= 2e-05
+  gradient cosine >= 0.9999
+  gradient sign agreement(all elements) >= 0.999
+
+Reviewer reference (not assumed as our result):
+  map abs difference <= 8.94e-07
+  gradient cosine >= 0.99999988
+  gradient sign agreement >= 0.999992
+
+SCIENTIFIC GATE:
+The memory-efficient route reproduces the ordinary differentiable
+TruFor route closely enough on images where both routes fit.
+Proceed to Stage 16 six-largest-image native VRAM pilot.

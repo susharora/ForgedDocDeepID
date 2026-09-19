@@ -1,0 +1,74 @@
+/home/u5757978/miniforge3/envs/idxai/lib/python3.11/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+LABPC STAGE 17 — FORCED-CHUNK TRUFOR EQUIVALENCE
+GPU: NVIDIA RTX PRO 5000 Blackwell
+max_score_elems: 300000000
+dncnn_segments: 4
+allocator: default
+NOTE: backend state is observed/preserved, not overwritten.
+
+CUDA trivial allocation PASS: tensor([0.], device='cuda:0')
+
+Representative validation rows:
+ validation_order             variant hardware_source  native_width  native_height  native_pixels                                                                            image_path
+                1           digital_1            scan          1992           1246        2482032                                       train/attack/digital_1/scan/russian-NF-1089.jpg
+                2          facedancer            scan          1994           1244        2480536          test/attack/facedancer/scan/netherland-flickr_F_31998547103_f617b19dfc_h.jpg
+                3 textdiffuserft_bfei            scan          1996           1243        2481028 test/attack/textdiffuserft_bfei/scan/netherland-flickr_M_17339867026_3135c7e76f_k.jpg
+
+Loading ordinary differentiable TruFor...
+backend_after_plain_load: {"CUBLAS_WORKSPACE_CONFIG": null, "PYTORCH_ALLOC_CONF": null, "PYTORCH_CUDA_ALLOC_CONF": null, "cuda.matmul.allow_tf32": false, "cudnn.allow_tf32": true, "cudnn.benchmark": false, "cudnn.deterministic": false, "cudnn.enabled": false, "deterministic_algorithms": false, "float32_matmul_precision": "highest"}
+PLAIN 1/3 | digital_1 | train/attack/digital_1/scan/russian-NF-1089.jpg
+  cached map=0 score=0
+PLAIN 2/3 | facedancer | test/attack/facedancer/scan/netherland-flickr_F_31998547103_f617b19dfc_h.jpg
+  cached map=0 score=0
+PLAIN 3/3 | textdiffuserft_bfei | test/attack/textdiffuserft_bfei/scan/netherland-flickr_M_17339867026_3135c7e76f_k.jpg
+  cached map=0 score=0
+
+Loading corrected memory-efficient TruFor...
+route_info: {"attention_wrapped": 32, "dncnn_chunks_actual": 4, "dncnn_segments_requested": 4, "dncnn_wrapped": true, "inplace_ops_disabled": 38, "max_score_elems": 300000000, "mlp_wrapped": 32, "route": "full_native_ckpt_exact_query_chunk_v2", "stack_depths": {"block1": 3, "block2": 4, "block3": 6, "block4": 3, "extra_block1": 3, "extra_block2": 4, "extra_block3": 6, "extra_block4": 3}}
+backend_after_efficient_wrap: {"CUBLAS_WORKSPACE_CONFIG": null, "PYTORCH_ALLOC_CONF": null, "PYTORCH_CUDA_ALLOC_CONF": null, "cuda.matmul.allow_tf32": false, "cudnn.allow_tf32": true, "cudnn.benchmark": false, "cudnn.deterministic": false, "cudnn.enabled": false, "deterministic_algorithms": false, "float32_matmul_precision": "highest"}
+EFFICIENT 1/3 | digital_1 | train/attack/digital_1/scan/russian-NF-1089.jpg
+  map=9.54e-07 score=0 E=0 | cos=1.000000000 sign=0.999998523 | chunks=38 split_modules=6 | PASS=True
+EFFICIENT 2/3 | facedancer | test/attack/facedancer/scan/netherland-flickr_F_31998547103_f617b19dfc_h.jpg
+  map=0 score=0 E=0 | cos=1.000000000 sign=1.000000000 | chunks=38 split_modules=6 | PASS=True
+EFFICIENT 3/3 | textdiffuserft_bfei | test/attack/textdiffuserft_bfei/scan/netherland-flickr_M_17339867026_3135c7e76f_k.jpg
+  map=0 score=0 E=0 | cos=1.000000000 sign=1.000000000 | chunks=38 split_modules=6 | PASS=True
+
+LABPC STAGE 17 — FORCED-CHUNK EQUIVALENCE + BACKEND AUDIT
+
+STATUS: PASS
+GPU: NVIDIA RTX PRO 5000 Blackwell
+max_score_elems: 300000000
+dncnn_segments: 4
+rows passed: 3/3
+
+Backend state preserved from this project's TruFor loader:
+{
+  "CUBLAS_WORKSPACE_CONFIG": null,
+  "PYTORCH_ALLOC_CONF": null,
+  "PYTORCH_CUDA_ALLOC_CONF": null,
+  "cuda.matmul.allow_tf32": false,
+  "cudnn.allow_tf32": true,
+  "cudnn.benchmark": false,
+  "cudnn.deterministic": false,
+  "cudnn.enabled": false,
+  "deterministic_algorithms": false,
+  "float32_matmul_precision": "highest"
+}
+
+            variant  efficient_vs_plain_map_max_abs_error  efficient_vs_plain_score_abs_error  efficient_vs_plain_E_abs_error  gradient_cosine  gradient_sign_agreement  total_query_chunks  n_attention_modules_actually_split  max_chunks_in_one_attention  forced_chunking_exercised  passed
+          digital_1                        9.53674316e-07                                   0                               0                1              0.999998523                  38                                   6                            2                       True    True
+         facedancer                                     0                                   0                               0                1                        1                  38                                   6                            2                       True    True
+textdiffuserft_bfei                                     0                                   0                               0                1                        1                  38                                   6                            2                       True    True
+
+Acceptance gate:
+  map max abs <= 5e-06
+  score abs <= 5e-06
+  E abs <= 5e-06
+  gradient cosine >= 0.99999
+  gradient sign agreement >= 0.9999
+  genuine query splitting REQUIRED
+
+Proceed to Stage 18 largest-image gate.
+
+report: /home/u5757978/ForgedDocDeepID/output/LABPC/trufor_memory_efficient_validation_v2/stage17_report.txt

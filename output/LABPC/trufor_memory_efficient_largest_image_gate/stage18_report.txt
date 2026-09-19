@@ -1,0 +1,24 @@
+LABPC STAGE 18 — LARGEST-IMAGE MEMORY GATE
+
+STATUS: PASS
+image: test/attack/textdiffuserft_bfei/huawei/chinese2-flickr_M_33552319041_2631ab0a0c_c.jpg
+native: 3248x2088 (6.782 MP)
+max_score_elems: 300000000
+dncnn_segments: 4
+clean map parity max abs: 1.13248825e-06
+clean score parity abs:   0
+clean E parity abs:       9.70535982e-08
+total query chunks:       148
+split attention modules:  32
+max chunks/attention:     10
+realised Linf physical:   0.000980392215
+E: 0.755468 -> 0.052624
+score: 0.976692 -> 0.850684
+classification preserved: True
+
+MEMORY GATE: PASS
+The largest native image completed forward + first-order backward
++ one projected step using the corrected forced-chunk route.
+
+STOP HERE.
+Do not run the full six-image/full multi-step attack yet.

@@ -1,0 +1,15 @@
+TRUFOR LABPC NATIVE VRAM / INPUT-GRADIENT PILOT SUMMARY
+
+ order              family       WxH    MP status        oom_phase  peak_reserved_GiB  peak_allocated_GiB cls_preserved  E_drop
+     1 textdiffuserft_bfei 3248x2088 6.782    OOM gradient_forward                NaN                 NaN                   NaN
+
+attempted: 1
+PASS:      0
+OOM:       1
+
+MEMORY GATE:
+At least one legitimate frozen clean-correct image OOMed even on LABPC.
+Do NOT freeze a full multi-step native attack yet.
+
+STOP HERE.
+Review this summary before designing/running the full multi-step classification-preserving TruFor attack.

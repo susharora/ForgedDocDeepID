@@ -1,0 +1,48 @@
+{
+  "backend_policy": "Preserve ForgedDocDeepID load_trufor_model CUDNN settings. TF32/matmul state observed and recorded but not changed.",
+  "backend_state": {
+    "CUBLAS_WORKSPACE_CONFIG": null,
+    "PYTORCH_ALLOC_CONF": null,
+    "PYTORCH_CUDA_ALLOC_CONF": null,
+    "cuda.matmul.allow_tf32": false,
+    "cudnn.allow_tf32": true,
+    "cudnn.benchmark": false,
+    "cudnn.deterministic": false,
+    "cudnn.enabled": false,
+    "deterministic_algorithms": false,
+    "float32_matmul_precision": "highest"
+  },
+  "dncnn_segments": 4,
+  "gpu": "NVIDIA RTX PRO 5000 Blackwell",
+  "hostname": "IMTA134",
+  "max_score_elems": 300000000,
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "results": "output/LABPC/trufor_memory_efficient_validation_v2/stage17_equivalence.csv",
+  "results_sha256": "4ac19699c7feca5443983775adc33564ed8e6a60025e8f467bd385820cf57ac1",
+  "route_info": {
+    "attention_wrapped": 32,
+    "dncnn_chunks_actual": 4,
+    "dncnn_segments_requested": 4,
+    "dncnn_wrapped": true,
+    "inplace_ops_disabled": 38,
+    "max_score_elems": 300000000,
+    "mlp_wrapped": 32,
+    "route": "full_native_ckpt_exact_query_chunk_v2",
+    "stack_depths": {
+      "block1": 3,
+      "block2": 4,
+      "block3": 6,
+      "block4": 3,
+      "extra_block1": 3,
+      "extra_block2": 4,
+      "extra_block3": 6,
+      "extra_block4": 3
+    }
+  },
+  "selection": "output/LABPC/trufor_memory_efficient_validation_v2/stage17_selection.csv",
+  "selection_sha256": "e104ebaf14d7e99a7164d860c8176f4c76409ace89b70f5f8ea66d3ebf625658",
+  "stage": "17_labpc_forced_chunk_equivalence",
+  "status": "PASS",
+  "torch": "2.11.0+cu128",
+  "torch_cuda": "12.8"
+}

@@ -1,0 +1,44 @@
+{
+  "backend_state": {
+    "CUBLAS_WORKSPACE_CONFIG": null,
+    "PYTORCH_ALLOC_CONF": null,
+    "PYTORCH_CUDA_ALLOC_CONF": null,
+    "cuda.matmul.allow_tf32": false,
+    "cudnn.allow_tf32": true,
+    "cudnn.benchmark": false,
+    "cudnn.deterministic": false,
+    "cudnn.enabled": false,
+    "deterministic_algorithms": false,
+    "float32_matmul_precision": "highest"
+  },
+  "gpu": "NVIDIA RTX PRO 5000 Blackwell",
+  "hostname": "IMTA134",
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.43",
+  "result": "output/LABPC/trufor_memory_efficient_largest_image_gate/stage18_result.json",
+  "result_sha256": "c54fe4ce75094c488588fc50a43390f3d0d73337e559c8aa4ec320515aca3f6b",
+  "route_info": {
+    "attention_wrapped": 32,
+    "dncnn_chunks_actual": 4,
+    "dncnn_segments_requested": 4,
+    "dncnn_wrapped": true,
+    "inplace_ops_disabled": 38,
+    "max_score_elems": 300000000,
+    "mlp_wrapped": 32,
+    "route": "full_native_ckpt_exact_query_chunk_v2",
+    "stack_depths": {
+      "block1": 3,
+      "block2": 4,
+      "block3": 6,
+      "block4": 3,
+      "extra_block1": 3,
+      "extra_block2": 4,
+      "extra_block3": 6,
+      "extra_block4": 3
+    }
+  },
+  "stage": "18_labpc_largest_image_memory_gate",
+  "stage17_provenance_sha256": "1caec60325695c1ee90444c1d35c505bb556e9dae0a98938bbbc4c4a2c1c863d",
+  "status": "PASS",
+  "torch": "2.11.0+cu128",
+  "torch_cuda": "12.8"
+}
