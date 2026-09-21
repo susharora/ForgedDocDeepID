@@ -64,3 +64,9 @@ output/**/*.png
 !data/processed/policy_c/**
 !data/processed/policy_c_official_test/
 !data/processed/policy_c_official_test/**
+
+# Long-running LAB adversarial outputs
+logs/LABPC/
+output/LABPC/trufor_adversarial_localisation_attack/full_population/
+output/LABPC/trufor_adversarial_localisation_attack/full_population_shards/
+output/LABPC/trufor_adversarial_localisation_attack/gpu_capacity_probe/
