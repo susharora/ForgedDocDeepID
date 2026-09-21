@@ -1,2 +1,6 @@
 data/processed/policy_c/** filter=lfs diff=lfs merge=lfs -text
 data/processed/policy_c_official_test/** filter=lfs diff=lfs merge=lfs -text
+output/resnet18_localisation_attack_preserve_cls_full_archive_v2/exact_archive/*/*/*/*.npz filter=lfs diff=lfs merge=lfs -text
+output/resnet18_localisation_attack_preserve_cls_full_archive_v2/*.npz filter=lfs diff=lfs merge=lfs -text
+output/resnet18_adversarial_localisation_pgd_eps1_full_archive_v2/exact_archive/*/*/*/*.npz filter=lfs diff=lfs merge=lfs -text
+output/resnet18_adversarial_localisation_pgd_eps1_full_archive_v2/*.npz filter=lfs diff=lfs merge=lfs -text
