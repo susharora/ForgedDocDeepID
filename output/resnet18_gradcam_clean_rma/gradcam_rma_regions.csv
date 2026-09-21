@@ -324,7 +324,7 @@ train/attack/digital_1/huawei/portugal-013_03.jpg,dev_val,all_attacks,digital_1,
 train/attack/digital_1/huawei/portugal-013_03.jpg,dev_val,all_attacks,digital_1,portugal-013_03,huawei,14791,doe,text,altered,3032,1881,2230,1138,2438,1254,2230,1138,2438,1254,0,825,19,20,625,309,683,342
 train/attack/digital_1/huawei/portugal-013_03.jpg,dev_val,all_attacks,digital_1,portugal-013_03,huawei,14792,name,text,altered,3032,1881,1083,494,1836,613,1083,494,1836,613,0,825,19,20,313,134,519,167
 train/attack/digital_1/iphone15pro/portugal-013_03.jpg,dev_val,all_attacks,digital_1,portugal-013_03,iphone15pro,17382,face,face,altered,2641,1614,119,665,750,1296,119,665,750,1296,0,838,13,13,50,210,251,412
-train/attack/digital_1/iphone15pro/portugal-013_03.jpg,dev_val,all_attacks,digital_1,portugal-013_03,iphone15pro,17383,dob,text,altered,2641,1614,2480,757,2664,856,2480,757,2641,856,1,838,13,13,799,240,852,272
+train/attack/digital_1/iphone15pro/portugal-013_03.jpg,dev_val,all_attacks,digital_1,portugal-013_03,iphone15pro,17383,dob,text,altered,2641,1614,2480,757,2664,856,2480,757,2641,856,1,838,13,13,799,240,851,272
 train/attack/digital_1/iphone15pro/portugal-013_03.jpg,dev_val,all_attacks,digital_1,portugal-013_03,iphone15pro,17384,doe,text,altered,2641,1614,1940,974,2122,1073,1940,974,2122,1073,0,838,13,13,628,308,687,341
 train/attack/digital_1/iphone15pro/portugal-013_03.jpg,dev_val,all_attacks,digital_1,portugal-013_03,iphone15pro,17385,name,text,altered,2641,1614,948,421,1601,525,948,421,1601,525,0,838,13,13,313,133,522,167
 train/attack/digital_1/scan/portugal-013_03.jpg,dev_val,all_attacks,digital_1,portugal-013_03,scan,19982,face,face,altered,1998,1244,87,513,577,1003,87,513,577,1003,0,822,21,21,56,211,259,413
@@ -356,7 +356,7 @@ train/attack/digital_1/scan/portugal-029_03.jpg,dev_val,all_attacks,digital_1,po
 train/attack/digital_1/scan/portugal-029_03.jpg,dev_val,all_attacks,digital_1,portugal-029_03,scan,20008,doe,text,altered,1992,1247,1465,756,1600,832,1465,756,1600,832,0,818,23,23,624,310,681,342
 train/attack/digital_1/scan/portugal-029_03.jpg,dev_val,all_attacks,digital_1,portugal-029_03,scan,20009,name,text,altered,1992,1247,713,326,1202,406,713,326,1202,406,0,818,23,23,315,133,517,167
 train/attack/digital_1/huawei/portugal-119_03.jpg,dev_val,all_attacks,digital_1,portugal-119_03,huawei,14861,face,face,altered,3213,1973,116,778,934,1597,116,778,934,1597,0,834,15,15,45,201,258,415
-train/attack/digital_1/huawei/portugal-119_03.jpg,dev_val,all_attacks,digital_1,portugal-119_03,huawei,14862,dob,text,altered,3213,1973,3030,927,3252,1047,3030,927,3213,1047,1,834,15,15,801,240,850,272
+train/attack/digital_1/huawei/portugal-119_03.jpg,dev_val,all_attacks,digital_1,portugal-119_03,huawei,14862,dob,text,altered,3213,1973,3030,927,3252,1047,3030,927,3213,1047,1,834,15,15,801,240,849,272
 train/attack/digital_1/huawei/portugal-119_03.jpg,dev_val,all_attacks,digital_1,portugal-119_03,huawei,14863,doe,text,altered,3213,1973,2371,1197,2590,1320,2371,1197,2590,1320,0,834,15,15,630,310,688,343
 train/attack/digital_1/huawei/portugal-119_03.jpg,dev_val,all_attacks,digital_1,portugal-119_03,huawei,14864,name,text,altered,3213,1973,1151,515,1914,638,1151,515,1914,638,0,834,15,15,313,133,512,166
 train/attack/digital_1/iphone15pro/portugal-119_03.jpg,dev_val,all_attacks,digital_1,portugal-119_03,iphone15pro,17454,face,face,altered,2861,1798,105,728,851,1474,105,728,851,1474,0,815,24,25,53,207,267,420
@@ -372,7 +372,7 @@ train/attack/digital_1/huawei/portugal-NF-1060.jpg,dev_val,all_attacks,digital_1
 train/attack/digital_1/huawei/portugal-NF-1060.jpg,dev_val,all_attacks,digital_1,portugal-NF-1060,huawei,14935,doe,text,altered,3205,1986,2369,1206,2593,1329,2369,1206,2593,1329,0,826,19,19,629,310,688,343
 train/attack/digital_1/huawei/portugal-NF-1060.jpg,dev_val,all_attacks,digital_1,portugal-NF-1060,huawei,14936,name,text,altered,3205,1986,1149,522,2032,648,1149,522,2032,648,0,826,19,19,315,134,543,168
 train/attack/digital_1/iphone15pro/portugal-NF-1060.jpg,dev_val,all_attacks,digital_1,portugal-NF-1060,iphone15pro,17526,face,face,altered,2867,1795,68,548,967,1447,68,548,967,1447,0,818,23,23,42,156,299,413
-train/attack/digital_1/iphone15pro/portugal-NF-1060.jpg,dev_val,all_attacks,digital_1,portugal-NF-1060,iphone15pro,17527,dob,text,altered,2867,1795,2685,814,2881,909,2685,814,2867,909,1,818,23,23,789,232,842,260
+train/attack/digital_1/iphone15pro/portugal-NF-1060.jpg,dev_val,all_attacks,digital_1,portugal-NF-1060,iphone15pro,17527,dob,text,altered,2867,1795,2685,814,2881,909,2685,814,2867,909,1,818,23,23,789,232,841,260
 train/attack/digital_1/iphone15pro/portugal-NF-1060.jpg,dev_val,all_attacks,digital_1,portugal-NF-1060,iphone15pro,17528,doe,text,altered,2867,1795,2124,1071,2317,1166,2124,1071,2317,1166,0,818,23,23,629,305,685,333
 train/attack/digital_1/iphone15pro/portugal-NF-1060.jpg,dev_val,all_attacks,digital_1,portugal-NF-1060,iphone15pro,17529,name,text,altered,2867,1795,1025,485,1803,574,1025,485,1803,574,0,818,23,23,315,138,538,164
 train/attack/digital_1/scan/portugal-NF-1060.jpg,dev_val,all_attacks,digital_1,portugal-NF-1060,scan,20126,face,face,altered,1995,1248,42,380,668,1007,42,380,668,1007,0,818,23,23,40,155,297,414
@@ -396,7 +396,7 @@ train/attack/digital_1/huawei/portugal-NF-1109.jpg,dev_val,all_attacks,digital_1
 train/attack/digital_1/huawei/portugal-NF-1109.jpg,dev_val,all_attacks,digital_1,portugal-NF-1109,huawei,14983,doe,text,altered,3216,1981,2373,1204,2593,1327,2373,1204,2593,1327,0,831,16,17,629,311,687,343
 train/attack/digital_1/huawei/portugal-NF-1109.jpg,dev_val,all_attacks,digital_1,portugal-NF-1109,huawei,14984,name,text,altered,3216,1981,1154,518,1778,641,1154,518,1778,641,0,831,16,17,314,133,476,166
 train/attack/digital_1/iphone15pro/portugal-NF-1109.jpg,dev_val,all_attacks,digital_1,portugal-NF-1109,iphone15pro,17574,face,face,altered,2841,1810,31,610,957,1536,31,610,957,1536,0,804,30,30,38,172,301,435
-train/attack/digital_1/iphone15pro/portugal-NF-1109.jpg,dev_val,all_attacks,digital_1,portugal-NF-1109,iphone15pro,17575,dob,text,altered,2841,1810,2667,817,2860,913,2667,817,2841,913,1,804,30,30,784,231,835,259
+train/attack/digital_1/iphone15pro/portugal-NF-1109.jpg,dev_val,all_attacks,digital_1,portugal-NF-1109,iphone15pro,17575,dob,text,altered,2841,1810,2667,817,2860,913,2667,817,2841,913,1,804,30,30,784,231,834,259
 train/attack/digital_1/iphone15pro/portugal-NF-1109.jpg,dev_val,all_attacks,digital_1,portugal-NF-1109,iphone15pro,17576,doe,text,altered,2841,1810,2099,1069,2292,1168,2099,1069,2292,1168,0,804,30,30,624,302,679,331
 train/attack/digital_1/iphone15pro/portugal-NF-1109.jpg,dev_val,all_attacks,digital_1,portugal-NF-1109,iphone15pro,17577,name,text,altered,2841,1810,1003,481,1552,577,1003,481,1552,577,0,804,30,30,313,136,470,164
 train/attack/digital_1/scan/portugal-NF-1109.jpg,dev_val,all_attacks,digital_1,portugal-NF-1109,scan,20174,face,face,altered,1995,1250,23,425,676,1078,23,425,676,1078,0,817,23,24,32,174,300,442
@@ -2849,11 +2849,11 @@ train/attack/digital_1/scan/portugal-042_03.jpg,project_train,all_attacks,digita
 train/attack/digital_1/scan/portugal-042_03.jpg,project_train,all_attacks,digital_1,portugal-042_03,scan,20016,doe,text,altered,1997,1251,1468,756,1604,832,1468,756,1604,832,0,817,23,24,623,309,680,341
 train/attack/digital_1/scan/portugal-042_03.jpg,project_train,all_attacks,digital_1,portugal-042_03,scan,20017,name,text,altered,1997,1251,714,327,1119,405,714,327,1119,405,0,817,23,24,315,133,481,166
 train/attack/digital_1/huawei/portugal-061_03.jpg,project_train,all_attacks,digital_1,portugal-061_03,huawei,14829,face,face,altered,3192,1976,84,705,936,1557,84,705,936,1557,0,827,18,19,39,182,261,404
-train/attack/digital_1/huawei/portugal-061_03.jpg,project_train,all_attacks,digital_1,portugal-061_03,huawei,14830,dob,text,altered,3192,1976,3018,932,3237,1054,3018,932,3192,1054,1,827,18,19,799,241,846,274
+train/attack/digital_1/huawei/portugal-061_03.jpg,project_train,all_attacks,digital_1,portugal-061_03,huawei,14830,dob,text,altered,3192,1976,3018,932,3237,1054,3018,932,3192,1054,1,827,18,19,799,241,845,274
 train/attack/digital_1/huawei/portugal-061_03.jpg,project_train,all_attacks,digital_1,portugal-061_03,huawei,14831,doe,text,altered,3192,1976,2363,1201,2579,1323,2363,1201,2579,1323,0,827,18,19,630,311,687,343
 train/attack/digital_1/huawei/portugal-061_03.jpg,project_train,all_attacks,digital_1,portugal-061_03,huawei,14832,name,text,altered,3192,1976,1147,520,1821,642,1147,520,1821,642,0,827,18,19,315,134,490,167
 train/attack/digital_1/iphone15pro/portugal-061_03.jpg,project_train,all_attacks,digital_1,portugal-061_03,iphone15pro,17422,face,face,altered,2845,1803,97,674,834,1410,97,674,834,1410,0,808,28,28,55,191,265,401
-train/attack/digital_1/iphone15pro/portugal-061_03.jpg,project_train,all_attacks,digital_1,portugal-061_03,iphone15pro,17423,dob,text,altered,2845,1803,2667,815,2865,911,2667,815,2845,911,1,808,28,28,785,231,837,259
+train/attack/digital_1/iphone15pro/portugal-061_03.jpg,project_train,all_attacks,digital_1,portugal-061_03,iphone15pro,17423,dob,text,altered,2845,1803,2667,815,2865,911,2667,815,2845,911,1,808,28,28,785,231,836,259
 train/attack/digital_1/iphone15pro/portugal-061_03.jpg,project_train,all_attacks,digital_1,portugal-061_03,iphone15pro,17424,doe,text,altered,2845,1803,2098,1070,2296,1166,2098,1070,2296,1166,0,808,28,28,623,303,681,332
 train/attack/digital_1/iphone15pro/portugal-061_03.jpg,project_train,all_attacks,digital_1,portugal-061_03,iphone15pro,17425,name,text,altered,2845,1803,1007,484,1605,578,1007,484,1605,578,0,808,28,28,313,137,484,165
 train/attack/digital_1/scan/portugal-061_03.jpg,project_train,all_attacks,digital_1,portugal-061_03,scan,20022,face,face,altered,1998,1246,67,463,592,989,67,463,592,989,0,821,21,22,48,190,265,407
@@ -2877,7 +2877,7 @@ train/attack/digital_1/huawei/portugal-070_03.jpg,project_train,all_attacks,digi
 train/attack/digital_1/huawei/portugal-070_03.jpg,project_train,all_attacks,digital_1,portugal-070_03,huawei,14847,doe,text,altered,3027,1886,2233,1128,2443,1231,2233,1128,2443,1231,0,822,21,21,627,306,685,335
 train/attack/digital_1/huawei/portugal-070_03.jpg,project_train,all_attacks,digital_1,portugal-070_03,huawei,14848,name,text,altered,3027,1886,1060,507,1678,607,1060,507,1678,607,0,822,21,21,308,137,477,165
 train/attack/digital_1/iphone15pro/portugal-070_03.jpg,project_train,all_attacks,digital_1,portugal-070_03,iphone15pro,17438,face,face,altered,2638,1613,128,583,764,1219,128,583,764,1219,0,837,13,14,53,185,256,387
-train/attack/digital_1/iphone15pro/portugal-070_03.jpg,project_train,all_attacks,digital_1,portugal-070_03,iphone15pro,17439,dob,text,altered,2638,1613,2477,754,2656,850,2477,754,2638,850,1,837,13,14,798,239,851,270
+train/attack/digital_1/iphone15pro/portugal-070_03.jpg,project_train,all_attacks,digital_1,portugal-070_03,iphone15pro,17439,dob,text,altered,2638,1613,2477,754,2656,850,2477,754,2638,850,1,837,13,14,798,239,850,270
 train/attack/digital_1/iphone15pro/portugal-070_03.jpg,project_train,all_attacks,digital_1,portugal-070_03,iphone15pro,17440,doe,text,altered,2638,1613,1943,971,2122,1067,1943,971,2122,1067,0,837,13,14,629,308,687,339
 train/attack/digital_1/iphone15pro/portugal-070_03.jpg,project_train,all_attacks,digital_1,portugal-070_03,iphone15pro,17441,name,text,altered,2638,1613,949,420,1482,521,949,420,1482,521,0,837,13,14,314,133,484,166
 train/attack/digital_1/scan/portugal-070_03.jpg,project_train,all_attacks,digital_1,portugal-070_03,scan,20038,face,face,altered,1996,1250,93,457,579,943,93,457,579,943,0,818,23,23,61,187,261,387
@@ -2925,7 +2925,7 @@ train/attack/digital_1/huawei/portugal-172_03.jpg,project_train,all_attacks,digi
 train/attack/digital_1/huawei/portugal-172_03.jpg,project_train,all_attacks,digital_1,portugal-172_03,huawei,14887,doe,text,altered,3022,1882,2227,1140,2434,1256,2227,1140,2434,1256,0,822,21,21,626,310,684,342
 train/attack/digital_1/huawei/portugal-172_03.jpg,project_train,all_attacks,digital_1,portugal-172_03,huawei,14888,name,text,altered,3022,1882,1080,495,1751,614,1080,495,1751,614,0,822,21,21,314,134,498,168
 train/attack/digital_1/iphone15pro/portugal-172_03.jpg,project_train,all_attacks,digital_1,portugal-172_03,iphone15pro,17478,face,face,altered,2633,1604,123,584,746,1207,123,584,746,1207,0,840,12,12,51,186,250,386
-train/attack/digital_1/iphone15pro/portugal-172_03.jpg,project_train,all_attacks,digital_1,portugal-172_03,iphone15pro,17479,dob,text,altered,2633,1604,2468,752,2648,851,2468,752,2633,851,1,840,12,12,799,240,853,272
+train/attack/digital_1/iphone15pro/portugal-172_03.jpg,project_train,all_attacks,digital_1,portugal-172_03,iphone15pro,17479,dob,text,altered,2633,1604,2468,752,2648,851,2468,752,2633,851,1,840,12,12,799,240,852,272
 train/attack/digital_1/iphone15pro/portugal-172_03.jpg,project_train,all_attacks,digital_1,portugal-172_03,iphone15pro,17480,doe,text,altered,2633,1604,1930,967,2110,1066,1930,967,2110,1066,0,840,12,12,627,308,686,341
 train/attack/digital_1/iphone15pro/portugal-172_03.jpg,project_train,all_attacks,digital_1,portugal-172_03,iphone15pro,17481,name,text,altered,2633,1604,941,417,1523,518,941,417,1523,518,0,840,12,12,312,133,498,166
 train/attack/digital_1/scan/portugal-172_03.jpg,project_train,all_attacks,digital_1,portugal-172_03,scan,20078,face,face,altered,1995,1252,86,467,563,943,86,467,563,943,0,816,24,24,59,190,255,386
@@ -2933,7 +2933,7 @@ train/attack/digital_1/scan/portugal-172_03.jpg,project_train,all_attacks,digita
 train/attack/digital_1/scan/portugal-172_03.jpg,project_train,all_attacks,digital_1,portugal-172_03,scan,20080,doe,text,altered,1995,1252,1465,757,1601,833,1465,757,1601,833,0,816,24,24,623,309,679,341
 train/attack/digital_1/scan/portugal-172_03.jpg,project_train,all_attacks,digital_1,portugal-172_03,scan,20081,name,text,altered,1995,1252,712,328,1154,406,712,328,1154,406,0,816,24,24,315,134,497,167
 train/attack/digital_1/huawei/portugal-NF-1016.jpg,project_train,all_attacks,digital_1,portugal-NF-1016,huawei,14893,face,face,altered,3198,1967,97,647,993,1543,97,647,993,1543,0,832,16,16,41,168,275,402
-train/attack/digital_1/huawei/portugal-NF-1016.jpg,project_train,all_attacks,digital_1,portugal-NF-1016,huawei,14894,dob,text,altered,3198,1967,3017,925,3237,1048,3017,925,3198,1048,1,832,16,16,800,240,849,273
+train/attack/digital_1/huawei/portugal-NF-1016.jpg,project_train,all_attacks,digital_1,portugal-NF-1016,huawei,14894,dob,text,altered,3198,1967,3017,925,3237,1048,3017,925,3198,1048,1,832,16,16,800,240,848,273
 train/attack/digital_1/huawei/portugal-NF-1016.jpg,project_train,all_attacks,digital_1,portugal-NF-1016,huawei,14895,doe,text,altered,3198,1967,2358,1192,2575,1315,2358,1192,2575,1315,0,832,16,16,629,310,686,343
 train/attack/digital_1/huawei/portugal-NF-1016.jpg,project_train,all_attacks,digital_1,portugal-NF-1016,huawei,14896,name,text,altered,3198,1967,1149,510,1976,636,1149,510,1976,636,0,832,16,16,314,132,531,166
 train/attack/digital_1/iphone15pro/portugal-NF-1016.jpg,project_train,all_attacks,digital_1,portugal-NF-1016,iphone15pro,17486,face,face,altered,2852,1811,87,614,912,1438,87,614,912,1438,0,806,29,29,53,173,287,407
@@ -2969,7 +2969,7 @@ train/attack/digital_1/scan/portugal-NF-1024.jpg,project_train,all_attacks,digit
 train/attack/digital_1/scan/portugal-NF-1024.jpg,project_train,all_attacks,digital_1,portugal-NF-1024,scan,20104,doe,text,altered,1990,1253,1469,752,1607,819,1469,752,1607,819,0,813,25,26,625,307,682,335
 train/attack/digital_1/scan/portugal-NF-1024.jpg,project_train,all_attacks,digital_1,portugal-NF-1024,scan,20105,name,text,altered,1990,1253,701,340,1071,405,701,340,1071,405,0,813,25,26,311,138,463,166
 train/attack/digital_1/huawei/portugal-NF-1026.jpg,project_train,all_attacks,digital_1,portugal-NF-1026,huawei,14917,face,face,altered,3194,1979,51,619,1050,1617,51,619,1050,1617,0,826,19,19,32,160,291,419
-train/attack/digital_1/huawei/portugal-NF-1026.jpg,project_train,all_attacks,digital_1,portugal-NF-1026,huawei,14918,dob,text,altered,3194,1979,3017,933,3239,1056,3017,933,3194,1056,1,826,19,19,799,241,846,274
+train/attack/digital_1/huawei/portugal-NF-1026.jpg,project_train,all_attacks,digital_1,portugal-NF-1026,huawei,14918,dob,text,altered,3194,1979,3017,933,3239,1056,3017,933,3194,1056,1,826,19,19,799,241,845,274
 train/attack/digital_1/huawei/portugal-NF-1026.jpg,project_train,all_attacks,digital_1,portugal-NF-1026,huawei,14919,doe,text,altered,3194,1979,2359,1202,2578,1325,2359,1202,2578,1325,0,826,19,19,629,310,686,343
 train/attack/digital_1/huawei/portugal-NF-1026.jpg,project_train,all_attacks,digital_1,portugal-NF-1026,huawei,14920,name,text,altered,3194,1979,1138,520,1765,643,1138,520,1765,643,0,826,19,19,313,134,476,167
 train/attack/digital_1/iphone15pro/portugal-NF-1026.jpg,project_train,all_attacks,digital_1,portugal-NF-1026,iphone15pro,17510,face,face,altered,2852,1808,75,594,958,1477,75,594,958,1477,0,808,28,28,49,168,300,419
@@ -3009,7 +3009,7 @@ train/attack/digital_1/huawei/portugal-NF-1086.jpg,project_train,all_attacks,dig
 train/attack/digital_1/huawei/portugal-NF-1086.jpg,project_train,all_attacks,digital_1,portugal-NF-1086,huawei,14959,doe,text,altered,3202,1965,2370,1193,2587,1316,2370,1193,2587,1316,0,834,15,15,632,310,689,343
 train/attack/digital_1/huawei/portugal-NF-1086.jpg,project_train,all_attacks,digital_1,portugal-NF-1086,huawei,14960,name,text,altered,3202,1965,1152,513,1780,636,1152,513,1780,636,0,834,15,15,315,133,479,166
 train/attack/digital_1/iphone15pro/portugal-NF-1086.jpg,project_train,all_attacks,digital_1,portugal-NF-1086,iphone15pro,17550,face,face,altered,2855,1780,81,587,932,1438,81,587,932,1438,0,821,21,22,44,168,290,414
-train/attack/digital_1/iphone15pro/portugal-NF-1086.jpg,project_train,all_attacks,digital_1,portugal-NF-1086,iphone15pro,17551,dob,text,altered,2855,1780,2663,790,2861,884,2663,790,2855,884,1,821,21,22,786,227,843,255
+train/attack/digital_1/iphone15pro/portugal-NF-1086.jpg,project_train,all_attacks,digital_1,portugal-NF-1086,iphone15pro,17551,dob,text,altered,2855,1780,2663,790,2861,884,2663,790,2855,884,1,821,21,22,786,227,842,255
 train/attack/digital_1/iphone15pro/portugal-NF-1086.jpg,project_train,all_attacks,digital_1,portugal-NF-1086,iphone15pro,17552,doe,text,altered,2855,1780,2093,1048,2289,1142,2093,1048,2289,1142,0,821,21,22,622,301,680,329
 train/attack/digital_1/iphone15pro/portugal-NF-1086.jpg,project_train,all_attacks,digital_1,portugal-NF-1086,iphone15pro,17553,name,text,altered,2855,1780,988,470,1541,559,988,470,1541,559,0,821,21,22,305,135,465,161
 train/attack/digital_1/scan/portugal-NF-1086.jpg,project_train,all_attacks,digital_1,portugal-NF-1086,scan,20150,face,face,altered,1993,1249,53,406,669,1022,53,406,669,1022,0,817,23,24,44,166,298,419
@@ -3053,7 +3053,7 @@ train/attack/digital_1/scan/portugal-NM-1091.jpg,project_train,all_attacks,digit
 train/attack/digital_1/scan/portugal-NM-1091.jpg,project_train,all_attacks,digital_1,portugal-NM-1091,scan,20184,doe,text,altered,1993,1248,1471,748,1608,815,1471,748,1608,815,0,818,23,23,626,306,683,335
 train/attack/digital_1/scan/portugal-NM-1091.jpg,project_train,all_attacks,digital_1,portugal-NM-1091,scan,20185,name,text,altered,1993,1248,705,335,1153,401,705,335,1153,401,0,818,23,23,312,137,497,165
 train/attack/digital_1/huawei/portugal-NM-1102.jpg,project_train,all_attacks,digital_1,portugal-NM-1102,huawei,14997,face,face,altered,3221,2004,116,677,1004,1565,116,677,1004,1565,0,823,20,21,49,172,277,400
-train/attack/digital_1/huawei/portugal-NM-1102.jpg,project_train,all_attacks,digital_1,portugal-NM-1102,huawei,14998,dob,text,altered,3221,2004,3031,949,3252,1073,3031,949,3221,1073,1,823,20,21,794,242,844,275
+train/attack/digital_1/huawei/portugal-NM-1102.jpg,project_train,all_attacks,digital_1,portugal-NM-1102,huawei,14998,dob,text,altered,3221,2004,3031,949,3252,1073,3031,949,3221,1073,1,823,20,21,794,242,843,275
 train/attack/digital_1/huawei/portugal-NM-1102.jpg,project_train,all_attacks,digital_1,portugal-NM-1102,huawei,14999,doe,text,altered,3221,2004,2370,1217,2588,1341,2370,1217,2588,1341,0,823,20,21,625,310,682,343
 train/attack/digital_1/huawei/portugal-NM-1102.jpg,project_train,all_attacks,digital_1,portugal-NM-1102,huawei,15000,name,text,altered,3221,2004,1154,531,1982,660,1154,531,1982,660,0,823,20,21,314,135,527,169
 train/attack/digital_1/iphone15pro/portugal-NM-1102.jpg,project_train,all_attacks,digital_1,portugal-NM-1102,iphone15pro,17590,face,face,altered,2842,1801,117,629,909,1422,117,629,909,1422,0,808,28,28,61,178,287,405
