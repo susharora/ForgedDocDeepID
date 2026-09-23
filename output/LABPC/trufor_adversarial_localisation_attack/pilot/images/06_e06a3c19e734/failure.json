@@ -1,0 +1,8 @@
+{
+  "exception": "`Import openpyxl` failed.  Use pip or conda to install the openpyxl package.",
+  "exception_type": "ImportError",
+  "image_path": "train/attack/digital_2/huawei/turkiye-115_03.jpg",
+  "pilot_order": 6,
+  "protocol_sha256": "5840aa9bee076b493c6a645e140edaad892373433c7e919e95ed4e60e44158d5",
+  "status": "FAILED_INCOMPLETE"
+}

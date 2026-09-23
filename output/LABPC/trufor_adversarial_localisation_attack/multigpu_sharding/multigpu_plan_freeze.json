@@ -1,0 +1,49 @@
+{
+  "attack_common_sha256": "b941e248c365bb7de0de43a7fa75a6c4d2c3c01c11b7ad465e12485eeb008c76",
+  "cost_model": "median wall_seconds of up to 25 nearest completed images on same hardware by native pixel count; greedy LPT balancing",
+  "manifest_sha256": {
+    "completed_before_sharding.csv": "c761d8b8311e2c9e00cd95c3668edb00b8f7f9254750514b4dcddf5d138b6732",
+    "frozen_attack_protocol_config.json": "5840aa9bee076b493c6a645e140edaad892373433c7e919e95ed4e60e44158d5",
+    "full_selection.csv": "9d6ff19f240be92fdc46a3ee2c204678599f56dda68803fd6ae12e4d84335860",
+    "remaining_selection.csv": "54477ae4936967a53ded92bf0e3103113ba7bb0e4b703189dc7e6131f113d688",
+    "shard_assignment.csv": "e1394554fd2a68aa36a76fdeb100fa950ab80b28347693ef549ce6f8115c7bd6",
+    "shards/shard_00.csv": "f67b49541e4456e039cd87cee2efb17228bfe1a5de180e6d0858fb1ce1e821ea",
+    "shards/shard_01.csv": "0b52e76e6fb7083e0510c8954ed27b82dbb41f570332e3edcb0b1d1b08d33278",
+    "shards/shard_02.csv": "69eab432d1b3f4658f1d8f3e83a7a0243f6dba96c34c8a32178a20da9c6d52d5"
+  },
+  "n_completed_before_sharding": 281,
+  "n_remaining": 1049,
+  "n_shards": 3,
+  "n_total": 1330,
+  "protocol_sha256": "5840aa9bee076b493c6a645e140edaad892373433c7e919e95ed4e60e44158d5",
+  "run_tag": "LABPC",
+  "scientific_protocol_changed": false,
+  "shard_stats": [
+    {
+      "estimated_hours": 30.973561442481326,
+      "huawei": 117,
+      "iphone15pro": 89,
+      "n_images": 349,
+      "scan": 116,
+      "shard_id": 0
+    },
+    {
+      "estimated_hours": 30.982624752540218,
+      "huawei": 118,
+      "iphone15pro": 88,
+      "n_images": 350,
+      "scan": 117,
+      "shard_id": 1
+    },
+    {
+      "estimated_hours": 30.974801571471893,
+      "huawei": 118,
+      "iphone15pro": 87,
+      "n_images": 350,
+      "scan": 118,
+      "shard_id": 2
+    }
+  ],
+  "stage": "25_freeze_trufor_multigpu_sharding",
+  "status": "FROZEN"
+}

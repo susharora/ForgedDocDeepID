@@ -1,0 +1,96 @@
+{
+  "backend": {
+    "CUBLAS_WORKSPACE_CONFIG": "unset",
+    "PYTORCH_ALLOC_CONF": "unset",
+    "PYTORCH_CUDA_ALLOC_CONF": "unset",
+    "cuda_matmul_allow_tf32": false,
+    "cudnn_allow_tf32": true,
+    "cudnn_benchmark": false,
+    "cudnn_deterministic": false,
+    "cudnn_enabled": false,
+    "deterministic_algorithms": false,
+    "float32_matmul_precision": "highest"
+  },
+  "candidate_evaluation": {
+    "authoritative_model": "separate completely unmodified reference TruFor",
+    "gradient_model": "memory-efficient exact full-native TruFor attack instance",
+    "reported_scores_maps_metrics_from": "authoritative reference only"
+  },
+  "classification_constraint": {
+    "bisection_role": "feasibility pull-back only; E is not used to choose a point inside the bisection",
+    "bisection_steps": 8,
+    "decision_rule": "attack iff score >= threshold",
+    "threshold": 0.5329559743404388,
+    "type": "hard"
+  },
+  "final_adversarial_representation": {
+    "authoritative": "continuous float32 TruFor model input x",
+    "crop": false,
+    "pad": false,
+    "physical_recovery": "z = x * 256/255",
+    "re_jpeg": false,
+    "requantise_uint8": false,
+    "rerun_policy_c": false,
+    "resize": false
+  },
+  "frozen_upstream": {
+    "checkpoint_epoch": 81,
+    "checkpoint_sha256": "ac1d90e329a72e0d66e8665e123a19e94bfae3209c3ef8a4f9ca3b91578c7844",
+    "trufor_commit": "ae54475df6f41a491d7615100feb19263dec13f7"
+  },
+  "memory_route": {
+    "attention_chunk_activation_checkpointing": true,
+    "attention_chunk_checkpoint_use_reentrant": false,
+    "attention_chunk_semantics": "exact q/k/v + exact softmax; only large score/softmax activation lifetime changes and is recomputed during backward",
+    "attention_context_approximation": false,
+    "cpu_first_checkpoint_load": true,
+    "create_graph": false,
+    "dncnn_checkpoint_segments": 4,
+    "engineering_revision": "v2_attention_chunk_activation_checkpoint",
+    "full_native_image": true,
+    "image_tiling": false,
+    "input_gradients_only": true,
+    "max_score_elems": 300000000,
+    "query_chunk_rule": "max(1024, MAX_SCORE_ELEMS // (n_keys * n_heads))",
+    "retain_graph": false,
+    "segformer_attention_query_chunk_count": 32,
+    "segformer_mlp_checkpoint_count": 32,
+    "weights_frozen": true
+  },
+  "objective": {
+    "candidate_acceptance": "accept classification-feasible candidate only if E_candidate <= E_current + 1e-8",
+    "formula": "E = anomaly mass inside frozen altered union / total anomaly mass",
+    "gt_aware": true,
+    "objective_tolerance": 1e-08,
+    "primary": "minimise altered-union anomaly-map mass E"
+  },
+  "optimisation": {
+    "alpha_model_x": 0.0009765625,
+    "alpha_physical_rgb01": 0.000980392156862745,
+    "epsilon_model_x": 0.00390625,
+    "epsilon_physical_rgb01": 0.00392156862745098,
+    "method": "projected sign-gradient descent on E",
+    "model_coordinate_relation": "x = z * 255/256",
+    "model_valid_range": [
+      0.0,
+      0.99609375
+    ],
+    "random_start": false,
+    "restarts": 0,
+    "steps": 10,
+    "support": "native image pixels only; TruFor has no artificial padding, so all native pixels are document-content support"
+  },
+  "population": {
+    "pilot_images": 6,
+    "post_attack_reselection": false,
+    "selection": "TruFor own frozen clean-correct attack population",
+    "selection_time": "before attack"
+  },
+  "protocol_id": "trufor_adv_localisation_v1",
+  "resume": {
+    "atomic_unit": "one image",
+    "mid_image_checkpointing": false,
+    "restart_policy": "skip only hash-validated completed images; rerun incomplete image"
+  },
+  "scientific_role": "GT-aware white-box localisation robustness stress test conditional on clean-correct detection"
+}
