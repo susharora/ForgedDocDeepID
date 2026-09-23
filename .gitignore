@@ -69,4 +69,5 @@ output/**/*.png
 logs/LABPC/
 output/LABPC/trufor_adversarial_localisation_attack/full_population/
 output/LABPC/trufor_adversarial_localisation_attack/full_population_shards/
+\output/LABPC/trufor_adversarial_localisation_attack/phase2_multigpu_outputs/
 output/LABPC/trufor_adversarial_localisation_attack/gpu_capacity_probe/
