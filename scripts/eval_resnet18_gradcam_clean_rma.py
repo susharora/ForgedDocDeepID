@@ -1424,7 +1424,7 @@ def project_box(
             * scale_y
         )
     )
-
+    
     mx1 = (
         pad_left
         +
@@ -1435,6 +1435,14 @@ def project_box(
             )
         )
     )
+
+    #fix_m0
+    content_x0 = pad_left
+    content_x1 = pad_left + content_width
+
+    mx0 = max(content_x0, min(content_x1, mx0))
+    mx1 = max(content_x0, min(content_x1, mx1))
+
 
     my1 = int(
         np.ceil(
