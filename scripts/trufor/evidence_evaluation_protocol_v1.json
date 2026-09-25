@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "protocol_name": "TruFor DC-DCEC-DCEW evidence evaluation v1",
+  "scope": "Post-hoc evaluation of clean and adversarial TruFor manipulation maps",
+  "literature_metrics": {
+    "E": {
+      "name": "Relevance Mass Accuracy",
+      "definition": "sum(S[p] for p in GT) / sum(S[p] for p in valid_content)",
+      "range": [0.0, 1.0],
+      "reference": "Arras et al., CLEVR-XAI, Information Fusion 2022"
+    },
+    "RRA": {
+      "name": "Relevance Rank Accuracy",
+      "definition": "Let K=|GT|. Select the K highest-relevance valid-content pixels and divide their intersection with GT by K.",
+      "range": [0.0, 1.0],
+      "reference": "Arras et al., CLEVR-XAI, Information Fusion 2022"
+    }
+  },
+  "ground_truth": {
+    "primary_mask": "union manipulation mask",
+    "valid_content_for_trufor": "full native TruFor map; no artificial ResNet-style padding",
+    "K": "number of union-mask pixels"
+  },
+  "rra_tie_policy": {
+    "primary": "exact top-K with deterministic ascending flat-index selection within a cutoff tie",
+    "diagnostics": [
+      "cutoff tie present",
+      "minimum possible RRA under cutoff-tie selection",
+      "maximum possible RRA under cutoff-tie selection",
+      "expected RRA under uniform selection among cutoff ties"
+    ],
+    "reason": "The literature defines top-K ranking but does not prescribe cutoff-tie handling."
+  },
+  "classification": {
+    "threshold_source": "output/trufor_policy_c_frozen_protocol/stage03_dev_calibration_accuracy/frozen_threshold.json",
+    "expected_threshold": 0.532955974340439,
+    "attack_class_rule": "score >= threshold"
+  },
+  "primary_operational_evidence_thresholds": {
+    "tau_E": 0.5,
+    "tau_RRA": 0.5,
+    "status": "study-defined majority criterion; not a literature-mandated cutoff",
+    "selection_inputs": "metric semantics only; no adversarial outcome and no human-review annotation used"
+  },
+  "DCEC": "DC_clean AND E_clean >= tau_E AND RRA_clean >= tau_RRA",
+  "DCEW": "DCEC AND DC_adv AND (E_adv < tau_E OR RRA_adv < tau_RRA)",
+  "classification_flip": "reported separately and never counted as DCEW success",
+  "secondary_context": [
+    "A = |GT| / |valid_content|",
+    "mu_w = E / A",
+    "RRA_lift = RRA / A",
+    "Pointing Game",
+    "continuous clean/adversarial E and RRA"
+  ],
+  "threshold_sensitivity": {
+    "tau_E_values": [0.25, 0.5, 0.75],
+    "tau_RRA_values": [0.25, 0.5, 0.75],
+    "primary_pair": [0.5, 0.5]
+  },
+  "human_review": {
+    "role": "sidecar interpretive experiment only",
+    "used_for_threshold_selection": false,
+    "used_for_DCEC_definition": false
+  }
+}
