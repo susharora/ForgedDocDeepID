@@ -71,3 +71,12 @@ output/LABPC/trufor_adversarial_localisation_attack/full_population/
 output/LABPC/trufor_adversarial_localisation_attack/full_population_shards/
 \output/LABPC/trufor_adversarial_localisation_attack/phase2_multigpu_outputs/
 output/LABPC/trufor_adversarial_localisation_attack/gpu_capacity_probe/
+
+# ------------------------------------------------------------
+# TruFor distributed execution / central-analysis local artifacts
+# ------------------------------------------------------------
+analysis_transfer_bundles/
+execution_fingerprints/analysis_transfer/
+output/LABPC/trufor_adversarial_localisation_attack/phase2_multigpu_outputs_shard_*_archive/
+output/LABPC/trufor_adversarial_localisation_analysis/phaseA_966/
+*:Zone.Identifier
