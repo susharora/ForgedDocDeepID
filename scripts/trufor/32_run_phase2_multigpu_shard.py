@@ -236,8 +236,19 @@ def foreign_complete_image_paths(
     return result
 
 
+GPU_WORKER_SCRIPTS = (
+    "24_run_trufor_adversarial_full.py",
+    "26_run_trufor_multigpu_shard.py",
+    "32_run_phase2_multigpu_shard.py",
+)
+
+
 def active_phase2_workers_on_this_host() -> List[str]:
-    """Other Stage 32 processes on this host (one host runs one shard)."""
+    """Other TruFor attack workers on this host (one host runs one shard).
+
+    Matches retired Stage 24/26 workers as well as Stage 32: any of them
+    left running holds GPU memory that this shard needs.
+    """
     try:
         p = subprocess.run(
             ["ps", "-eo", "pid=,args="],
@@ -253,7 +264,7 @@ def active_phase2_workers_on_this_host() -> List[str]:
     out = []
     for line in lines:
         s = line.strip()
-        if "32_run_phase2_multigpu_shard.py" not in s:
+        if not any(name in s for name in GPU_WORKER_SCRIPTS):
             continue
         if s.split(None, 1)[0] == me:
             continue
@@ -627,7 +638,27 @@ def main() -> None:
 
         finally:
             gc.collect()
-            torch.cuda.empty_cache()
+            try:
+                torch.cuda.empty_cache()
+            except Exception as cache_exc:
+                # An async CUDA error (e.g. cudaErrorMemoryAllocation) can be
+                # re-reported here. Only swallow it when this image is already
+                # recorded as FAILED_INCOMPLETE: then the status write below
+                # still happens and the next image gets its chance. In any
+                # other state the device is unknown — fail loudly.
+                already_failed = bool(
+                    failures and failures[-1]["global_order"] == global_order
+                )
+                print(
+                    f"  empty_cache raised {type(cache_exc).__name__}: "
+                    f"{cache_exc}",
+                    flush=True,
+                )
+                if not already_failed:
+                    raise
+                failures[-1]["empty_cache_exception"] = (
+                    f"{type(cache_exc).__name__}: {cache_exc}"
+                )
 
         attack.atomic_write_json(
             status_path,
