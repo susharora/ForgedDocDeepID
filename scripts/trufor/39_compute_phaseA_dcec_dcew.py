@@ -105,7 +105,16 @@ def sha256_file(
 
 def find_threshold(
     obj,
+    expected: float,
 ) -> float:
+    """
+    Resolve the already-frozen image-level classification threshold.
+
+    The calibration JSON may legitimately contain other threshold-like
+    numeric values (for example 0.5).  Do not infer semantics from a
+    recursive uniqueness assumption.  Instead require the artifact to
+    contain the threshold fixed by the execution protocol.
+    """
 
     preferred = {
         "threshold",
@@ -116,10 +125,7 @@ def find_threshold(
     found = []
 
     def walk(x):
-        if isinstance(
-            x,
-            dict,
-        ):
+        if isinstance(x, dict):
             for k, v in x.items():
 
                 if (
@@ -136,10 +142,7 @@ def find_threshold(
 
                 walk(v)
 
-        elif isinstance(
-            x,
-            list,
-        ):
+        elif isinstance(x, list):
             for v in x:
                 walk(v)
 
@@ -157,18 +160,30 @@ def find_threshold(
             )
             for old in unique
         ):
-            unique.append(
-                value
-            )
+            unique.append(value)
 
-    if len(unique) != 1:
+    matches = [
+        value
+        for value in unique
+        if math.isclose(
+            value,
+            expected,
+            rel_tol=0.0,
+            abs_tol=1e-12,
+        )
+    ]
+
+    if len(matches) != 1:
         raise RuntimeError(
-            "Could not uniquely resolve "
-            "classification threshold. "
-            f"Candidates={unique}"
+            "Frozen classification threshold "
+            "could not be resolved against the "
+            "execution-protocol expectation. "
+            f"Expected={expected}, "
+            f"candidates={unique}, "
+            f"matches={matches}"
         )
 
-    return unique[0]
+    return matches[0]
 
 
 def safe_rate(
@@ -569,7 +584,8 @@ def main():
     )
 
     class_threshold = find_threshold(
-        threshold_json
+        threshold_json,
+        EXPECTED_CLASS_THRESHOLD,
     )
 
 
