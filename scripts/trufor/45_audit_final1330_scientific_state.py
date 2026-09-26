@@ -143,6 +143,11 @@ def pointing_any_max(S, M):
 
 def main():
 
+    ANALYSIS_ROOT.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
     if not MASTER.is_file():
         raise RuntimeError(
             f"Missing master manifest: {MASTER}"
