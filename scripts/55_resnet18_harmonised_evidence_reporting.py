@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Stage 53: post-hoc harmonised RRA / DC-DCEC-DCEW reporting for the completed
+Stage 55: post-hoc harmonised RRA / DC-DCEC-DCEW reporting for the completed
 450-image ResNet-18 classification-preserving localisation attack.
 
 NO attack is rerun. The script reads the retained exact NPZ bundles.
@@ -343,7 +343,7 @@ def main():
     TRANSFER.mkdir(parents=True, exist_ok=True)
 
     print("=" * 72)
-    print("RESNET-18 STAGE 53 — HARMONISED RRA / DCEC / DCEW")
+    print("RESNET-18 STAGE 55 — HARMONISED RRA / DCEC / DCEW")
     print("=" * 72)
     print("population       :", len(src))
     print("exact bundles    :", archive_count)
@@ -592,23 +592,23 @@ def main():
     }
 
     # Write outputs.
-    df.to_csv(OUT / "53_resnet18_harmonised_evidence_per_image.csv", index=False)
-    (OUT / "53_resnet18_primary_summary.json").write_text(json.dumps(p, indent=2, sort_keys=True) + "\n")
-    pd.DataFrame([p]).to_csv(OUT / "53_resnet18_primary_summary.csv", index=False)
-    sensitivity.to_csv(OUT / "53_resnet18_threshold_sensitivity.csv", index=False)
-    subgroups.to_csv(OUT / "53_resnet18_subgroup_summary.csv", index=False)
-    cont.to_csv(OUT / "53_resnet18_continuous_metrics.csv", index=False)
-    boot.to_csv(OUT / "53_resnet18_cluster_bootstrap_CI.csv", index=False)
+    df.to_csv(OUT / "55_resnet18_harmonised_evidence_per_image.csv", index=False)
+    (OUT / "55_resnet18_primary_summary.json").write_text(json.dumps(p, indent=2, sort_keys=True) + "\n")
+    pd.DataFrame([p]).to_csv(OUT / "55_resnet18_primary_summary.csv", index=False)
+    sensitivity.to_csv(OUT / "55_resnet18_threshold_sensitivity.csv", index=False)
+    subgroups.to_csv(OUT / "55_resnet18_subgroup_summary.csv", index=False)
+    cont.to_csv(OUT / "55_resnet18_continuous_metrics.csv", index=False)
+    boot.to_csv(OUT / "55_resnet18_cluster_bootstrap_CI.csv", index=False)
 
     df[[
         "image_path","file_stem","variant","hardware_source","eval_split",
         "A_union","RRA_K","RRA_N_valid",
         "RRA_clean","RRA_clean_cutoff_tie","RRA_clean_tie_expected","RRA_clean_tie_min","RRA_clean_tie_max","RRA_clean_tie_width",
         "RRA_adv","RRA_adv_cutoff_tie","RRA_adv_tie_expected","RRA_adv_tie_min","RRA_adv_tie_max","RRA_adv_tie_width",
-    ]].to_csv(OUT / "53_resnet18_RRA_tie_diagnostics.csv", index=False)
+    ]].to_csv(OUT / "55_resnet18_RRA_tie_diagnostics.csv", index=False)
 
-    (OUT / "53_resnet18_scientific_audit.json").write_text(json.dumps(audit, indent=2, sort_keys=True) + "\n")
-    (OUT / "53_resnet18_evidence_protocol_snapshot.json").write_text(json.dumps(protocol, indent=2, sort_keys=True) + "\n")
+    (OUT / "55_resnet18_scientific_audit.json").write_text(json.dumps(audit, indent=2, sort_keys=True) + "\n")
+    (OUT / "55_resnet18_evidence_protocol_snapshot.json").write_text(json.dumps(protocol, indent=2, sort_keys=True) + "\n")
 
     # Compact source-run metadata.
     source_dir = OUT / "source_run"
@@ -627,7 +627,7 @@ def main():
 This is a **post-hoc reporting analysis** over the completed 450-image
 classification-preserving ResNet-18 localisation attack. The attack was not rerun.
 
-Exact scientific archive: **450/450 bundles**. Stage-53 scientific audit: **PASS**.
+Exact scientific archive: **450/450 bundles**. Stage-55 scientific audit: **PASS**.
 
 ## Common reporting framework
 The same final evidence vocabulary used for TruFor is applied here:
@@ -670,7 +670,7 @@ Same 3x3 grid as TruFor:
 tau_E and tau_RRA in {{0.25, 0.50, 0.75}}.
 
 DCEC denominator range: **{int(sensitivity['n_DCEC'].min())} to {int(sensitivity['n_DCEC'].max())}**.
-Use `53_resnet18_threshold_sensitivity.csv` for exact DCEW rates/decomposition.
+Use `55_resnet18_threshold_sensitivity.csv` for exact DCEW rates/decomposition.
 
 ## Tie robustness
 - clean cutoff ties: **{int(p['clean_cutoff_ties'])}**
@@ -689,14 +689,14 @@ Retain the earlier continuous ResNet metrics and use RRA/DCEC/DCEW alongside
 them for cohesion with the TruFor chapter.
 
 ## Source hierarchy
-1. `53_resnet18_primary_summary.json`
-2. `53_resnet18_cluster_bootstrap_CI.csv`
-3. `53_resnet18_threshold_sensitivity.csv`
-4. `53_resnet18_subgroup_summary.csv`
-5. `53_resnet18_continuous_metrics.csv`
-6. `53_resnet18_harmonised_evidence_per_image.csv`
-7. `53_resnet18_scientific_audit.json`
-8. `53_resnet18_evidence_protocol_snapshot.json`
+1. `55_resnet18_primary_summary.json`
+2. `55_resnet18_cluster_bootstrap_CI.csv`
+3. `55_resnet18_threshold_sensitivity.csv`
+4. `55_resnet18_subgroup_summary.csv`
+5. `55_resnet18_continuous_metrics.csv`
+6. `55_resnet18_harmonised_evidence_per_image.csv`
+7. `55_resnet18_scientific_audit.json`
+8. `55_resnet18_evidence_protocol_snapshot.json`
 
 Checkpoint SHA256:
 `{EXPECTED_CKPT}`
@@ -728,7 +728,7 @@ Git commit:
 
     print()
     print("=" * 72)
-    print("RESNET-18 STAGE 53 — FINAL HARMONISED RESULT")
+    print("RESNET-18 STAGE 55 — FINAL HARMONISED RESULT")
     print("=" * 72)
     print("population                  :", len(df))
     print("classification preserved    :", f"{int(as_bool(df['DC_adv']).sum())}/{len(df)}")
@@ -751,7 +751,7 @@ Git commit:
     print("writer package              :", TAR)
     print("writer package SHA256       :", tar_sha)
     print()
-    print("STAGE 53 PASS")
+    print("STAGE 55 PASS")
 
 
 if __name__ == "__main__":
